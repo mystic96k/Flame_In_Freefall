@@ -11,7 +11,7 @@
   --r:20px;
 }
 *{box-sizing:border-box}
-html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+html,body{overflow-x:hidden;margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
 a{color:var(--blue)}
 button{font:inherit}
 .hidden{display:none!important}
@@ -101,7 +101,7 @@ button{font:inherit}
 .mascot{position:relative;height:min(420px,70vw);filter:drop-shadow(0 26px 30px rgba(0,0,0,.55))}
 .float{animation:float 6s ease-in-out infinite}
 @keyframes float{50%{transform:translateY(-12px) rotate(-1.5deg)}}
-.bubble{position:absolute;top:0;right:-8px;max-width:220px;padding:12px 14px;font-size:13.5px;line-height:1.45;border-radius:16px 16px 4px 16px;
+.bubble{position:absolute;top:-2%;right:0;max-width:220px;padding:12px 14px;font-size:13.5px;line-height:1.45;border-radius:16px 16px 4px 16px;
   background:rgba(255,255,255,.09);border:1px solid var(--edge-2);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 @media(max-width:560px){.bubble{position:static;margin-top:10px}}
 .tile{display:flex;flex-direction:column;gap:6px;text-align:left;padding:18px;color:var(--ink);cursor:pointer;transition:transform .2s,border-color .2s}
