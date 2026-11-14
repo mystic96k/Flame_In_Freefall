@@ -8,7 +8,7 @@ function initialLang() {
   const q = params.get("lang");
   if (q === "es" || q === "en") return q;
   try { const s = localStorage.getItem("firefall-lang"); if (s === "es" || s === "en") return s; } catch { /* sin storage */ }
-  return (navigator.language || "es").toLowerCase().startsWith("es") ? "es" : "en";
+  return "es"; // español por defecto; el botón EN cambia a inglés
 }
 
 export const LANG = initialLang();
