@@ -36,9 +36,13 @@ AUTO_RULES: list[tuple[str, str]] = [
 
 
 def auto_map(columns: list[str]) -> dict[str, str]:
-    mapping: dict[str, str] = {}
-    used: set[str] = set()
+    from pipeline.schema import COLUMNS
+    # 1) columnas que ya vienen con el nombre estándar
+    mapping: dict[str, str] = {c: c for c in columns if c in COLUMNS}
+    used: set[str] = set(mapping.values())
     for col in columns:
+        if col in mapping:
+            continue
         low = str(col).strip().lower()
         for pattern, target in AUTO_RULES:
             if target not in used and re.search(pattern, low):

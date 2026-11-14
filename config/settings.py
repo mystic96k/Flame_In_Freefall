@@ -27,11 +27,12 @@ MODELS_DIR = ROOT / "ml" / "artifacts"     # modelos entrenados y métricas
 RUNS_CSV = PROCESSED_DIR / "runs.csv"
 DEMO_CSV = SAMPLE_DIR / "demo_runs.csv"
 CATALOG_JSON = KNOWLEDGE_DIR / "experiments.json"
+FAQ_JSON = KNOWLEDGE_DIR / "faq.json"
 COLUMN_MAP_YAML = ROOT / "config" / "column_maps.yaml"
 
 LLM_PROVIDER = os.getenv("LLM_PROVIDER", "none").lower()
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
-ANTHROPIC_MODEL = os.getenv("ANTHROPIC_MODEL", "claude-haiku-5-5")
+ANTHROPIC_MODEL = os.getenv("ANTHROPIC_MODEL", "claude-sonnet-5-5")
 OPENAI_BASE_URL = os.getenv("OPENAI_BASE_URL", "https://api.openai.com/v1")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
 OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o-mini")

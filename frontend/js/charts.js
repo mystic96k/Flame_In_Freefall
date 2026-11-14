@@ -20,12 +20,14 @@ async function drawScatter(material) {
   const pt = (r) => ({ x: Math.max(r.flow_cm_s, 0.6), y: r.o2_pct, r });
   const ds = [
     { label: "Se quemó", data: runs.filter((r) => r.burned === 1).map(pt), backgroundColor: "#ff9a3c", pointRadius: 5 },
-    { label: "Se apagó", data: runs.filter((r) => r.burned !== 1).map(pt), backgroundColor: "rgba(77,163,255,.15)",
+    { label: "Se apagó", data: runs.filter((r) => r.outcome === "extinct").map(pt), backgroundColor: "rgba(77,163,255,.15)",
       borderColor: "#4da3ff", borderWidth: 1.5, pointRadius: 5 },
+    { label: "No encendió (no usada por el modelo)", data: runs.filter((r) => r.outcome === "no_ignition").map(pt),
+      pointStyle: "crossRot", borderColor: "#8b97b8", borderWidth: 2, pointRadius: 6 },
     { label: "Frontera del modelo (50%)", type: "line", borderColor: "#ffd27a", borderWidth: 2, borderDash: [6, 4],
       pointRadius: 0, data: (boundaries[material] || []).map((p) => ({ x: p.flow_cm_s, y: p.o2_pct })) },
     { label: "Aire de cabina (21%)", type: "line", borderColor: "rgba(231,236,247,.35)", borderWidth: 1, pointRadius: 0,
-      data: [{ x: 0.6, y: 21 }, { x: 42, y: 21 }] },
+      data: [{ x: 0.6, y: 21 }, { x: 60, y: 21 }] },
   ];
   if (scatter) { scatter.data.datasets = ds; scatter.update(); return; }
   scatter = new Chart($("scatter"), {
@@ -34,8 +36,8 @@ async function drawScatter(material) {
     options: {
       maintainAspectRatio: false, animation: { duration: 300 },
       scales: {
-        x: { type: "logarithmic", min: 0.6, max: 42, title: { display: true, text: "Flujo de aire (cm/s, escala log)" },
-             ticks: { callback: (v) => ([0.6, 1, 2, 5, 10, 20, 40].includes(+v) ? v : "") }, grid: { color: "#141c36" } },
+        x: { type: "logarithmic", min: 0.6, max: 60, title: { display: true, text: "Flujo de aire (cm/s, escala log)" },
+             ticks: { callback: (v) => ([0.6, 1, 2, 5, 10, 20, 50].includes(+v) ? v : "") }, grid: { color: "#141c36" } },
         y: { min: 12, max: 34, title: { display: true, text: "Oxígeno (%)" }, grid: { color: "#141c36" } },
       },
       plugins: {
@@ -71,7 +73,12 @@ export async function initCharts(summary) {
   $("k-model").textContent = `modelo: ${summary.model}`;
   $("data-note").innerHTML = summary.uses_demo_data
     ? `<span class="tag demo">DATOS DE DEMOSTRACIÓN</span> Sustitúyelos por Experiment Tables de NASA PSI (ver README).`
-    : `<span class="tag real">DATOS NASA</span> ${summary.investigations.join(", ")}`;
+    : `<span class="tag real">DATOS REALES NASA</span> ${summary.investigations.join(", ")} · ` +
+      (summary.sources || []).map((s) => {
+        const m = s.match(/NTRS (\d+)/);
+        return m ? `<a href="https://ntrs.nasa.gov/citations/${m[1]}" target="_blank" rel="noopener">${s}</a>` : s;
+      }).join(" · ") +
+      ". Cada prueba con flujo cambiado aporta dos observaciones (antes y después del cambio).";
 
   boundaries = await api.boundary(0);
   const filter = $("matfilter");

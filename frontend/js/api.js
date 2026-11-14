@@ -1,11 +1,11 @@
 // Cliente del backend con dos modos:
 //  - "server": habla con la API de FastAPI (Render, Docker, tu compu).
-//  - "static": si no hay backend (Hugging Face Static, GitHub Pages), usa data/static.json
-//              y calcula las predicciones en el navegador.
-// Si sirves el frontend aparte y SÍ tienes backend, define window.FIREFALL_API = "https://tu-backend".
+//  - "static": si no hay backend en el mismo sitio (GitHub Pages, Hugging Face Static), usa
+//              data/static.json y calcula las predicciones en el navegador. Si js/config.js define
+//              window.FIREFALL_API, el chat usa ese backend (Claude) y todo lo demás sigue local.
 import { staticApi } from "./static_api.js";
 
-export const API_BASE = window.FIREFALL_API || "";
+export const API_BASE = ""; // mismo sitio; el backend remoto para el chat se configura en js/config.js
 
 async function request(path, options = {}) {
   const res = await fetch(API_BASE + path, {

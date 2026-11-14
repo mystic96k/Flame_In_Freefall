@@ -8,11 +8,11 @@ from __future__ import annotations
 import json
 
 from ai import llm_client, prompts
-from ai.knowledge_base import get_kb
+from ai.knowledge_base import get_kb, load_faq
 
 
 def _format_sources(question: str) -> tuple[str, list[dict]]:
-    hits = get_kb().search(question, k=4)
+    hits = get_kb().search(question, k=5)
     refs = [{"id": c.id, "title": c.title, "url": c.source, "kind": c.kind, "score": round(s, 3)} for c, s in hits]
     text = "\n".join(f"[{c.id}] {c.text}\n(fuente: {c.source})" for c, _ in hits) or "(sin coincidencias)"
     return text, refs
@@ -20,7 +20,7 @@ def _format_sources(question: str) -> tuple[str, list[dict]]:
 
 def answer(question: str, scenario: dict, prediction: dict, summary: dict, insights: list[dict],
            history: list[dict] | None = None) -> dict:
-    sources_text, refs = _format_sources(question + " " + scenario.get("material", ""))
+    sources_text, refs = _format_sources(question)
     context = prompts.CONTEXT.format(
         sources=sources_text,
         model=json.dumps({"resumen": summary, "prediccion_escenario": prediction}, ensure_ascii=False),
@@ -52,6 +52,11 @@ def answer(question: str, scenario: dict, prediction: dict, summary: dict, insig
 
 def _offline(question, scenario, prediction, insights, refs) -> str:
     loc = prediction.get("limiting_o2_pct")
+    faq = {f["id"]: f for f in load_faq()}
+    best = next((r for r in refs if r["kind"] == "faq" and r["score"] >= 0.12), None)
+    if best:
+        f = faq[best["id"]]
+        return f"**{f['question']}**\n\n{f['answer']}\n\n_Respuesta de la base de conocimiento de FIREFALL (sin modelo de lenguaje)._"
     lines = [
         "**Respuesta automática (sin modelo de lenguaje)**",
         f"- Escenario: {scenario.get('gravity_g', 0)} g, {scenario.get('o2_pct')}% O₂, "

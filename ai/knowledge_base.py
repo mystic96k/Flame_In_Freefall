@@ -1,6 +1,7 @@
 """Base de conocimiento para la IA (RAG ligero con TF-IDF, sin base de datos vectorial).
 
 Fuentes:
+  - data/knowledge/faq.json           preguntas frecuentes curadas, con fuentes
   - data/knowledge/experiments.json   catálogo curado de experimentos reales
   - data/raw/ntrs/publications.json   resúmenes descargados con pipeline.fetch_ntrs (opcional)
 
@@ -16,7 +17,7 @@ from functools import lru_cache
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-from config.settings import CATALOG_JSON, RAW_NTRS_DIR
+from config.settings import CATALOG_JSON, FAQ_JSON, RAW_NTRS_DIR
 
 
 @dataclass
@@ -25,15 +26,22 @@ class Chunk:
     title: str
     text: str
     source: str
-    kind: str  # "catalog" | "publication"
+    kind: str  # "faq" | "catalog" | "publication"
 
 
 def load_catalog() -> list[dict]:
     return json.loads(CATALOG_JSON.read_text(encoding="utf-8")) if CATALOG_JSON.exists() else []
 
 
+def load_faq() -> list[dict]:
+    return json.loads(FAQ_JSON.read_text(encoding="utf-8")) if FAQ_JSON.exists() else []
+
+
 def _chunks() -> list[Chunk]:
     chunks: list[Chunk] = []
+    for f in load_faq():
+        text = f"{f['question']} {' '.join(f.get('keywords', []))}. {f['answer']}"
+        chunks.append(Chunk(f["id"], f["question"], text, (f.get("sources") or [""])[0], "faq"))
     for e in load_catalog():
         text = (f"{e['name']} ({e['id']}), {e['platform']}. {e['summary']} "
                 f"Hallazgo: {e['finding']} Lección de seguridad: {e['safety']}")

@@ -39,10 +39,42 @@ function predict(m, s) {
     limiting_o2_pct: loc,
     margin_pct: loc == null ? null : Math.round((s.o2_pct - loc) * 100) / 100,
     predicted_spread_mm_s: null,
-    extrapolating: s.gravity_g < r.gravity_g[0] || s.gravity_g > r.gravity_g[1] ||
-                   s.flow_cm_s < r.flow_cm_s[0] || s.flow_cm_s > r.flow_cm_s[1],
+    extrapolating: [["gravity_g", 0.01], ["flow_cm_s", 0.5], ["pressure_kpa", 2], ["o2_pct", 1]]
+      .some(([k, tol]) => r[k] && (s[k] < r[k][0] - tol || s[k] > r[k][1] + tol)),
     state: p >= 0.5 ? "burning" : "extinguished",
   };
+}
+
+const norm = (t) => String(t).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+// Pregunta frecuente más parecida (palabras clave + palabras de la pregunta).
+function matchFaq(faq, question) {
+  const q = norm(question);
+  const qWords = new Set(q.match(/[a-z0-9]{4,}/g) || []);
+  let best = null, bestScore = 0;
+  for (const f of faq || []) {
+    let score = 0;
+    for (const k of f.keywords || []) if (q.includes(norm(k))) score += norm(k).includes(" ") ? 3 : 2;
+    for (const w of norm(f.question).match(/[a-z0-9]{4,}/g) || []) if (qWords.has(w)) score += 1;
+    if (score > bestScore) { best = f; bestScore = score; }
+  }
+  return bestScore >= 3 ? best : null;
+}
+
+// IA real opcional: si js/config.js define window.FIREFALL_API (backend en Render con Claude),
+// las preguntas se mandan ahí; si no responde, se usa la base de conocimiento local.
+const REMOTE = (window.FIREFALL_API || "").replace(/\/$/, "");
+if (REMOTE) fetch(REMOTE + "/api/health").catch(() => {}); // despierta el servidor gratis
+
+async function remote(path, body, ms = 45000) {
+  const ctrl = new AbortController();
+  const t = setTimeout(() => ctrl.abort(), ms);
+  try {
+    const r = await fetch(REMOTE + path, { method: "POST", headers: { "Content-Type": "application/json" },
+                                           body: JSON.stringify(body), signal: ctrl.signal });
+    if (!r.ok) throw new Error(r.status);
+    return await r.json();
+  } finally { clearTimeout(t); }
 }
 
 // Búsqueda simple por palabras para elegir fuentes del catálogo.
@@ -62,6 +94,14 @@ function search(catalog, text, k = 3) {
 
 function answer(b, question, s, report = false) {
   const p = predict(b.model, s);
+  const faq = report ? null : matchFaq(b.faq, question);
+  if (faq) {
+    return {
+      answer: `**${faq.question}**\n\n${faq.answer}`,
+      sources: (faq.sources || []).map((u, i) => ({ id: `${faq.id}${faq.sources.length > 1 ? "-" + (i + 1) : ""}`, title: faq.question, url: u, kind: "faq" })),
+      mode: "offline",
+    };
+  }
   const hits = search(b.catalog, question + " " + s.material);
   const lines = [];
   if (report) lines.push("## Resumen");
@@ -89,13 +129,22 @@ function answer(b, question, s, report = false) {
 }
 
 export const staticApi = {
-  health: async () => ({ status: "ok", llm: false, data: true, mode: "static" }),
+  health: async () => ({ status: "ok", llm: Boolean(REMOTE), data: true, mode: "static" }),
   summary: async () => (await load()).summary,
   runs: async (material) => (await load()).runs.filter((r) => !material || r.material === material),
   boundary: async () => (await load()).boundary,
   insights: async () => (await load()).insights,
   catalog: async () => (await load()).catalog,
   predict: async (s) => predict((await load()).model, s),
-  ask: async (q, s) => answer(await load(), q, s),
-  report: async (s) => answer(await load(), "reporte riesgo ventilación", s, true),
+  ask: async (q, s, history) => {
+    if (REMOTE) {
+      try { return await remote("/api/ask", { question: q, scenario: s, history: history || [] }); }
+      catch { const a = answer(await load(), q, s); a.answer += "\n\n_La IA está despertando o no respondió; intenta de nuevo en un minuto._"; return a; }
+    }
+    return answer(await load(), q, s);
+  },
+  report: async (s) => {
+    if (REMOTE) { try { return await remote("/api/report", s, 60000); } catch { /* usa respaldo local */ } }
+    return answer(await load(), "reporte riesgo ventilación", s, true);
+  },
 };

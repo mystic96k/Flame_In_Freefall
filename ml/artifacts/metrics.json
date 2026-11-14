@@ -1,74 +1,75 @@
 {
-  "trained_at": "2026-11-14T18:45:36+00:00",
-  "n_runs": 240,
-  "n_burned": 145,
-  "uses_demo_data": true,
+  "trained_at": "2026-11-14T19:05:56+00:00",
+  "n_runs": 42,
+  "n_burned": 35,
+  "uses_demo_data": false,
   "investigations": [
-    "DEMO"
+    "BASS",
+    "BASS-II"
   ],
   "materials": [
-    "Nomex",
-    "PMMA",
-    "SIBAL (algodón/fibra de vidrio)",
-    "Silicón"
+    "SIBAL (algodón/fibra de vidrio)"
+  ],
+  "sources": [
+    "NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)"
   ],
   "cv_folds": 5,
   "comparison": {
     "logistic": {
-      "accuracy": 0.9792,
-      "roc_auc": 0.9978,
-      "f1": 0.9827
+      "accuracy": 0.8583,
+      "roc_auc": 0.8,
+      "f1": 0.9217
     },
     "random_forest": {
-      "accuracy": 0.9375,
-      "roc_auc": 0.9891,
-      "f1": 0.9498
+      "accuracy": 0.8833,
+      "roc_auc": 0.7571,
+      "f1": 0.9329
     },
     "gradient_boosting": {
-      "accuracy": 0.95,
-      "roc_auc": 0.9869,
-      "f1": 0.9582
+      "accuracy": 0.8361,
+      "roc_auc": 0.5,
+      "f1": 0.91
     }
   },
   "chosen_model": "logistic",
   "chosen_scores": {
-    "accuracy": 0.9792,
-    "roc_auc": 0.9978,
-    "f1": 0.9827
+    "accuracy": 0.8583,
+    "roc_auc": 0.8,
+    "f1": 0.9217
   },
   "feature_importance": [
     {
       "feature": "o2_pct",
-      "importance": 0.383
-    },
-    {
-      "feature": "material",
-      "importance": 0.064
+      "importance": 0.2706
     },
     {
       "feature": "log_ueff",
-      "importance": 0.015
-    },
-    {
-      "feature": "pressure_kpa",
-      "importance": 0.0138
+      "importance": 0.2571
     },
     {
       "feature": "log_ueff_sq",
-      "importance": 0.0096
+      "importance": 0.1171
+    },
+    {
+      "feature": "pressure_kpa",
+      "importance": 0.0
+    },
+    {
+      "feature": "material",
+      "importance": 0.0
     }
   ],
   "feature_ranges": {
     "o2_pct": [
-      13.08,
-      31.98
+      16.9,
+      21.0
     ],
     "flow_cm_s": [
-      0.62,
-      41.9
+      2.0,
+      53.0
     ],
     "pressure_kpa": [
-      56.5,
+      101.3,
       101.3
     ],
     "gravity_g": [

@@ -83,6 +83,7 @@ def train(df: pd.DataFrame | None = None) -> dict:
         "uses_demo_data": bool(df["is_demo"].astype(str).str.lower().eq("true").any()),
         "investigations": sorted(df["investigation"].astype(str).unique().tolist()),
         "materials": sorted(df["material"].astype(str).unique().tolist()),
+        "sources": sorted(df["source"].dropna().astype(str).unique().tolist()),
         "cv_folds": n_splits,
         "comparison": scores,
         "chosen_model": chosen,

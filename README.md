@@ -107,7 +107,18 @@ uvicorn api.main:app --reload       # abre http://localhost:8000  y  /docs
 pytest -q                           # 9 pruebas
 ```
 
-## 3. Cómo conseguir datos REALES de la NASA
+## 3. Datos REALES que ya usa el proyecto
+
+El modelo está entrenado con la **tabla de pruebas real de BASS / BASS-II** (tela algodón/fibra de vidrio SIBAL, ISS, 1 atm):
+apéndice de Zhao, T'ien, Ferkul y Olson (2015), [NTRS 20150008962](https://ntrs.nasa.gov/citations/20150008962).
+- Transcripción original: `data/raw/ntrs/bass2_appendix_raw.csv` (31 pruebas)
+- Conversión a observaciones: `python -m pipeline.bass2_appendix` → `data/raw/psi/bass2_observations.csv` (48 observaciones;
+  una prueba con flujo cambiado "10→2.2 cm/s" aporta dos: antes y después del cambio)
+- Las pruebas "sin ignición" se muestran pero el modelo no las usa (no encender ≠ apagarse); las de muestras reutilizadas que no encendieron se excluyen.
+
+La IA usa además `data/knowledge/faq.json` (16 preguntas frecuentes curadas con fuentes) y `experiments.json` (catálogo).
+
+## 3b. Cómo conseguir MÁS datos reales de la NASA
 
 ### A. NASA PSI — la fuente principal (datos de pruebas)
 Physical Sciences Informatics es el repositorio abierto de experimentos de ciencias físicas en microgravedad.

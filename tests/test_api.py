@@ -14,7 +14,12 @@ def client():
     train_regressor.train()
     reload_models()
     from api.main import app
-    return TestClient(app)
+    yield TestClient(app)
+    # Restaurar los datos reales para no dejar el proyecto con datos de demostración
+    run_pipeline.build()
+    train_classifier.train()
+    train_regressor.train()
+    reload_models()
 
 
 def test_health(client):
@@ -42,4 +47,9 @@ def test_catalog_and_insights(client):
 def test_ask_offline(client):
     r = client.post("/api/ask", json={"question": "¿Qué aprendimos de Saffire?"}).json()
     assert r["mode"] in {"offline", "llm"}
-    assert any(s["id"] == "SAFFIRE" for s in r["sources"])
+    assert any(s["id"] in {"SAFFIRE", "FAQ-SAFFIRE"} for s in r["sources"])
+
+
+def test_faq_answers_spherical_flame(client):
+    r = client.post("/api/ask", json={"question": "¿Por qué la llama es esférica en el espacio?"}).json()
+    assert r["sources"][0]["id"] == "FAQ-ESFERA"

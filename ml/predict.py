@@ -72,8 +72,9 @@ def predict_scenario(material: str, o2_pct: float, flow_cm_s: float,
         X = _frame(material, o2_pct, flow_cm_s, gravity_g, pressure_kpa)[reg["features"]]
         spread = round(float(reg["model"].predict(X)[0]), 3)
     ranges = load_classifier()["metrics"]["feature_ranges"]
-    extrapolating = (not ranges["gravity_g"][0] <= gravity_g <= ranges["gravity_g"][1]
-                     or not ranges["flow_cm_s"][0] <= flow_cm_s <= ranges["flow_cm_s"][1])
+    inside = lambda k, v, tol: ranges[k][0] - tol <= v <= ranges[k][1] + tol
+    extrapolating = not (inside("gravity_g", gravity_g, 0.01) and inside("flow_cm_s", flow_cm_s, 0.5)
+                         and inside("pressure_kpa", pressure_kpa, 2.0) and inside("o2_pct", o2_pct, 1.0))
     return {
         "burn_probability": round(prob, 4),
         "risk_score": int(round(prob * 100)),
@@ -88,7 +89,7 @@ def predict_scenario(material: str, o2_pct: float, flow_cm_s: float,
 def boundary_curves(materials: list[str], gravity_g: float = 0.0, pressure_kpa: float = 101.3,
                     n: int = 40) -> dict[str, list[dict]]:
     """Bisección vectorizada: todos los flujos a la vez (rápido para la API)."""
-    flows = np.exp(np.linspace(np.log(0.6), np.log(42), n))
+    flows = np.exp(np.linspace(np.log(0.6), np.log(60), n))
     curves = {}
     for m in materials:
         lo, hi = np.full(n, 8.0), np.full(n, 60.0)

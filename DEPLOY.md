@@ -1,8 +1,8 @@
 # 🚀 Publicar FIREFALL en internet (gratis)
 
-Necesitas: cuenta de GitHub y Hugging Face (versión estática) y/o Render + llave gratis de Groq (versión completa).
+Necesitas: GitHub (la página ya está publicada en GitHub Pages) y, para IA real, Render + una llave de Anthropic.
 
-**Recomendación:** usa las dos. Hugging Face Static como link principal (no se duerme) y Render para mostrar el chat con IA.
+**Recomendación:** GitHub Pages como link principal (siempre encendido) + Render con Claude para el chat.
 Tiempo: ~20 minutos la primera vez.
 
 ## Paso 0 — Probar en tu compu
@@ -44,8 +44,8 @@ Desde julio de 2026 las cuentas gratis de Hugging Face sólo pueden crear Spaces
 del dashboard que no necesita servidor. Python ya hizo todo el cálculo y el navegador evalúa el modelo.
 
 Qué funciona: simulador, gráfica con frontera del modelo, hallazgos, catálogo y reporte de seguridad.
-Qué no: el chat con modelo de lenguaje (Groq). Una llave en una página pública quedaría expuesta,
-así que el analista responde con el modelo de ML + las fuentes NASA.
+El chat responde con la base de conocimiento curada (16 preguntas frecuentes con fuentes) y el modelo de ML;
+para IA real ve la opción B.
 
 1. https://huggingface.co/new-space → nombre `firefall`, **SDK: Static**, *Blank*, **Public** → *Create Space*.
 2. Pestaña **Files → + Add file → Upload files**.
@@ -60,12 +60,25 @@ python -m pipeline.run_pipeline && python -m ml.train_classifier && python -m ml
 ```
 La misma carpeta `docs/` sirve para **GitHub Pages** (Settings → Pages).
 
-## Opción B — Render (versión completa con IA de Groq)
-1. https://dashboard.render.com → *New → Blueprint* → conecta tu repo. Render lee `render.yaml`.
-2. Cuando lo pida, pega tu llave de Groq en `OPENAI_API_KEY`.
-3. Link: `https://firefall.onrender.com` (o el nombre que te asigne).
-4. ⚠️ El plan gratis se duerme tras 15 minutos sin visitas y tarda en despertar.
-   **Abre el link 2 minutos antes de presentar**, o programa un "ping" a `/api/health` cada 10 minutos (p. ej. cron-job.org).
+## Opción B — IA real con Claude (backend en Render)
+La página de GitHub Pages ya trae el chat con base de conocimiento. Para que responda **cualquier pregunta con IA**
+se agrega un backend en Render que guarda la llave de Anthropic (la llave nunca va en la página pública).
+
+1. **Llave de Anthropic:** entra a https://console.anthropic.com → crea cuenta → *Billing* (la API se paga por uso;
+   pon un límite de gasto mensual bajo) → *API Keys* → *Create Key*. Empieza con `sk-ant-`. No la compartas ni la subas a GitHub.
+2. **Render:** https://dashboard.render.com → crea cuenta con GitHub → *New → Blueprint* → elige el repo
+   `Flame_In_Freefall` (si no aparece, la dueña del repo debe dar acceso a Render en GitHub).
+   Render lee `render.yaml` y te pide `ANTHROPIC_API_KEY`: pégala ahí. *Apply*.
+3. Espera a que termine el build (5–10 min) y copia la URL, p. ej. `https://firefall.onrender.com`.
+   Prueba `https://firefall.onrender.com/api/health` → debe decir `"llm": true`.
+4. Pon esa URL en **`docs/js/config.js`**:
+   ```js
+   window.FIREFALL_API = "https://firefall.onrender.com";
+   ```
+   Haz commit; en ~1 minuto la página de GitHub Pages usa Claude para el chat y el reporte.
+5. ⚠️ El plan gratis de Render se duerme tras 15 minutos sin visitas. La página lo despierta sola al abrirse,
+   pero tarda ~1 minuto: **abre la página un par de minutos antes de presentar**. Mientras despierta,
+   el chat responde con la base de conocimiento local, así que nunca se queda en blanco.
 
 ## Paso 3 — Revisión antes de entregar
 - [ ] (Render) `https://TU-LINK/api/health` responde `"llm": true`

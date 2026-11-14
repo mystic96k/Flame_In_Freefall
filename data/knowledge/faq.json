@@ -1,0 +1,277 @@
+[
+  {
+    "id": "FAQ-ESFERA",
+    "question": "¿Por qué la llama es esférica en el espacio?",
+    "keywords": [
+      "esferica",
+      "esfera",
+      "forma",
+      "redonda",
+      "bola",
+      "vela",
+      "gota",
+      "lagrima"
+    ],
+    "answer": "En la Tierra, el aire caliente de la llama es menos denso y sube, y aire frío entra por abajo: esa convección estira la llama en forma de lágrima. En microgravedad no hay flotación, así que el oxígeno sólo llega por difusión, igual desde todas direcciones, y la llama queda como una esfera alrededor del combustible. Por eso en el simulador la forma cambia de esfera (ISS) a vela (Tierra).",
+    "sources": [
+      "https://svs.gsfc.nasa.gov/31394",
+      "https://science.nasa.gov/?p=426601"
+    ]
+  },
+  {
+    "id": "FAQ-AZUL",
+    "question": "¿Por qué las llamas en microgravedad se ven azules?",
+    "keywords": [
+      "azul",
+      "color",
+      "amarillo",
+      "naranja",
+      "brillo",
+      "hollin"
+    ],
+    "answer": "El color amarillo de una vela en la Tierra viene del hollín incandescente. En microgravedad las llamas de sólidos suelen verse azules y tenues; un investigador de UC Berkeley que trabaja con la NASA lo resume diciendo que una llama en microgravedad se va a ver azul. En el simulador, el hollín naranja sólo aparece cuando sube la gravedad.",
+    "sources": [
+      "https://engineering.berkeley.edu/news/2024/12/nasa-funded-project-offers-new-insights-into-fire-behavior-in-space/"
+    ]
+  },
+  {
+    "id": "FAQ-FRIA",
+    "question": "¿Qué es una llama fría?",
+    "keywords": [
+      "fria",
+      "frias",
+      "cool",
+      "invisible",
+      "flex",
+      "gota",
+      "baja temperatura"
+    ],
+    "answer": "Durante el experimento FLEX en la ISS, después de que la llama caliente de una gota de combustible se apagaba, la gota seguía reaccionando con una llama casi invisible y mucho más fría. Fue un hallazgo importante: para la seguridad significa que 'no ver fuego' no garantiza que no haya combustión, por lo que los detectores deben medir gases y temperatura, no sólo luz.",
+    "sources": [
+      "https://science.nasa.gov/?p=426601",
+      "https://ntrs.nasa.gov/citations/20150023456"
+    ]
+  },
+  {
+    "id": "FAQ-VENTILACION",
+    "question": "¿Por qué la ventilación es tan importante en el espacio?",
+    "keywords": [
+      "ventilacion",
+      "flujo",
+      "aire",
+      "corriente",
+      "velocidad",
+      "peligroso",
+      "riesgo",
+      "cm/s"
+    ],
+    "answer": "Sin gravedad no hay convección natural, así que el único aire fresco que llega a la llama es el que mueve la ventilación. En las pruebas reales de BASS-II con tela de algodón/fibra de vidrio, la llama se apagó por falta de flujo ('quenching') con flujos de 2.2 a 5 cm/s y por exceso de flujo ('blow-off') a 47 cm/s en una muestra angosta. Entre esos extremos la tela ardió incluso con 16.9–17.6% de oxígeno, menos que el 21% del aire normal.",
+    "sources": [
+      "https://ntrs.nasa.gov/citations/20150008962"
+    ]
+  },
+  {
+    "id": "FAQ-APAGAR-VENT",
+    "question": "¿Apagar la ventilación apaga el incendio?",
+    "keywords": [
+      "apagar",
+      "cortar",
+      "ventilacion",
+      "extinguir",
+      "extincion",
+      "detener",
+      "sofocar"
+    ],
+    "answer": "Ayuda, pero no es garantía. Con muy poco flujo la llama pierde oxígeno y puede apagarse (en BASS-II ocurrió entre 2.2 y 5 cm/s). Pero en los experimentos Saffire, a gran escala dentro de naves Cygnus, algunas llamas se encogieron al reducir o quitar el flujo y sobrevivieron, o incluso se reencendieron. La NASA concluyó que no se puede asumir que la extinción sea rápida en condiciones quietas.",
+    "sources": [
+      "https://ntrs.nasa.gov/api/citations/20210017780/downloads/Saffire%20ICES%202021%20Saffire%20Final%20presentation%20compressed.pdf",
+      "https://ntrs.nasa.gov/citations/20150008962"
+    ]
+  },
+  {
+    "id": "FAQ-SAFFIRE",
+    "question": "¿Qué fue Saffire y qué aprendimos?",
+    "keywords": [
+      "saffire",
+      "cygnus",
+      "gran escala",
+      "nave",
+      "grande"
+    ],
+    "answer": "Saffire fue una serie de incendios intencionales dentro de naves de carga Cygnus vacías, después de dejar la ISS. La primera muestra midió 94 × 40.6 cm, un orden de magnitud más grande que pruebas previas, con flujo de unos 20 cm/s. Aprendimos que una llama que avanza con el flujo se mantiene de tamaño limitado (en la Tierra crecería y aceleraría), que el tamaño del ducto cambia la velocidad de propagación, y que fuegos de hasta 10 kW no llevaron las condiciones promedio de la nave a niveles inaceptables.",
+    "sources": [
+      "https://ntrs.nasa.gov/citations/20170008805",
+      "https://ntrs.nasa.gov/citations/20210011521"
+    ]
+  },
+  {
+    "id": "FAQ-MENOS-O2",
+    "question": "¿Los materiales arden con menos oxígeno en el espacio?",
+    "keywords": [
+      "menos oxigeno",
+      "oxigeno",
+      "limite",
+      "inflamable",
+      "inflamabilidad",
+      "o2",
+      "loc",
+      "loi"
+    ],
+    "answer": "Puede pasar. Investigadores de UC Berkeley con apoyo de la NASA reportan que en microgravedad algunos materiales arden con menos oxígeno del esperado. En los datos reales de BASS-II que usa FIREFALL, la tela algodón/fibra de vidrio sostuvo llama con 16.9% de O₂ y flujo forzado, mientras que en 3 pruebas con 16.4–16.8% ni siquiera encendió. Por eso las pruebas de inflamabilidad hechas en la Tierra no bastan para certificar materiales de naves.",
+    "sources": [
+      "https://engineering.berkeley.edu/news/2024/12/nasa-funded-project-offers-new-insights-into-fire-behavior-in-space/",
+      "https://ntrs.nasa.gov/citations/20150008962"
+    ]
+  },
+  {
+    "id": "FAQ-LOC",
+    "question": "¿Qué es el oxígeno límite (O₂ límite)?",
+    "keywords": [
+      "limite",
+      "o2 limite",
+      "indice limite",
+      "loc",
+      "loi",
+      "minimo"
+    ],
+    "answer": "Es el porcentaje mínimo de oxígeno con el que un material sostiene una llama en ciertas condiciones. FIREFALL lo estima con su modelo de machine learning: busca el nivel de O₂ donde la probabilidad de combustión cruza 50% para el flujo, la presión y la gravedad que elijas. Si el 21% del aire está por encima de ese límite, el material puede arder.",
+    "sources": [
+      "https://ntrs.nasa.gov/citations/20150008962"
+    ]
+  },
+  {
+    "id": "FAQ-DATOS",
+    "question": "¿De dónde salen los datos de FIREFALL?",
+    "keywords": [
+      "datos",
+      "reales",
+      "fuente",
+      "nasa",
+      "psi",
+      "ntrs",
+      "de donde",
+      "dataset"
+    ],
+    "answer": "Las pruebas del explorador y del modelo vienen de la tabla de pruebas publicada en el apéndice del artículo de BASS / BASS-II (Zhao, T'ien, Ferkul y Olson, 2015; NTRS 20150008962): 31 pruebas reales en la ISS con tela algodón/fibra de vidrio, a 1 atm, con flujos de 2 a 53 cm/s y 16.4–21% de O₂. El catálogo resume publicaciones de la NASA (FLEX, ACME, Saffire, SoFIE…). El proyecto está listo para sumar más tablas del repositorio NASA Physical Sciences Informatics (PSI).",
+    "sources": [
+      "https://ntrs.nasa.gov/citations/20150008962",
+      "https://www.nasa.gov/physical-sciences-informatics-psi/psi-investigations-by-research-area/"
+    ]
+  },
+  {
+    "id": "FAQ-MODELO",
+    "question": "¿Cómo funciona el modelo de machine learning?",
+    "keywords": [
+      "modelo",
+      "machine learning",
+      "ml",
+      "ia",
+      "precision",
+      "regresion",
+      "clasificador",
+      "como funciona"
+    ],
+    "answer": "Es un clasificador que predice si la llama se sostiene o se apaga. Usa el oxígeno, la presión y un 'flujo efectivo' que combina la ventilación con la flotación por gravedad; incluye el cuadrado del logaritmo del flujo para aprender que con muy poco flujo la llama se ahoga y con mucho se sopla. Se compararon regresión logística, random forest y gradient boosting con validación cruzada, y se eligió la logística por ser interpretable y más confiable con pocos datos. Con las pruebas reales de BASS-II su precisión en validación cruzada ronda 86%.",
+    "sources": []
+  },
+  {
+    "id": "FAQ-GRAVEDAD",
+    "question": "¿Qué pasa en la Luna o en Marte?",
+    "keywords": [
+      "luna",
+      "lunar",
+      "marte",
+      "gravedad parcial",
+      "habitat",
+      "base"
+    ],
+    "answer": "La gravedad parcial agrega algo de flotación, que actúa como un flujo extra de aire hacia la llama. FIREFALL lo representa con el 'flujo efectivo'. Pero ojo: todas las pruebas reales del modelo son en microgravedad, así que las predicciones para la Luna o Marte son extrapolaciones y la página las marca como tales. Para validarlo harían falta experimentos en gravedad parcial.",
+    "sources": []
+  },
+  {
+    "id": "FAQ-PRESION",
+    "question": "¿Cómo afecta la presión o las atmósferas de exploración?",
+    "keywords": [
+      "presion",
+      "atmosfera",
+      "exploracion",
+      "kpa",
+      "psi",
+      "baja presion",
+      "enriquecida"
+    ],
+    "answer": "Las naves y hábitats de exploración podrían usar menor presión con más oxígeno, lo que cambia la inflamabilidad. Investigadores de UC Berkeley, con apoyo de la NASA, reportan llamas propagándose en microgravedad con 17.8% de O₂ a 100 kPa y con 19.8% a 60 kPa. Las pruebas de BASS-II que usa el modelo son todas a 1 atm (101.3 kPa), por eso mover la presión en el simulador se marca como extrapolación.",
+    "sources": [
+      "https://engineering.berkeley.edu/news/2024/12/nasa-funded-project-offers-new-insights-into-fire-behavior-in-space/"
+    ]
+  },
+  {
+    "id": "FAQ-ACME",
+    "question": "¿Qué es ACME y el Burning Rate Emulator?",
+    "keywords": [
+      "acme",
+      "bre",
+      "burning rate",
+      "emulador",
+      "gas",
+      "gaseosas"
+    ],
+    "answer": "ACME (Advanced Combustion via Microgravity Experiments) fue un conjunto de cinco experimentos con llamas gaseosas en el Combustion Integrated Rack de la ISS. Uno de ellos, el Burning Rate Emulator (BRE), está enfocado en prevenir incendios en naves: imita con gas cómo arden los materiales sólidos. Los otros cuatro buscan mejorar la eficiencia y reducir contaminantes en la combustión en la Tierra.",
+    "sources": [
+      "https://science.nasa.gov/mission/acme"
+    ]
+  },
+  {
+    "id": "FAQ-CIR",
+    "question": "¿Dónde se hacen los experimentos de fuego en la ISS?",
+    "keywords": [
+      "cir",
+      "combustion integrated rack",
+      "msg",
+      "glovebox",
+      "donde",
+      "estacion",
+      "iss"
+    ],
+    "answer": "La instalación principal es el Combustion Integrated Rack (CIR), que contiene de forma segura flamas pequeñas y requiere poca intervención de la tripulación. Otros experimentos, como BASS, se hicieron en la Microgravity Science Glovebox (MSG). Los incendios grandes de Saffire se hicieron fuera de la estación, en naves de carga vacías.",
+    "sources": [
+      "https://svs.gsfc.nasa.gov/31394",
+      "https://ntrs.nasa.gov/citations/20170008805"
+    ]
+  },
+  {
+    "id": "FAQ-DETECCION",
+    "question": "¿Cómo se detecta un incendio en el espacio?",
+    "keywords": [
+      "detectar",
+      "deteccion",
+      "detector",
+      "humo",
+      "sensor",
+      "alarma"
+    ],
+    "answer": "Los experimentos sugieren no depender sólo de ver la llama: FLEX mostró llamas frías casi invisibles, y en microgravedad las llamas suelen ser azules y tenues. En Saffire IV y V la NASA midió CO₂, CO, O₂, HF, HCl, temperatura, presión y aerosoles dentro de la nave. Los experimentos SPICE (punto de humo) ayudan a entender cuándo una llama empieza a soltar hollín, que es lo que muchos detectores perciben.",
+    "sources": [
+      "https://ntrs.nasa.gov/citations/20210011521",
+      "https://science.nasa.gov/?p=426601"
+    ]
+  },
+  {
+    "id": "FAQ-ESCALA",
+    "question": "¿Por qué importa el tamaño del experimento?",
+    "keywords": [
+      "escala",
+      "tamano",
+      "pequeno",
+      "grande",
+      "muestra",
+      "ancho",
+      "ducto"
+    ],
+    "answer": "Porque el comportamiento del fuego no escala de forma lineal. En Saffire, con un túnel más grande la llama se propagó más lento que en túneles pequeños previos, porque en ductos pequeños el gas caliente acelera el flujo. En BASS-II también se usaron dos anchos de muestra (1.2 y 2.2 cm), y la única extinción por exceso de flujo ocurrió en la muestra angosta.",
+    "sources": [
+      "https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/20170008805.pdf",
+      "https://ntrs.nasa.gov/citations/20150008962"
+    ]
+  }
+]

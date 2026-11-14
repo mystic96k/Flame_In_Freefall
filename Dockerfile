@@ -13,6 +13,9 @@ USER app
 # Prepara datos y entrena al construir la imagen (tarda segundos).
 # Si agregas tablas reales en data/raw/psi/, se usan automáticamente.
 RUN python -m pipeline.run_pipeline && python -m ml.train_classifier && python -m ml.train_regressor
+# Descarga resúmenes de publicaciones NASA (NTRS) para que la IA tenga más fuentes que citar.
+# Si no hay internet durante el build, sigue sin ellos.
+RUN python -m pipeline.fetch_ntrs || echo "NTRS no disponible durante el build; se usa la base curada"
 
 ENV PORT=7860
 EXPOSE 7860

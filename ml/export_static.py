@@ -4,8 +4,9 @@ Python sigue haciendo todo el trabajo pesado AQUÍ (limpieza, entrenamiento, fro
 hallazgos); el navegador sólo evalúa una regresión logística con los coeficientes exportados.
 
 Limitaciones del modo estático:
-  - Sin modelo de lenguaje (una llave de API en una página pública quedaría expuesta).
-    El analista responde con el modelo de ML + el catálogo de fuentes.
+  - El chat responde con la base de conocimiento (FAQ + catálogo) y el modelo de ML.
+    Para IA real, despliega el backend en Render y pon su URL en docs/js/config.js
+    (la llave de Anthropic vive en Render, nunca en la página pública).
   - Sin regresor de velocidad de propagación.
 
 Uso:
@@ -24,7 +25,7 @@ import pandas as pd
 from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
 
-from ai.knowledge_base import load_catalog
+from ai.knowledge_base import load_catalog, load_faq
 from config.settings import BUOYANT_FLOW_1G, ROOT, RUNS_CSV
 from ml import insights as ml_insights
 from ml.predict import boundary_curves
@@ -69,7 +70,8 @@ def logistic_for_browser(df: pd.DataFrame) -> dict:
         "coef": clf.coef_[0].round(8).tolist(),
         "intercept": float(np.round(clf.intercept_[0], 8)),
         "buoyant_flow_1g": BUOYANT_FLOW_1G,
-        "feature_ranges": {c: [float(df[c].min()), float(df[c].max())] for c in ["flow_cm_s", "gravity_g"]},
+        "feature_ranges": {c: [float(df[c].min()), float(df[c].max())]
+                           for c in ["flow_cm_s", "gravity_g", "pressure_kpa", "o2_pct"]},
     }
 
 
@@ -85,12 +87,17 @@ def main() -> None:
         "boundary": boundary_curves(materials),
         "insights": ml_insights.generate(df),
         "catalog": load_catalog(),
+        "faq": load_faq(),
         "model": logistic_for_browser(df),
     }
 
+    cfg = DIST / "js" / "config.js"
+    saved_cfg = cfg.read_text(encoding="utf-8") if cfg.exists() else None  # conserva la URL del backend
     if DIST.exists():
         shutil.rmtree(DIST)
     shutil.copytree(ROOT / "frontend", DIST)
+    if saved_cfg is not None:
+        cfg.write_text(saved_cfg, encoding="utf-8")
     (DIST / "data").mkdir(exist_ok=True)
     (DIST / "data" / "static.json").write_text(json.dumps(bundle, ensure_ascii=False), encoding="utf-8")
     (DIST / "README.md").write_text(SPACE_README, encoding="utf-8")

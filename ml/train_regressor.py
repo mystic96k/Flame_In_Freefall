@@ -28,6 +28,8 @@ def train(df: pd.DataFrame | None = None) -> dict | None:
     df = df[(df["burned"] == 1) & df["spread_rate_mm_s"].notna()]
     if len(df) < MIN_ROWS:
         print(f"Sólo {len(df)} pruebas con velocidad de propagación; se omite el regresor (mínimo {MIN_ROWS}).")
+        for stale in ("spread_regressor.joblib", "spread_metrics.json"):  # no dejar un modelo viejo
+            (MODELS_DIR / stale).unlink(missing_ok=True)
         return None
     model = Pipeline([("prep", preprocessor()),
                       ("reg", RandomForestRegressor(n_estimators=300, min_samples_leaf=2, random_state=0))])

@@ -49,7 +49,7 @@ async function run(label, call) {
     const res = await call();
     box.innerHTML = md(res.answer) + refs(res.sources);
     history.push({ role: "user", content: label }, { role: "assistant", content: res.answer });
-    $("aistatus").textContent = res.mode === "llm" ? "IA conectada (LLM + RAG + ML)" : "Modo sin LLM: respuestas del modelo de ML + fuentes";
+    $("aistatus").textContent = res.mode === "llm" ? "IA conectada (Claude + fuentes NASA + modelo de ML)" : "Respuesta de la base de conocimiento (sin modelo de lenguaje)";
   } catch (e) {
     box.textContent = `Error: ${e.message}`;
   } finally {
@@ -66,9 +66,11 @@ export function ask(question) {
 
 export function initChat(llmAvailable, mode = "server") {
   add("a", "Hola 👋 Soy el analista de <b>FIREFALL</b>. Uso fuentes de la NASA, el modelo de ML y tu escenario del simulador. Pregúntame lo que quieras.");
-  $("aistatus").textContent = mode === "static"
-    ? "Versión estática: respondo con el modelo de ML y las fuentes NASA (sin modelo de lenguaje)"
-    : llmAvailable ? "IA conectada" : "Sin LLM configurado: respondo con el modelo de ML y las fuentes (configura .env)";
+  $("aistatus").textContent = llmAvailable
+    ? "IA conectada (Claude + fuentes NASA + modelo de ML)"
+    : mode === "static"
+      ? "Respondo con la base de conocimiento de FIREFALL y el modelo de ML (sin modelo de lenguaje)"
+      : "Sin LLM configurado: respondo con el modelo de ML y las fuentes (configura .env)";
   QUICK.forEach((t) => {
     const b = document.createElement("button");
     b.textContent = t;

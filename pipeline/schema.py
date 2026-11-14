@@ -104,7 +104,7 @@ def conform(df: pd.DataFrame, *, investigation: str, source: str,
     out["burned"] = (out["outcome"] == "burn").astype(int)
     out["pressure_kpa"] = out["pressure_kpa"].fillna(101.3)
     out["gravity_g"] = out["gravity_g"].fillna(0.0)
-    out["source"] = source
+    out["source"] = out["source"].where(out["source"].notna() & (out["source"].astype(str) != ""), source)
     out["is_demo"] = bool(is_demo)
     if out["run_id"].isna().all():
         out["run_id"] = [f"{investigation}-{i + 1:03d}" for i in range(len(out))]
