@@ -10,6 +10,8 @@ const QUICK = [
   "¿Por qué la llama es esférica en el espacio?",
   "¿Qué nivel de ventilación es más peligroso y por qué?",
   "Compara FLEX y Saffire: ¿qué aprendimos de cada uno?",
+  "¿Qué gases tóxicos deja un incendio en una nave?",
+  "¿Qué gas apaga mejor el fuego en el espacio: CO₂, helio o nitrógeno?",
   "¿Cómo debería responder la tripulación a un incendio en la ISS?",
   "¿Mi escenario actual es seguro? Explícame el riesgo.",
 ];

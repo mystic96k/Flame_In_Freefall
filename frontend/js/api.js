@@ -26,6 +26,7 @@ const serverApi = {
   boundary: (g = 0) => request(`/api/boundary?gravity_g=${g}`),
   insights: () => request("/api/insights"),
   catalog: () => request("/api/catalog"),
+  extra: () => request("/api/extra"),
   predict: (scenario) => request("/api/predict", { method: "POST", body: JSON.stringify(scenario) }),
   ask: (question, scenario, history) =>
     request("/api/ask", { method: "POST", body: JSON.stringify({ question, scenario, history }) }),

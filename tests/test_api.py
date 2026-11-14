@@ -53,3 +53,9 @@ def test_ask_offline(client):
 def test_faq_answers_spherical_flame(client):
     r = client.post("/api/ask", json={"question": "¿Por qué la llama es esférica en el espacio?"}).json()
     assert r["sources"][0]["id"] == "FAQ-ESFERA"
+
+
+def test_extra(client):
+    r = client.get("/api/extra")
+    assert r.status_code == 200
+    assert r.json()["flex"]["n_tests"] == 274

@@ -1,0 +1,49 @@
+run_id,investigation,material,geometry,flow_cm_s,o2_pct,pressure_kpa,gravity_g,outcome,burned,spread_rate_mm_s,source,is_demo,notes
+GMT45-T1,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 2.2 cm",10.0,18.5,101.3,0.0,burn,1,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,O2 reading may be inaccurate
+GMT45-T2-a,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 2.2 cm",10.0,18.5,101.3,0.0,burn,1,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,O2 reading may be inaccurate
+GMT45-T2-b,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 2.2 cm",5.0,18.5,101.3,0.0,burn,1,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,Flujo cambiado 10.0→5.0 cm/s. O2 reading may be inaccurate
+GMT45-T4-a,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 2.2 cm",10.0,18.7,101.3,0.0,burn,1,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,Quenched
+GMT45-T4-b,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 2.2 cm",2.2,18.7,101.3,0.0,extinct,0,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,Flujo cambiado 10.0→2.2 cm/s. Quenched
+GMT45-T15-a,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 2.2 cm",10.0,18.7,101.3,0.0,burn,1,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,No Blow-off
+GMT45-T15-b,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 2.2 cm",29.0,18.7,101.3,0.0,burn,1,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,Flujo cambiado 10.0→29.0 cm/s. No Blow-off
+GMT100-T5-a,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 2.2 cm",10.0,18.8,101.3,0.0,burn,1,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,
+GMT100-T5-b,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 2.2 cm",2.4,18.8,101.3,0.0,burn,1,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,Flujo cambiado 10.0→2.4 cm/s.
+GMT100-T6-a,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 2.2 cm",4.5,18.8,101.3,0.0,burn,1,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,
+GMT100-T6-b,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 2.2 cm",2.6,18.8,101.3,0.0,burn,1,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,Flujo cambiado 4.5→2.6 cm/s.
+GMT100-T13-a,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 2.2 cm",4.0,17.5,101.3,0.0,burn,1,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,Quenched
+GMT100-T13-b,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 2.2 cm",2.2,17.5,101.3,0.0,extinct,0,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,Flujo cambiado 4.0→2.2 cm/s. Quenched
+GMT100-T16-a,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 2.2 cm",4.0,17.6,101.3,0.0,burn,1,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,
+GMT100-T16-b,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 2.2 cm",3.0,17.6,101.3,0.0,burn,1,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,Flujo cambiado 4.0→3.0 cm/s.
+GMT175-T9,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 2.2 cm",10.0,16.4,101.3,0.0,no_ignition,0,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,No ignition
+GMT175-T10,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 2.2 cm",5.0,16.4,101.3,0.0,no_ignition,0,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,No ignition
+GMT175-T18-a,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 2.2 cm",5.0,17.4,101.3,0.0,burn,1,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,Quenched
+GMT175-T18-b,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 2.2 cm",2.6,17.4,101.3,0.0,extinct,0,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,Flujo cambiado 5.0→2.6 cm/s. Quenched
+GMT178-T11,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 2.2 cm",4.0,17.1,101.3,0.0,burn,1,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,
+GMT178-T12,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 2.2 cm",5.0,16.8,101.3,0.0,no_ignition,0,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,No ignition
+GMT178-T14-a,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 2.2 cm",4.0,16.9,101.3,0.0,burn,1,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,Quenched
+GMT178-T14-b,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 2.2 cm",2.8,16.9,101.3,0.0,extinct,0,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,Flujo cambiado 4.0→2.8 cm/s. Quenched
+GMT178-T17-a,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 2.2 cm",6.0,16.9,101.3,0.0,burn,1,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,No Blow-off
+GMT178-T17-b,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 2.2 cm",53.0,16.9,101.3,0.0,burn,1,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,Flujo cambiado 6.0→53.0 cm/s. No Blow-off
+GMT190-T19,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 1.2 cm",11.0,17.2,101.3,0.0,burn,1,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,
+GMT190-T20-a,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 1.2 cm",11.0,17.2,101.3,0.0,burn,1,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,Quenched
+GMT190-T20-b,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 1.2 cm",3.0,17.2,101.3,0.0,extinct,0,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,Flujo cambiado 11.0→3.0 cm/s. Quenched
+GMT190-T21-a,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 1.2 cm",11.0,17.2,101.3,0.0,burn,1,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,Blow-off
+GMT190-T21-b,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 1.2 cm",47.0,17.2,101.3,0.0,extinct,0,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,Flujo cambiado 11.0→47.0 cm/s. Blow-off
+GMT190-T22-a,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 1.2 cm",10.5,17.1,101.3,0.0,burn,1,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,Quenched
+GMT190-T22-b,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 1.2 cm",5.0,17.1,101.3,0.0,extinct,0,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,Flujo cambiado 10.5→5.0 cm/s. Quenched
+GMT190-T23,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 2.2 cm",10.0,17.2,101.3,0.0,unknown,0,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,"Excluida: Reused, did not ignite"
+GMT190-T24,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 2.2 cm",10.0,18.2,101.3,0.0,burn,1,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,"Reused, one sided flame"
+GMT216-T25-a,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 2.2 cm",5.0,20.8,101.3,0.0,burn,1,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,"Reused, ignited"
+GMT216-T25-b,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 2.2 cm",2.5,20.8,101.3,0.0,burn,1,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,"Flujo cambiado 5.0→2.5 cm/s. Reused, ignited"
+GMT216-T26-a,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 2.2 cm",5.0,20.8,101.3,0.0,burn,1,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,"Reused, ignited"
+GMT216-T26-b,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 2.2 cm",2.5,20.8,101.3,0.0,burn,1,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,"Flujo cambiado 5.0→2.5 cm/s. Reused, ignited"
+GMT216-T27-a,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 1.2 cm",5.0,20.7,101.3,0.0,burn,1,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,"Reused, ignited"
+GMT216-T27-b,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 1.2 cm",2.0,20.7,101.3,0.0,burn,1,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,"Flujo cambiado 5.0→2.0 cm/s. Reused, ignited"
+GMT216-T28a,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 1.2 cm",5.0,20.7,101.3,0.0,unknown,0,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,"Excluida: Reused, did not ignite"
+GMT216-T28b,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 1.2 cm",5.0,20.7,101.3,0.0,unknown,0,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,"Excluida: Reused, did not ignite"
+GMT216-T29-a,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 1.2 cm",5.0,20.7,101.3,0.0,burn,1,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,"Reused, ignited"
+GMT216-T29-b,BASS-II,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 1.2 cm",2.0,20.7,101.3,0.0,burn,1,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,"Flujo cambiado 5.0→2.0 cm/s. Reused, ignited"
+GMT96-T8,BASS,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 2.2 cm",5.0,21.0,101.3,0.0,burn,1,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,
+GMT96-T7,BASS,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 2.2 cm",10.0,21.0,101.3,0.0,burn,1,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,
+GMT131-T10,BASS,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 1.2 cm",11.0,21.0,101.3,0.0,burn,1,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,
+GMT222-T11,BASS,SIBAL (algodón/fibra de vidrio),"tela delgada, ancho 1.2 cm",19.0,21.0,101.3,0.0,burn,1,,"NTRS 20150008962, Apéndice (Zhao, T'ien, Ferkul, Olson 2015)",False,

@@ -21,7 +21,8 @@
       <button data-go="s-sim" class="on">01 Simulador</button>
       <button data-go="s-data">02 Datos + ML</button>
       <button data-go="s-cat">03 Experimentos</button>
-      <button data-go="s-ai">04 Analista IA</button>
+      <button data-go="s-more">04 Más datos NASA</button>
+      <button data-go="s-ai">05 Analista IA</button>
     </nav>
   </header>
   <div id="demo-banner" class="banner hidden">⚠️ El modelo está entrenado con <b>datos de demostración</b>. Carga las Experiment Tables reales de NASA PSI para el pitch final.</div>
@@ -87,9 +88,64 @@
     <div class="grid cat" id="catalog"></div>
   </section>
 
+  <!-- 04 MÁS DATOS NASA -->
+  <section id="s-more">
+    <div class="h2"><span class="n">04</span><h2>Más datos reales de la NASA</h2><p>Gases tóxicos, gotas de combustible, supresores e incendios grandes.</p></div>
+    <div class="kpis">
+      <div class="card kpi"><div class="k">Gases medidos · BASS-II</div><div class="v" id="x-gas">—</div><div class="s">pruebas con O₂, CO₂ y CO</div></div>
+      <div class="card kpi"><div class="k">Gotas · FLEX</div><div class="v" id="x-flex">—</div><div class="s">metanol y heptano en la ISS</div></div>
+      <div class="card kpi"><div class="k">Sólidos · BASS-I</div><div class="v" id="x-bass1">—</div><div class="s">pruebas en la guantera de la ISS</div></div>
+      <div class="card kpi"><div class="k">Modelo FLEX (AUC)</div><div class="v" id="x-auc">—</div><div class="s">¿se apaga antes de terminar la gota?</div></div>
+    </div>
+    <div class="grid two">
+      <div class="card">
+        <div class="kicker" style="margin-bottom:8px">Gases de combustión por material · PSI-25</div>
+        <div class="chartbox sm"><canvas id="gas-chart"></canvas></div>
+        <div id="gas-find" class="findings"></div>
+        <div class="note" id="gas-note"></div>
+      </div>
+      <div class="card">
+        <div class="kicker" style="margin-bottom:8px">¿Se apaga la gota? · modelo entrenado con FLEX</div>
+        <div class="ctrl"><label>Oxígeno <b id="fx-v-o2"></b></label><input id="fx-o2" type="range" min="12" max="34" step="1" value="18"></div>
+        <div class="ctrl"><label>Supresor</label>
+          <div class="filters" id="fx-dil"><button class="chip on" data-d="n2">N₂ (aire)</button><button class="chip" data-d="co2">CO₂</button><button class="chip" data-d="he">Helio</button></div></div>
+        <div class="ctrl" id="fx-frac-box"><label>Fracción del supresor <b id="fx-v-frac"></b></label><input id="fx-frac" type="range" min="0" max="45" step="5" value="20"></div>
+        <div class="ctrl"><label>Presión <b id="fx-v-p"></b></label><input id="fx-p" type="range" min="0.7" max="3" step="0.05" value="1"></div>
+        <div class="ctrl"><label>Diámetro de la gota <b id="fx-v-d"></b></label><input id="fx-d" type="range" min="1.1" max="4.7" step="0.1" value="3"></div>
+        <div class="ctrl"><label>Combustible</label><select id="fx-fuel"><option value="0">Metanol</option><option value="1">Heptano</option></select></div>
+        <div class="ro"><div class="k">Probabilidad de que la llama se apague antes de consumir la gota</div><div class="v" id="fx-p-out">—</div><div class="meter"><i id="fx-meter"></i></div><div class="s" id="fx-warn"></div></div>
+      </div>
+    </div>
+    <div class="grid two" style="margin-top:16px">
+      <div class="card">
+        <div class="kicker" style="margin-bottom:8px">FLEX · ¿qué tan cerca del límite? (D_ext / D₀) · PSI-69</div>
+        <div class="filters" id="flex-filter"></div>
+        <div class="chartbox"><canvas id="flex-chart"></canvas></div>
+        <div id="flex-find" class="findings"></div>
+        <div class="note" id="flex-note"></div>
+      </div>
+      <div class="grid" style="align-content:start">
+        <div class="card">
+          <div class="kicker" style="margin-bottom:8px">SAFFIRE-I · misma tela, distinta dirección del aire · PSI-98</div>
+          <div class="chartbox sm" style="height:150px"><canvas id="saffire-chart"></canvas></div>
+          <p class="note" id="saffire-find" style="color:var(--text);font-size:13px"></p>
+        </div>
+        <div class="card">
+          <div class="kicker" style="margin-bottom:8px">BASS-I · qué se quemó en la ISS · PSI-26</div>
+          <div class="chartbox sm"><canvas id="bass1-chart"></canvas></div>
+          <div class="note" id="bass1-note"></div>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="margin-top:16px">
+      <div class="kicker" style="margin-bottom:8px">Fuentes de datos (NASA PSI, licencia CC0, con DOI)</div>
+      <div id="x-sources" class="sources"></div>
+    </div>
+  </section>
+
   <!-- 04 IA -->
   <section id="s-ai">
-    <div class="h2"><span class="n">04</span><h2>Analista IA</h2><p>Responde con fuentes NASA (RAG), el modelo de ML y tu escenario.</p></div>
+    <div class="h2"><span class="n">05</span><h2>Analista IA</h2><p>Responde con fuentes NASA (RAG), el modelo de ML y tu escenario.</p></div>
     <div class="grid wide">
       <div class="card chat">
         <div class="msgs" id="msgs"></div>
@@ -108,7 +164,7 @@
   </section>
 
   <footer>
-    Fuentes: NASA Physical Sciences Informatics (PSI), NASA Technical Reports Server (NTRS), NASA Image and Video Library.
+    Fuentes: NASA Physical Sciences Informatics (PSI-25 BASS-II, PSI-26 BASS-I, PSI-69 FLEX, PSI-98 SAFFIRE-I, PSI-10 ACME), NASA Technical Reports Server (NTRS), NASA Science, NASA Glenn (GRC) y NASA Image and Video Library.
     Cada ficha del catálogo enlaza a su publicación original. Las predicciones son de un modelo estadístico y no sustituyen pruebas de certificación de materiales.
   </footer>
 </div>

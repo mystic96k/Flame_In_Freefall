@@ -135,6 +135,7 @@ export const staticApi = {
   boundary: async () => (await load()).boundary,
   insights: async () => (await load()).insights,
   catalog: async () => (await load()).catalog,
+  extra: async () => (await load()).extra,
   predict: async (s) => predict((await load()).model, s),
   ask: async (q, s, history) => {
     if (REMOTE) {

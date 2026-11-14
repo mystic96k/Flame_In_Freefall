@@ -30,6 +30,7 @@ from config.settings import BUOYANT_FLOW_1G, ROOT, RUNS_CSV
 from ml import insights as ml_insights
 from ml.predict import boundary_curves
 from ml.train_classifier import FEATURES, preprocessor
+from pipeline import nasa_extra
 from pipeline.features import NUMERIC_FEATURES, model_ready
 
 DIST = ROOT / "docs"   # GitHub Pages publica esta carpeta (Settings → Pages → main /docs)
@@ -89,6 +90,7 @@ def main() -> None:
         "catalog": load_catalog(),
         "faq": load_faq(),
         "model": logistic_for_browser(df),
+        "extra": nasa_extra.load_extra() or nasa_extra.build(),
     }
 
     cfg = DIST / "js" / "config.js"

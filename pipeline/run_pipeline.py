@@ -40,6 +40,12 @@ def build(force_demo: bool = False, mix: bool = False) -> pd.DataFrame:
         print("⚠️ ", w)
     df.to_csv(RUNS_CSV, index=False)
     print(f"✅ {len(df)} pruebas → {RUNS_CSV}")
+    try:  # gases BASS-II, gotas FLEX, BASS-I, SAFFIRE-I (data/processed/extra.json)
+        from pipeline import nasa_extra
+        e = nasa_extra.build()
+        print(f"✅ Datos extra: {e['gases']['n_tests']} pruebas de gases + {e['flex']['n_tests']} gotas FLEX")
+    except Exception as exc:  # noqa: BLE001
+        print("⚠️  No pude generar datos extra:", exc)
     return df
 
 

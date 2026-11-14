@@ -105,6 +105,14 @@ def catalog():
     return load_catalog()
 
 
+@app.get("/api/extra")
+def extra():
+    """Gases de combustión (BASS-II), gotas FLEX, inventario BASS-I y SAFFIRE-I (NASA PSI)."""
+    from pipeline import nasa_extra
+    data = nasa_extra.load_extra()
+    return data or nasa_extra.build()
+
+
 @app.post("/api/ask", response_model=AskResponse)
 def ask(req: AskRequest):
     _ensure_model()

@@ -1,99 +1,223 @@
 [
-  {
-    "id": "FLEX",
-    "name": "Flame Extinguishment Experiment",
-    "platform": "ISS · Combustion Integrated Rack (CIR)",
-    "type": "gotas de combustible",
-    "tags": ["gotas", "extinción", "llamas frías", "supresores"],
-    "psi_available": true,
-    "summary": "Gotas de combustible encendidas en microgravedad para evaluar supresores de gas inerte y estimar de forma conservadora el índice límite de oxígeno para combustión estable. El reporte técnico NASA/TP-2015-216046 describe los primeros 284 ensayos (marzo 2009 – diciembre 2011).",
-    "finding": "Se descubrió un tipo de 'llama fría': tras apagarse la llama caliente, la gota siguió reaccionando con una llama casi invisible.",
-    "safety": "Que no se vea fuego no significa que no haya reacción química. La detección debe medir gases y temperatura, no sólo luz.",
-    "sources": ["https://ntrs.nasa.gov/citations/20150023456", "https://science.nasa.gov/?p=426601"]
-  },
-  {
-    "id": "FLEX-2",
-    "name": "Flame Extinguishment Experiment-2",
-    "platform": "ISS · CIR",
-    "type": "gotas de combustible",
-    "tags": ["gotas", "combustibles reales", "extinción"],
-    "psi_available": true,
-    "summary": "Segunda serie de FLEX con combustibles y condiciones que imitan cámaras de combustión reales.",
-    "finding": "Amplía la base de datos de gotas a mezclas de combustibles más realistas.",
-    "safety": "Permite validar modelos de extinción con combustibles parecidos a los que existirían a bordo.",
-    "sources": ["https://www.labxchange.org/library/items/lb:LabXchange:1dccf81c:html:1"]
-  },
-  {
-    "id": "BASS",
-    "name": "Burning and Suppression of Solids (BASS y BASS-II)",
-    "platform": "ISS · Microgravity Science Glovebox (MSG)",
-    "type": "combustibles sólidos",
-    "tags": ["sólidos", "ventilación", "inflamabilidad", "flujo"],
-    "psi_available": true,
-    "summary": "Quemó muestras sólidas (acrílico/PMMA, tela algodón-fibra de vidrio SIBAL y otras) en un ducto con flujo de aire controlado, variando oxígeno y velocidad. En BASS-II se hicieron 27 pruebas con la tela SIBAL, incluyendo 6 de extinción por 'quenching', 3 sin ignición y 1 de 'blow-off'.",
-    "finding": "Una esfera de acrílico de 2 cm siguió ardiendo con 17% de oxígeno y 10 cm/s de flujo. El crecimiento, la propagación y la extinción dependen fuertemente de la velocidad del flujo.",
-    "safety": "En órbita la ventilación es la variable crítica: decide si un material arde o se apaga.",
-    "sources": ["https://ntrs.nasa.gov/api/citations/20150008962/downloads/20150008962.pdf",
-                "https://www.nasa.gov/sites/default/files/atoms/files/np-2015-10-034-jsc_combustion_in_reduced_gravity-iss-mini-book-011116-508.pdf"]
-  },
-  {
-    "id": "ACME",
-    "name": "Advanced Combustion via Microgravity Experiments",
-    "platform": "ISS · CIR",
-    "type": "llamas gaseosas",
-    "tags": ["gases", "hollín", "emisiones", "BRE"],
-    "psi_available": true,
-    "summary": "Cinco experimentos independientes con llamas gaseosas no premezcladas; alrededor de 1,500 llamas encendidas desde 2017. En PSI aparece, por ejemplo, ACME S-Flames (llamas esféricas de difusión).",
-    "finding": "El Burning Rate Emulator (BRE) se enfoca en prevenir incendios en naves; los demás buscan eficiencia y menos contaminantes en la Tierra.",
-    "safety": "El BRE imita con gas cómo arden los sólidos, para estimar su inflamabilidad sin quemar cada material real.",
-    "sources": ["https://science.nasa.gov/mission/acme"]
-  },
-  {
-    "id": "SAFFIRE",
-    "name": "Spacecraft Fire Safety Demonstration (Saffire I–VI)",
-    "platform": "Nave de carga Cygnus (sin tripulación, tras dejar la ISS)",
-    "type": "incendio a gran escala",
-    "tags": ["gran escala", "propagación", "nave completa", "extinción"],
-    "psi_available": false,
-    "summary": "Incendios intencionales en naves Cygnus vacías. La primera muestra midió 94 × 40.6 cm (un orden de magnitud mayor que pruebas previas) con flujo promedio de 20 cm/s. Saffire IV y V midieron además CO2, CO, O2, HF, HCl, presión y temperatura de la nave.",
-    "finding": "La llama a favor del flujo se mantuvo de tamaño limitado, a diferencia de la Tierra, donde crece y acelera. Con liberación de calor de hasta 10 kW, las condiciones promedio de la nave no llegaron a niveles inaceptables.",
-    "safety": "Sin flujo, la extinción no está garantizada: algunas llamas encogieron pero sobrevivieron o se reencendieron. El tamaño del ducto y la escala cambian el resultado.",
-    "sources": ["https://ntrs.nasa.gov/citations/20170008805", "https://ntrs.nasa.gov/citations/20210011521"]
-  },
-  {
-    "id": "SOFIE",
-    "name": "Solid Fuel Ignition and Extinction",
-    "platform": "ISS · CIR",
-    "type": "combustibles sólidos",
-    "tags": ["sólidos", "ignición", "presión", "oxígeno"],
-    "psi_available": false,
-    "summary": "Instalación en el CIR para estudiar cómo se encienden, propagan y apagan combustibles sólidos en distintas atmósferas.",
-    "finding": "Investigadores de UC Berkeley reportan que en microgravedad algunos materiales arden con menos oxígeno del esperado (p. ej., pruebas a 17.8–19.8% O2 y presiones reducidas).",
-    "safety": "Las atmósferas de exploración (menor presión, más oxígeno) necesitan límites de inflamabilidad propios.",
-    "sources": ["https://engineering.berkeley.edu/news/2024/12/nasa-funded-project-offers-new-insights-into-fire-behavior-in-space/"]
-  },
-  {
-    "id": "CONFINED",
-    "name": "Confined Combustion",
-    "platform": "ISS National Lab · MSG",
-    "type": "propagación confinada",
-    "tags": ["confinamiento", "geometría"],
-    "psi_available": false,
-    "summary": "Estudió cómo se propagan las llamas en espacios confinados de distintas formas.",
-    "finding": "Las paredes cercanas cambian cómo avanza la llama; en el espacio muchas llamas avanzan con forma de domo.",
-    "safety": "Guía el diseño de estructuras, códigos de seguridad y respuesta a incendios.",
-    "sources": ["https://issnationallab.org/?p=34978"]
-  },
-  {
-    "id": "SLICE_SPICE",
-    "name": "SLICE y SPICE (llamas de chorro y punto de humo)",
-    "platform": "ISS · MSG",
-    "type": "llamas gaseosas",
-    "tags": ["gases", "hollín", "estabilidad"],
-    "psi_available": true,
-    "summary": "SLICE estudió estructura y despegue (liftoff) de llamas de chorro; SPICE midió el punto de humo (cuándo una llama empieza a soltar hollín) en coflujo.",
-    "finding": "Ambos están en PSI como investigaciones de combustión completas, útiles para analizar hollín y estabilidad.",
-    "safety": "El hollín y el humo son señales para detectar incendios; entender cuándo aparecen mejora los detectores.",
-    "sources": ["https://www.nasa.gov/physical-sciences-informatics-psi/psi-investigations-by-research-area/"]
-  }
+ {
+  "id": "FLEX",
+  "name": "Flame Extinguishment Experiment",
+  "platform": "ISS · Combustion Integrated Rack (CIR)",
+  "type": "gotas de combustible",
+  "tags": [
+   "gotas",
+   "extinción",
+   "llamas frías",
+   "supresores"
+  ],
+  "psi_available": true,
+  "summary": "Gotas de combustible encendidas en microgravedad para evaluar supresores de gas inerte y estimar de forma conservadora el índice límite de oxígeno para combustión estable. El reporte técnico NASA/TP-2015-216046 describe los primeros 284 ensayos (marzo 2009 – diciembre 2011).",
+  "finding": "Se descubrió un tipo de 'llama fría': tras apagarse la llama caliente, la gota siguió reaccionando con una llama casi invisible.",
+  "safety": "Que no se vea fuego no significa que no haya reacción química. La detección debe medir gases y temperatura, no sólo luz.",
+  "sources": [
+   "https://ntrs.nasa.gov/citations/20150023456",
+   "https://science.nasa.gov/?p=426601",
+   "https://psi.nasa.gov/physci/repo/data/investigations/PSI-69"
+  ]
+ },
+ {
+  "id": "FLEX-2",
+  "name": "Flame Extinguishment Experiment-2",
+  "platform": "ISS · CIR",
+  "type": "gotas de combustible",
+  "tags": [
+   "gotas",
+   "combustibles reales",
+   "extinción"
+  ],
+  "psi_available": true,
+  "summary": "Segunda serie de FLEX con combustibles y condiciones que imitan cámaras de combustión reales.",
+  "finding": "Amplía la base de datos de gotas a mezclas de combustibles más realistas.",
+  "safety": "Permite validar modelos de extinción con combustibles parecidos a los que existirían a bordo.",
+  "sources": [
+   "https://www.labxchange.org/library/items/lb:LabXchange:1dccf81c:html:1"
+  ]
+ },
+ {
+  "id": "BASS",
+  "name": "Burning and Suppression of Solids (BASS y BASS-II)",
+  "platform": "ISS · Microgravity Science Glovebox (MSG)",
+  "type": "combustibles sólidos",
+  "tags": [
+   "sólidos",
+   "ventilación",
+   "inflamabilidad",
+   "flujo"
+  ],
+  "psi_available": true,
+  "summary": "Quemó muestras sólidas (acrílico/PMMA, tela algodón-fibra de vidrio SIBAL y otras) en un ducto con flujo de aire controlado, variando oxígeno y velocidad. En BASS-II se hicieron 27 pruebas con la tela SIBAL, incluyendo 6 de extinción por 'quenching', 3 sin ignición y 1 de 'blow-off'.",
+  "finding": "Una esfera de acrílico de 2 cm siguió ardiendo con 17% de oxígeno y 10 cm/s de flujo. El crecimiento, la propagación y la extinción dependen fuertemente de la velocidad del flujo.",
+  "safety": "En órbita la ventilación es la variable crítica: decide si un material arde o se apaga.",
+  "sources": [
+   "https://ntrs.nasa.gov/api/citations/20150008962/downloads/20150008962.pdf",
+   "https://www.nasa.gov/sites/default/files/atoms/files/np-2015-10-034-jsc_combustion_in_reduced_gravity-iss-mini-book-011116-508.pdf",
+   "https://psi.nasa.gov/physci/repo/data/investigations/PSI-25",
+   "https://psi.nasa.gov/physci/repo/data/investigations/PSI-26"
+  ]
+ },
+ {
+  "id": "ACME",
+  "name": "Advanced Combustion via Microgravity Experiments",
+  "platform": "ISS · CIR",
+  "type": "llamas gaseosas",
+  "tags": [
+   "gases",
+   "hollín",
+   "emisiones",
+   "BRE"
+  ],
+  "psi_available": true,
+  "summary": "Cinco experimentos independientes con llamas gaseosas no premezcladas; alrededor de 1,500 llamas encendidas desde 2017. En PSI aparece, por ejemplo, ACME S-Flames (llamas esféricas de difusión).",
+  "finding": "El Burning Rate Emulator (BRE) se enfoca en prevenir incendios en naves; los demás buscan eficiencia y menos contaminantes en la Tierra.",
+  "safety": "El BRE imita con gas cómo arden los sólidos, para estimar su inflamabilidad sin quemar cada material real.",
+  "sources": [
+   "https://science.nasa.gov/mission/acme",
+   "https://psi.nasa.gov/physci/repo/data/investigations/PSI-10"
+  ]
+ },
+ {
+  "id": "SAFFIRE",
+  "name": "Spacecraft Fire Safety Demonstration (Saffire I–VI)",
+  "platform": "Nave de carga Cygnus (sin tripulación, tras dejar la ISS)",
+  "type": "incendio a gran escala",
+  "tags": [
+   "gran escala",
+   "propagación",
+   "nave completa",
+   "extinción"
+  ],
+  "psi_available": false,
+  "summary": "Incendios intencionales en naves Cygnus vacías. La primera muestra midió 94 × 40.6 cm (un orden de magnitud mayor que pruebas previas) con flujo promedio de 20 cm/s. Saffire IV y V midieron además CO2, CO, O2, HF, HCl, presión y temperatura de la nave.",
+  "finding": "La llama a favor del flujo se mantuvo de tamaño limitado, a diferencia de la Tierra, donde crece y acelera. Con liberación de calor de hasta 10 kW, las condiciones promedio de la nave no llegaron a niveles inaceptables.",
+  "safety": "Sin flujo, la extinción no está garantizada: algunas llamas encogieron pero sobrevivieron o se reencendieron. El tamaño del ducto y la escala cambian el resultado.",
+  "sources": [
+   "https://ntrs.nasa.gov/citations/20170008805",
+   "https://ntrs.nasa.gov/citations/20210011521",
+   "https://psi.nasa.gov/physci/repo/data/investigations/PSI-98"
+  ]
+ },
+ {
+  "id": "SOFIE",
+  "name": "Solid Fuel Ignition and Extinction",
+  "platform": "ISS · CIR",
+  "type": "combustibles sólidos",
+  "tags": [
+   "sólidos",
+   "ignición",
+   "presión",
+   "oxígeno"
+  ],
+  "psi_available": false,
+  "summary": "Instalación en el CIR para estudiar cómo se encienden, propagan y apagan combustibles sólidos en distintas atmósferas.",
+  "finding": "Investigadores de UC Berkeley reportan que en microgravedad algunos materiales arden con menos oxígeno del esperado (p. ej., pruebas a 17.8–19.8% O2 y presiones reducidas).",
+  "safety": "Las atmósferas de exploración (menor presión, más oxígeno) necesitan límites de inflamabilidad propios.",
+  "sources": [
+   "https://engineering.berkeley.edu/news/2024/12/nasa-funded-project-offers-new-insights-into-fire-behavior-in-space/"
+  ]
+ },
+ {
+  "id": "CONFINED",
+  "name": "Confined Combustion",
+  "platform": "ISS National Lab · MSG",
+  "type": "propagación confinada",
+  "tags": [
+   "confinamiento",
+   "geometría"
+  ],
+  "psi_available": false,
+  "summary": "Estudió cómo se propagan las llamas en espacios confinados de distintas formas.",
+  "finding": "Las paredes cercanas cambian cómo avanza la llama; en el espacio muchas llamas avanzan con forma de domo.",
+  "safety": "Guía el diseño de estructuras, códigos de seguridad y respuesta a incendios.",
+  "sources": [
+   "https://issnationallab.org/?p=34978"
+  ]
+ },
+ {
+  "id": "SLICE_SPICE",
+  "name": "SLICE y SPICE (llamas de chorro y punto de humo)",
+  "platform": "ISS · MSG",
+  "type": "llamas gaseosas",
+  "tags": [
+   "gases",
+   "hollín",
+   "estabilidad"
+  ],
+  "psi_available": true,
+  "summary": "SLICE estudió estructura y despegue (liftoff) de llamas de chorro; SPICE midió el punto de humo (cuándo una llama empieza a soltar hollín) en coflujo.",
+  "finding": "Ambos están en PSI como investigaciones de combustión completas, útiles para analizar hollín y estabilidad.",
+  "safety": "El hollín y el humo son señales para detectar incendios; entender cuándo aparecen mejora los detectores.",
+  "sources": [
+   "https://www.nasa.gov/physical-sciences-informatics-psi/psi-investigations-by-research-area/"
+  ]
+ },
+ {
+  "id": "E-FIELD",
+  "name": "Electric-Field Effects on Laminar Diffusion Flames",
+  "platform": "ISS · CIR (parte de ACME)",
+  "type": "llamas de gas",
+  "tags": [
+   "campo eléctrico",
+   "viento iónico",
+   "hollín",
+   "estabilidad",
+   "ACME"
+  ],
+  "psi_available": true,
+  "summary": "Aplica hasta 10 kV entre el quemador y una malla para crear un 'viento iónico' que empuja a los iones de la llama. Mide intensidad del campo, corriente iónica, tamaño, temperatura, hollín y estabilidad de llamas de gas en microgravedad.",
+  "finding": "Un campo eléctrico puede cambiar la forma, el hollín y la estabilidad de una llama sin usar flujo de aire, algo que en la Tierra queda tapado por la flotación. NASA aún no publica resultados finales en la ficha.",
+  "safety": "En el futuro se podrían controlar o apagar llamas con campos eléctricos, sin gases supresores que contaminen la cabina.",
+  "sources": [
+   "https://science.nasa.gov/biological-physical/investigations/e-field-flames/",
+   "https://gipoc.grc.nasa.gov/wp/fcf-cir/acme/electric-field-effects-laminar-diffusion-flames-e-field-flames/",
+   "https://psi.nasa.gov/physci/repo/data/investigations/PSI-10"
+  ]
+ },
+ {
+  "id": "BRE",
+  "name": "Burning Rate Emulator",
+  "platform": "ISS · CIR (parte de ACME) + torre de caída de 5 s",
+  "type": "emulador de sólidos y líquidos",
+  "tags": [
+   "tasa de combustión",
+   "flujo de calor",
+   "materiales",
+   "gravedad parcial",
+   "ACME"
+  ],
+  "psi_available": true,
+  "summary": "Un quemador poroso alimentado con gas (metano, etileno o etileno con N₂) 'imita' a un sólido o líquido que se quema, midiendo el flujo de calor que la llama devuelve a la superficie. En pruebas de torre de caída (Markan et al., 2017) se usaron quemadores de 25 y 50 mm, 0.5–1 atm y 21–30% de O₂.",
+  "finding": "Emuló calores de gasificación de 0.4 a 4 kJ/g; en 5 s de caída la llama sólo alcanzó ~37% de su altura estable, y el quemador de 50 mm quemó más rápido que la teoría por la radiación del gas.",
+  "safety": "Permite clasificar materiales por su 'calor de gasificación' en vez de quemarlos uno por uno, y comprobar si las pruebas de inflamabilidad terrestres sirven en gravedad baja o parcial (Luna, Marte).",
+  "sources": [
+   "https://science.nasa.gov/biological-physical/investigations/bre/",
+   "https://gipoc.grc.nasa.gov/wp/fcf-cir/acme/burning-rate-emulator-bre-operations/",
+   "https://ntrs.nasa.gov/api/citations/20170009141/downloads/20170009141.pdf"
+  ]
+ },
+ {
+  "id": "CFM",
+  "name": "Candle Flames in Microgravity",
+  "platform": "Estación Mir (guantera del módulo Priroda) + USML-1",
+  "type": "velas",
+  "tags": [
+   "velas",
+   "oscilación",
+   "extinción",
+   "mecha",
+   "Mir"
+  ],
+  "psi_available": false,
+  "summary": "79 velas encendidas en la Mir con 22–25% de O₂ (mechas de ~1–3 mm, velas de 5 y 10 mm de diámetro, 2 cm de largo). Las llamas eran hemisféricas, de ~1.5 cm, azul tenue.",
+  "finding": "Las velas duraron desde poco más de 100 s hasta más de 45 min; antes de apagarse la llama oscilaba ~1 vez por segundo hasta por 90 s. Quemaban 0.2–0.6 mg/s contra 0.9–1.4 mg/s en la Tierra, y el modelo da ~1710 K de pico.",
+  "safety": "Una llama pequeña y tenue puede sobrevivir decenas de minutos en microgravedad; la oscilación es una señal de que está por apagarse, útil para detección.",
+  "sources": [
+   "https://ntrs.nasa.gov/api/citations/19970020585/downloads/19970020585.pdf",
+   "https://ntrs.nasa.gov/citations/20010074076"
+  ]
+ }
 ]

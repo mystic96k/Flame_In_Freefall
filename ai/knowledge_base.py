@@ -26,7 +26,7 @@ class Chunk:
     title: str
     text: str
     source: str
-    kind: str  # "faq" | "catalog" | "publication"
+    kind: str  # "faq" | "catalog" | "dataset" | "publication"
 
 
 def load_catalog() -> list[dict]:
@@ -46,6 +46,12 @@ def _chunks() -> list[Chunk]:
         text = (f"{e['name']} ({e['id']}), {e['platform']}. {e['summary']} "
                 f"Hallazgo: {e['finding']} Lección de seguridad: {e['safety']}")
         chunks.append(Chunk(e["id"], e["name"], text, (e.get("sources") or [""])[0], "catalog"))
+    try:  # datos reales extra de PSI (gases BASS-II, FLEX, BASS-I, SAFFIRE-I)
+        from pipeline.nasa_extra import knowledge_chunks
+        for c in knowledge_chunks():
+            chunks.append(Chunk(c["id"], c["title"], c["text"], c["source"], "dataset"))
+    except Exception:  # noqa: BLE001 - la base de conocimiento no debe romperse por esto
+        pass
     pubs = RAW_NTRS_DIR / "publications.json"
     if pubs.exists():
         for p in json.loads(pubs.read_text(encoding="utf-8")):

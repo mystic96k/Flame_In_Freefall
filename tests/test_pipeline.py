@@ -36,3 +36,14 @@ def test_conform_and_validate():
     assert list(df["burned"]) == [1, 0]
     assert df["flow_cm_s"].tolist() == [10.0, 5.0]
     assert validate(df) == []
+
+
+def test_nasa_extra_real_tables():
+    from pipeline import nasa_extra
+    e = nasa_extra.build()
+    assert e["flex"]["n_tests"] == 274
+    assert e["gases"]["n_tests"] >= 120
+    assert 0.6 < e["flex"]["metrics"]["auc_extinction"] <= 1
+    assert {s["id"] for s in e["sources"]} >= {"PSI-25", "PSI-26", "PSI-69", "PSI-98"}
+    ids = {c["id"] for c in nasa_extra.knowledge_chunks(e)}
+    assert "PSI-69-FLEX" in ids and "PSI-25-GASES" in ids
