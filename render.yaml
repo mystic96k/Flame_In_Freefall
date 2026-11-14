@@ -1,4 +1,6 @@
 # Blueprint de Render: New → Blueprint → elige tu repo de GitHub.
+# Por defecto usa Groq (gratis). Para usar Claude, cambia LLM_PROVIDER a "anthropic"
+# y agrega ANTHROPIC_API_KEY en Environment.
 services:
   - type: web
     name: firefall
@@ -8,10 +10,12 @@ services:
     autoDeploy: true
     envVars:
       - key: LLM_PROVIDER
-        value: anthropic
+        value: openai_compatible
+      - key: OPENAI_BASE_URL
+        value: https://api.groq.com/openai/v1
+      - key: OPENAI_MODEL
+        value: llama-3.3-70b-versatile
+      - key: OPENAI_API_KEY
+        sync: false          # Render te la pide al crear el servicio: pega tu llave gsk_ de Groq
       - key: ANTHROPIC_MODEL
         value: claude-sonnet-5-5
-      - key: ANTHROPIC_API_KEY
-        sync: false          # Render te la pide al crear el servicio (no queda en GitHub)
-      - key: ALLOW_DEMO_DATA
-        value: "true"

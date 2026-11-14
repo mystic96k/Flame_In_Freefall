@@ -60,15 +60,19 @@ python -m pipeline.run_pipeline && python -m ml.train_classifier && python -m ml
 ```
 La misma carpeta `docs/` sirve para **GitHub Pages** (Settings → Pages).
 
-## Opción B — IA real con Claude (backend en Render)
+## Opción B — IA real con Groq (gratis) o Claude (backend en Render)
 La página de GitHub Pages ya trae el chat con base de conocimiento. Para que responda **cualquier pregunta con IA**
 se agrega un backend en Render que guarda la llave de Anthropic (la llave nunca va en la página pública).
 
-1. **Llave de Anthropic:** entra a https://console.anthropic.com → crea cuenta → *Billing* (la API se paga por uso;
-   pon un límite de gasto mensual bajo) → *API Keys* → *Create Key*. Empieza con `sk-ant-`. No la compartas ni la subas a GitHub.
+1. **Llave de IA** (elige una):
+   - **Groq (gratis, opción por defecto):** https://console.groq.com/keys → *Create API Key*. Empieza con `gsk_`.
+   - **Claude (de pago, mejor redacción):** https://console.anthropic.com → *Billing* (pon un límite de gasto bajo) →
+     *API Keys* → *Create Key*. Empieza con `sk-ant-`. Luego en Render cambia `LLM_PROVIDER` a `anthropic`
+     y agrega `ANTHROPIC_API_KEY`.
+   No compartas la llave ni la subas a GitHub.
 2. **Render:** https://dashboard.render.com → crea cuenta con GitHub → *New → Blueprint* → elige el repo
    `Flame_In_Freefall` (si no aparece, la dueña del repo debe dar acceso a Render en GitHub).
-   Render lee `render.yaml` y te pide `ANTHROPIC_API_KEY`: pégala ahí. *Apply*.
+   Render lee `render.yaml` y te pide `OPENAI_API_KEY`: pega tu llave de Groq. *Apply*.
 3. Espera a que termine el build (5–10 min) y copia la URL, p. ej. `https://firefall.onrender.com`.
    Prueba `https://firefall.onrender.com/api/health` → debe decir `"llm": true`.
 4. Pon esa URL en **`docs/js/config.js`**:
