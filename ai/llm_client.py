@@ -82,7 +82,7 @@ def _openai_compatible(system: str, messages: list[dict], max_tokens: int) -> st
         body = {"model": model_id, "max_tokens": max_tokens,
                 "messages": [{"role": "system", "content": system}, *messages]}
         if "gpt-oss" in model_id:
-            body["reasoning_effort"] = "low"   # respuestas rápidas; menos tokens de razonamiento
+            body["reasoning_effort"] = "medium"  # equilibrio entre rapidez y calidad
         return httpx.post(f"{settings.OPENAI_BASE_URL.rstrip('/')}/chat/completions",
                           headers=_headers(), json=body, timeout=90)
 
