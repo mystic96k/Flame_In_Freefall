@@ -30,9 +30,17 @@ git push -u origin main
 ```
 El `.gitignore` ya excluye `.env`. Space Apps pide que el código esté en un repositorio público.
 
+## Opción A0 — GitHub Pages (la más fácil, ya está preparada)
+La carpeta `docs/` del repo es la versión sin servidor. Sólo la dueña del repo tiene que activarla una vez:
+1. En GitHub, abre el repo → **Settings** → **Pages** (menú izquierdo).
+2. En **Source** elige **Deploy from a branch**.
+3. En **Branch** elige **main** y la carpeta **/docs** → **Save**.
+4. En 1–2 minutos aparece arriba el link: `https://mystic96k.github.io/Flame_In_Freefall/`
+Cada vez que se haga push a `main`, la página se actualiza sola.
+
 ## Opción A — Hugging Face **Static** (gratis, siempre encendido)
 Desde julio de 2026 las cuentas gratis de Hugging Face sólo pueden crear Spaces **Static**
-(Docker y Gradio piden plan de pago). Por eso existe la carpeta **`dist_static/`**: una versión
+(Docker y Gradio piden plan de pago). Por eso existe la carpeta **`docs/`**: una versión
 del dashboard que no necesita servidor. Python ya hizo todo el cálculo y el navegador evalúa el modelo.
 
 Qué funciona: simulador, gráfica con frontera del modelo, hallazgos, catálogo y reporte de seguridad.
@@ -41,7 +49,7 @@ así que el analista responde con el modelo de ML + las fuentes NASA.
 
 1. https://huggingface.co/new-space → nombre `firefall`, **SDK: Static**, *Blank*, **Public** → *Create Space*.
 2. Pestaña **Files → + Add file → Upload files**.
-3. Abre la carpeta **`dist_static`** del repo, selecciona **todo lo de adentro**
+3. Abre la carpeta **`docs`** del repo, selecciona **todo lo de adentro**
    (`index.html`, `README.md`, `css`, `js`, `data`) y arrástralo.
 4. *Commit changes to main*. Si pregunta por reemplazar `README.md`, di que sí.
 5. En segundos queda en: `https://TU_USUARIO-firefall.static.hf.space` (el botón ⋮ → *Embed this Space* te muestra el link directo).
@@ -50,7 +58,7 @@ así que el analista responde con el modelo de ML + las fuentes NASA.
 ```bash
 python -m pipeline.run_pipeline && python -m ml.train_classifier && python -m ml.export_static
 ```
-La misma carpeta `dist_static/` sirve para **GitHub Pages** (Settings → Pages).
+La misma carpeta `docs/` sirve para **GitHub Pages** (Settings → Pages).
 
 ## Opción B — Render (versión completa con IA de Groq)
 1. https://dashboard.render.com → *New → Blueprint* → conecta tu repo. Render lee `render.yaml`.

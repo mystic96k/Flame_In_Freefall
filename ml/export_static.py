@@ -12,7 +12,7 @@ Uso:
     python -m pipeline.run_pipeline && python -m ml.train_classifier
     python -m ml.export_static
 Salida:
-    dist_static/   ← sube TODO lo que hay adentro a tu Space de tipo Static
+    docs/   ← GitHub Pages la publica sola; o sube su contenido a un Space Static de Hugging Face
 """
 from __future__ import annotations
 
@@ -31,7 +31,7 @@ from ml.predict import boundary_curves
 from ml.train_classifier import FEATURES, preprocessor
 from pipeline.features import NUMERIC_FEATURES, model_ready
 
-DIST = ROOT / "dist_static"
+DIST = ROOT / "docs"   # GitHub Pages publica esta carpeta (Settings → Pages → main /docs)
 
 SPACE_README = """---
 title: FIREFALL
@@ -94,9 +94,10 @@ def main() -> None:
     (DIST / "data").mkdir(exist_ok=True)
     (DIST / "data" / "static.json").write_text(json.dumps(bundle, ensure_ascii=False), encoding="utf-8")
     (DIST / "README.md").write_text(SPACE_README, encoding="utf-8")
+    (DIST / ".nojekyll").write_text("", encoding="utf-8")  # GitHub Pages: servir tal cual
     size_kb = (DIST / "data" / "static.json").stat().st_size / 1024
     print(f"✅ Versión estática lista en {DIST}  (datos: {size_kb:.0f} KB)")
-    print("   Sube TODO el contenido de esa carpeta a tu Space de tipo Static.")
+    print("   Haz commit y push: GitHub Pages la actualiza sola en ~1 minuto.")
 
 
 if __name__ == "__main__":
