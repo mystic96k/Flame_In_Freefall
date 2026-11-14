@@ -45,7 +45,7 @@ def answer(question: str, scenario: dict, prediction: dict, summary: dict, insig
         text = _offline(question, scenario, prediction, insights, refs)
         mode = "offline"
     except Exception as e:  # error de red / llave inválida
-        text = _offline(question, scenario, prediction, insights, refs) + f"\n\n_(IA no disponible: {type(e).__name__})_"
+        text = _offline(question, scenario, prediction, insights, refs) + f"\n\n_(IA no disponible: {str(e)[:160]})_"
         mode = "offline"
     return {"answer": text, "sources": refs, "mode": mode}
 

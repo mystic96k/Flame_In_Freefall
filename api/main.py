@@ -47,7 +47,19 @@ def _ensure_model():
 
 @app.get("/api/health")
 def health():
-    return {"status": "ok", "llm": llm_client.available(), "data": RUNS_CSV.exists()}
+    return {"status": "ok", "llm": llm_client.available(), "data": RUNS_CSV.exists(),
+            "provider": llm_client.settings.LLM_PROVIDER, "model": llm_client.current_model(),
+            "last_error": llm_client.last_error}
+
+
+@app.get("/api/llm_check")
+def llm_check():
+    """Prueba rápida de la IA: útil para diagnosticar llaves o modelos retirados."""
+    try:
+        text = llm_client.chat("Responde sólo con la palabra OK.", [{"role": "user", "content": "Prueba"}], 200)
+        return {"ok": True, "model": llm_client.current_model(), "reply": text[:50]}
+    except Exception as e:
+        return {"ok": False, "model": llm_client.current_model(), "error": str(e)[:300]}
 
 
 @app.get("/api/summary")

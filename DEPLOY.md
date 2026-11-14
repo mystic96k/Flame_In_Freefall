@@ -17,7 +17,7 @@ En la sección "Analista IA" debe decir **"IA conectada"**. Si dice "Modo sin LL
 ## Paso 1 — Llave de Groq
 1. Entra a https://console.groq.com/keys → *Create API Key*.
 2. Cópiala (empieza con `gsk_`). **No la subas a GitHub.**
-3. Verifica el nombre del modelo en https://console.groq.com/docs/models; si `llama-3.3-70b-versatile` ya no aparece, cambia `OPENAI_MODEL`.
+3. Verifica el nombre del modelo en https://console.groq.com/docs/models; si `openai/gpt-oss-120b` ya no aparece, cambia `OPENAI_MODEL`.
 
 ## Paso 2 — Subir el código a GitHub
 ```bash

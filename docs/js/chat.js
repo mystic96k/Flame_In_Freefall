@@ -36,8 +36,9 @@ function add(role, html) {
 
 function refs(sources) {
   if (!sources?.length) return "";
-  return `<div class="refs">Fuentes: ${sources.map((s) =>
-    `<a href="${s.url}" target="_blank" rel="noopener">[${s.id}]</a>`).join(" ")}</div>`;
+  return `<div class="refs">Fuentes: ${sources.map((s) => s.url
+    ? `<a href="${s.url}" target="_blank" rel="noopener">[${s.id}]</a>`
+    : `[${s.id}]`).join(" ")}</div>`;
 }
 
 async function run(label, call) {
@@ -49,7 +50,7 @@ async function run(label, call) {
     const res = await call();
     box.innerHTML = md(res.answer) + refs(res.sources);
     history.push({ role: "user", content: label }, { role: "assistant", content: res.answer });
-    $("aistatus").textContent = res.mode === "llm" ? "IA conectada (Claude + fuentes NASA + modelo de ML)" : "Respuesta de la base de conocimiento (sin modelo de lenguaje)";
+    $("aistatus").textContent = res.mode === "llm" ? "IA conectada (modelo de lenguaje + fuentes NASA + modelo de ML)" : "Respuesta de la base de conocimiento (sin modelo de lenguaje)";
   } catch (e) {
     box.textContent = `Error: ${e.message}`;
   } finally {
@@ -67,7 +68,7 @@ export function ask(question) {
 export function initChat(llmAvailable, mode = "server") {
   add("a", "Hola 👋 Soy el analista de <b>FIREFALL</b>. Uso fuentes de la NASA, el modelo de ML y tu escenario del simulador. Pregúntame lo que quieras.");
   $("aistatus").textContent = llmAvailable
-    ? "IA conectada (Claude + fuentes NASA + modelo de ML)"
+    ? "IA conectada (modelo de lenguaje + fuentes NASA + modelo de ML)"
     : mode === "static"
       ? "Respondo con la base de conocimiento de FIREFALL y el modelo de ML (sin modelo de lenguaje)"
       : "Sin LLM configurado: respondo con el modelo de ML y las fuentes (configura .env)";

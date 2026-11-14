@@ -14,7 +14,7 @@ services:
       - key: OPENAI_BASE_URL
         value: https://api.groq.com/openai/v1
       - key: OPENAI_MODEL
-        value: llama-3.3-70b-versatile
+        value: openai/gpt-oss-120b
       - key: OPENAI_API_KEY
         sync: false          # Render te la pide al crear el servicio: pega tu llave gsk_ de Groq
       - key: ANTHROPIC_MODEL
