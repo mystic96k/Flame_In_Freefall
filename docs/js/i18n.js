@@ -28,6 +28,24 @@ const MATERIALS_EN = { "SIBAL (algodón/fibra de vidrio)": "SIBAL (cotton/fiberg
 export const material = (m) => (EN ? MATERIALS_EN[m] || m : m);
 
 const STATIC_EN = {
+  "Inicio": "Home", "Simulador": "Simulator", "Datos y ML": "Data & ML", "Experimentos": "Experiments",
+  "Más datos NASA": "More NASA data",
+  "El modelo está entrenado con": "The model is trained on",
+  "Seguridad contra incendios en el espacio": "Fire safety in space",
+  "El fuego no se comporta igual sin gravedad.": "Fire doesn't behave the same without gravity.",
+  "FIREFALL junta pruebas reales de la NASA hechas en la Estación Espacial, las explica con machine learning y te deja preguntar lo que quieras a Astro, nuestro copiloto.":
+    "FIREFALL brings together real NASA tests run on the Space Station, explains them with machine learning and lets you ask Astro, our copilot, anything you want.",
+  "observaciones de BASS-II para el modelo": "BASS-II observations for the model",
+  "gotas de combustible de FLEX": "FLEX fuel droplets", "pruebas con gases medidos": "tests with measured gases",
+  "Probar el simulador": "Try the simulator", "Hablar con Astro": "Talk to Astro",
+  "¡Hola! Soy": "Hi! I'm", ". Te ayudo a entender cómo se comporta el fuego en microgravedad.": ". I help you understand how fire behaves in microgravity.",
+  "Cambia gravedad, oxígeno y ventilación y mira cómo reacciona la llama.": "Change gravity, oxygen and ventilation and watch how the flame reacts.",
+  "Las pruebas reales de la ISS y la frontera que aprendió el modelo.": "The real ISS tests and the boundary the model learned.",
+  "Once investigaciones de la NASA traducidas a lecciones de seguridad.": "Eleven NASA investigations translated into safety lessons.",
+  "Gases tóxicos, gotas, supresores e incendios grandes.": "Toxic gases, droplets, suppressants and large fires.",
+  "Copiloto de seguridad contra incendios": "Fire-safety copilot",
+  "Generar reporte de seguridad de mi escenario": "Generate a safety report for my scenario",
+  "¿Dudas? Pregúntale a Astro": "Questions? Ask Astro",
   "FIREFALL · Seguridad contra incendios en microgravedad": "FIREFALL · Fire safety in microgravity",
   "NASA Space Apps 2026 · Reto “Flame in Freefall”": "NASA Space Apps 2026 · “Flame in Freefall” challenge",
   "Panel con IA que resume, clasifica e interpreta datos de combustión en microgravedad para convertirlos en decisiones de seguridad contra incendios en el espacio.":
@@ -98,7 +116,7 @@ const DICT = {
     outcome_burn: "ardió", outcome_extinct: "se apagó", outcome_no_ignition: "no encendió",
     // catálogo
     realData: "DATO REAL", inPsi: "EN PSI", finding: "Hallazgo:", lesson: "Lección de seguridad →", source: "fuente",
-    askAi: "Preguntar a la IA →", noResults: "Sin resultados.",
+    askAi: "Pregúntale a Astro", noResults: "Sin resultados.",
     askAbout: "Explícame {id} en lenguaje sencillo y qué significa para diseñar un hábitat lunar.",
     // datos extra
     coAxis: "CO generado por prueba (ppm)", coLabel: "CO generado por prueba (ppm, promedio)", coMax: "CO máximo",
@@ -114,13 +132,13 @@ const DICT = {
     fx_d0_mm: "diámetro", fx_heptane: "combustible", fuelMethanol: "Metanol", fuelHeptane: "Heptano",
     end_Extinction: "Extinción", end_Completion: "Completa", end_Disruption: "Interrumpida",
     // chat
-    hello: "Hola 👋 Soy el analista de <b>FIREFALL</b>. Uso fuentes de la NASA, el modelo de ML y tu escenario del simulador. Pregúntame lo que quieras.",
+    hello: "¡Hola! Soy <b>Astro</b>, el copiloto de FIREFALL. Respondo con datos reales de la NASA, el modelo de ML y lo que pongas en el simulador. ¿Qué quieres saber del fuego en el espacio?",
     thinking: "Analizando…", sources: "Fuentes:", error: "Error:",
     aiOn: "IA conectada (modelo de lenguaje + fuentes NASA + modelo de ML)",
     aiKb: "Respuesta de la base de conocimiento (sin modelo de lenguaje)",
     aiStatic: "Respondo con la base de conocimiento de FIREFALL y el modelo de ML (sin modelo de lenguaje)",
     aiNoLlm: "Sin LLM configurado: respondo con el modelo de ML y las fuentes (configura .env)",
-    reportLabel: "⚡ Reporte de seguridad de mi escenario",
+    reportLabel: "Reporte de seguridad de mi escenario",
     quick: [
       "¿Por qué la llama es esférica en el espacio?",
       "¿Qué nivel de ventilación es más peligroso y por qué?",
@@ -160,7 +178,7 @@ const DICT = {
     feat_pressure_kpa: "Pressure", feat_material: "Material",
     outcome_burn: "burned", outcome_extinct: "went out", outcome_no_ignition: "no ignition",
     realData: "REAL DATA", inPsi: "IN PSI", finding: "Finding:", lesson: "Safety lesson →", source: "source",
-    askAi: "Ask the AI →", noResults: "No results.",
+    askAi: "Ask Astro", noResults: "No results.",
     askAbout: "Explain {id} in plain language and what it means for designing a lunar habitat.",
     coAxis: "CO produced per test (ppm)", coLabel: "CO produced per test (ppm, average)", coMax: "Max CO",
     incomplete: "incomplete combustion", all: "All", withDil: "with {d}", air: "O₂ + N₂",
@@ -174,13 +192,13 @@ const DICT = {
     candlesMir: "Candles on Mir", fx_o2: "oxygen", fx_co2: "CO₂", fx_he: "helium", fx_pressure_atm: "pressure",
     fx_d0_mm: "diameter", fx_heptane: "fuel", fuelMethanol: "Methanol", fuelHeptane: "Heptane",
     end_Extinction: "Extinction", end_Completion: "Completion", end_Disruption: "Disruption",
-    hello: "Hi 👋 I'm the <b>FIREFALL</b> analyst. I use NASA sources, the ML model and your simulator scenario. Ask me anything.",
+    hello: "Hi! I'm <b>Astro</b>, FIREFALL's copilot. I answer with real NASA data, the ML model and whatever you set in the simulator. What do you want to know about fire in space?",
     thinking: "Analyzing…", sources: "Sources:", error: "Error:",
     aiOn: "AI connected (language model + NASA sources + ML model)",
     aiKb: "Answer from the knowledge base (no language model)",
     aiStatic: "I answer with FIREFALL's knowledge base and the ML model (no language model)",
     aiNoLlm: "No LLM configured: I answer with the ML model and sources (configure .env)",
-    reportLabel: "⚡ Safety report for my scenario",
+    reportLabel: "Safety report for my scenario",
     quick: [
       "Why is a flame spherical in space?",
       "Which ventilation level is most dangerous and why?",
@@ -224,8 +242,12 @@ export function applyStatic() {
       if (v) el.placeholder = v;
     });
     document.title = STATIC_EN[norm(document.title)] || document.title;
+    document.querySelectorAll("[aria-label]").forEach((el) => {
+      const v = { "Hablar con Astro": "Talk to Astro" }[el.getAttribute("aria-label")];
+      if (v) el.setAttribute("aria-label", v);
+    });
   }
-  const nav = document.querySelector("nav");
+  const nav = document.querySelector("nav.tabs");
   const box = document.createElement("div");
   box.className = "lang";
   box.setAttribute("role", "group");

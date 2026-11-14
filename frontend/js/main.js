@@ -6,23 +6,23 @@ import { initCharts } from "./charts.js";
 import { initCatalog } from "./catalog.js";
 import { initExtra } from "./extra.js";
 import { initChat, ask } from "./chat.js";
+import { initTabs } from "./tabs.js";
 
-function initNav() {
-  const go = (id) => {
-    document.getElementById(id).scrollIntoView({ behavior: "smooth", block: "start" });
-    document.querySelectorAll("nav button[data-go]").forEach((b) => b.classList.toggle("on", b.dataset.go === id));
-  };
-  document.querySelectorAll("nav button[data-go]").forEach((b) => (b.onclick = () => go(b.dataset.go)));
-}
+const fmt = (n) => (n == null ? "—" : String(n));
 
 async function main() {
   applyStatic();
-  initNav();
+  initTabs();
   try {
     const [health, summary] = await Promise.all([api.health(), api.summary()]);
     if (summary.uses_demo_data) document.getElementById("demo-banner").classList.remove("hidden");
     initSimulator(summary.materials);
     initChat(health.llm, MODE);
+    document.getElementById("h-n").textContent = fmt(summary.n_runs);
+    api.extra().then((e) => {
+      document.getElementById("h-flex").textContent = fmt(e?.flex?.n_tests);
+      document.getElementById("h-gas").textContent = fmt(e?.gases?.n_tests);
+    }).catch(() => {});
     await Promise.all([initCharts(summary), initCatalog(ask), initExtra().catch((e) => console.warn("extra", e))]);
   } catch (e) {
     document.getElementById("r-insight").innerHTML =

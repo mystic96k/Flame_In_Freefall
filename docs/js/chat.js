@@ -2,6 +2,9 @@
 import { api } from "./api.js";
 import { scenario } from "./state.js";
 import { t } from "./i18n.js";
+import { showTab } from "./tabs.js";
+
+const AVATAR = "img/mascot-head.webp";
 
 const $ = (id) => document.getElementById(id);
 const history = [];
@@ -21,10 +24,18 @@ function md(s) {
 }
 
 function add(role, html) {
+  const row = document.createElement("div");
+  row.className = `row ${role}`;
+  if (role === "a") {
+    const av = document.createElement("img");
+    av.className = "av"; av.src = AVATAR; av.alt = "";
+    row.appendChild(av);
+  }
   const d = document.createElement("div");
   d.className = `m ${role}`;
   d.innerHTML = html;
-  $("msgs").appendChild(d);
+  row.appendChild(d);
+  $("msgs").appendChild(row);
   $("msgs").scrollTop = 1e9;
   return d;
 }
@@ -40,7 +51,7 @@ async function run(label, call) {
   if (busy) return;
   busy = true; $("send").disabled = true;
   add("u", md(label));
-  const box = add("a", `<span style="color:var(--dim)">${t("thinking")}</span>`);
+  const box = add("a", `<span class="typing" aria-label="${t("thinking")}"><i></i><i></i><i></i></span>`);
   try {
     const res = await call();
     box.innerHTML = md(res.answer) + refs(res.sources);
@@ -56,7 +67,7 @@ async function run(label, call) {
 export function ask(question) {
   if (!question.trim()) return;
   $("q").value = "";
-  document.getElementById("s-ai").scrollIntoView({ behavior: "smooth" });
+  showTab("asistente");
   run(question, () => api.ask(question, { ...scenario }, history.slice(-6)));
 }
 
@@ -65,16 +76,16 @@ export function initChat(llmAvailable, mode = "server") {
   $("aistatus").textContent = llmAvailable
     ? t("aiOn")
     : mode === "static" ? t("aiStatic") : t("aiNoLlm");
-  QUICK.forEach((t) => {
+  QUICK.forEach((q) => {
     const b = document.createElement("button");
-    b.textContent = t;
-    b.onclick = () => ask(t);
+    b.textContent = q;
+    b.onclick = () => ask(q);
     $("quick").appendChild(b);
   });
   $("send").onclick = () => ask($("q").value);
   $("q").addEventListener("keydown", (e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); ask($("q").value); } });
   $("report").onclick = () => {
-    document.getElementById("s-ai").scrollIntoView({ behavior: "smooth" });
+    showTab("asistente");
     run(t("reportLabel"), () => api.report({ ...scenario }));
   };
 }

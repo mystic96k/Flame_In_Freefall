@@ -94,5 +94,5 @@ export async function initCharts(summary) {
   drawImportance(summary.feature_importance);
 
   const ins = await api.insights();
-  $("insights").innerHTML = ins.map((i) => `<p>${i.icon} ${pick(i, "text")}</p>`).join("");
+  $("insights").innerHTML = ins.map((i) => `<p>${pick(i, "text")}</p>`).join("");
 }

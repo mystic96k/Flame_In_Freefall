@@ -17,6 +17,7 @@ export function startFlame(canvas) {
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
   window.addEventListener("resize", resize);
+  if (window.ResizeObserver) new ResizeObserver(resize).observe(canvas); // al cambiar de pestaña
   resize();
 
   function spawn(n, g) {

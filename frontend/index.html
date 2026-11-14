@@ -4,34 +4,70 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FIREFALL · Seguridad contra incendios en microgravedad</title>
+<link rel="icon" href="img/mascot-head.webp" type="image/webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css?v=4">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <div>
-      <div class="kicker">NASA Space Apps 2026 · Reto “Flame in Freefall”</div>
-      <h1><span class="f">FIREFALL</span></h1>
-      <p class="sub">Panel con IA que resume, clasifica e interpreta datos de combustión en microgravedad para convertirlos en decisiones de seguridad contra incendios en el espacio.</p>
-    </div>
-    <nav>
-      <button data-go="s-sim" class="on">01 Simulador</button>
-      <button data-go="s-data">02 Datos + ML</button>
-      <button data-go="s-cat">03 Experimentos</button>
-      <button data-go="s-more">04 Más datos NASA</button>
-      <button data-go="s-ai">05 Analista IA</button>
-    </nav>
-  </header>
-  <div id="demo-banner" class="banner hidden">⚠️ El modelo está entrenado con <b>datos de demostración</b>. Carga las Experiment Tables reales de NASA PSI para el pitch final.</div>
+<div class="sky" aria-hidden="true"></div>
 
-  <!-- 01 SIMULADOR -->
-  <section id="s-sim">
-    <div class="h2"><span class="n">01</span><h2>Misma llama, distinta gravedad</h2><p>El modelo de machine learning calcula el riesgo en tiempo real.</p></div>
+<header class="topbar">
+  <a class="brand" href="#inicio" data-tab="inicio">
+    <span class="mark" aria-hidden="true"></span>
+    <span class="name">FIREFALL</span>
+    <span class="tagline">Flame in Freefall · NASA Space Apps 2026</span>
+  </a>
+  <nav class="tabs" role="tablist">
+    <button role="tab" data-tab="inicio">Inicio</button>
+    <button role="tab" data-tab="simulador">Simulador</button>
+    <button role="tab" data-tab="datos">Datos y ML</button>
+    <button role="tab" data-tab="experimentos">Experimentos</button>
+    <button role="tab" data-tab="mas-datos">Más datos NASA</button>
+    <button role="tab" data-tab="asistente" class="tab-astro"><img src="img/mascot-head.webp" alt="">Astro</button>
+  </nav>
+</header>
+
+<main class="wrap">
+  <div id="demo-banner" class="banner hidden">El modelo está entrenado con <b>datos de demostración</b>. Carga las Experiment Tables reales de NASA PSI para el pitch final.</div>
+
+  <!-- INICIO -->
+  <section class="panel" id="tab-inicio" data-panel="inicio">
+    <div class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">Seguridad contra incendios en el espacio</div>
+        <h1>El fuego no se comporta igual sin gravedad.</h1>
+        <p class="lede">FIREFALL junta pruebas reales de la NASA hechas en la Estación Espacial, las explica con machine learning y te deja preguntar lo que quieras a Astro, nuestro copiloto.</p>
+        <div class="hero-stats">
+          <div><b id="h-n">—</b><span>observaciones de BASS-II para el modelo</span></div>
+          <div><b id="h-flex">—</b><span>gotas de combustible de FLEX</span></div>
+          <div><b id="h-gas">—</b><span>pruebas con gases medidos</span></div>
+        </div>
+        <div class="hero-cta">
+          <button class="btn" data-tab="simulador">Probar el simulador</button>
+          <button class="btn ghost" data-tab="asistente">Hablar con Astro</button>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="orbit" aria-hidden="true"></div>
+        <img class="mascot float" src="img/mascot.webp" alt="Astro, el burro astronauta de FIREFALL">
+        <div class="bubble">¡Hola! Soy <b>Astro</b>. Te ayudo a entender cómo se comporta el fuego en microgravedad.</div>
+      </div>
+    </div>
+    <div class="grid four">
+      <button class="glass tile" data-tab="simulador"><span class="tile-k">01</span><b>Simulador</b><span>Cambia gravedad, oxígeno y ventilación y mira cómo reacciona la llama.</span></button>
+      <button class="glass tile" data-tab="datos"><span class="tile-k">02</span><b>Datos y ML</b><span>Las pruebas reales de la ISS y la frontera que aprendió el modelo.</span></button>
+      <button class="glass tile" data-tab="experimentos"><span class="tile-k">03</span><b>Experimentos</b><span>Once investigaciones de la NASA traducidas a lecciones de seguridad.</span></button>
+      <button class="glass tile" data-tab="mas-datos"><span class="tile-k">04</span><b>Más datos NASA</b><span>Gases tóxicos, gotas, supresores e incendios grandes.</span></button>
+    </div>
+  </section>
+
+  <!-- SIMULADOR -->
+  <section class="panel" id="tab-simulador" data-panel="simulador" hidden>
+    <div class="head"><h2>Misma llama, distinta gravedad</h2><p>El modelo de machine learning calcula el riesgo en tiempo real.</p></div>
     <div class="grid two">
-      <div class="card">
+      <div class="glass card">
         <div class="canvasbox">
           <canvas id="flame"></canvas>
           <div class="badge" id="b-shape">FORMA · —</div>
@@ -44,7 +80,7 @@
           <button data-g="1">Tierra<small>1 g</small></button>
         </div>
       </div>
-      <div class="card">
+      <div class="glass card">
         <div class="ctrl"><label>Gravedad <b id="v-g"></b></label><input id="g" type="range" min="0" max="1" step="0.005" value="0"></div>
         <div class="ctrl"><label>Oxígeno <b id="v-o2"></b></label><input id="o2" type="range" min="12" max="34" step="0.1" value="21"></div>
         <div class="ctrl"><label>Flujo de ventilación <b id="v-u"></b></label><input id="u" type="range" min="0" max="45" step="0.5" value="10"></div>
@@ -54,58 +90,58 @@
           <div class="ro"><div class="k">Probabilidad de combustión</div><div class="v" id="r-risk">—</div><div class="meter"><i id="r-meter"></i></div></div>
           <div class="ro"><div class="k">O₂ límite (modelo)</div><div class="v" id="r-loc">—</div><div class="s" id="r-margin"></div></div>
         </div>
-        <div class="insight" id="r-insight">Conectando con el modelo…</div>
+        <div class="insight astro-says"><img src="img/mascot-head.webp" alt=""><div id="r-insight">Conectando con el modelo…</div></div>
       </div>
     </div>
   </section>
 
-  <!-- 02 DATOS + ML -->
-  <section id="s-data">
-    <div class="h2"><span class="n">02</span><h2>Explorador de pruebas + clasificador</h2><p>Frontera “se quema / se apaga” aprendida por el modelo.</p></div>
+  <!-- DATOS + ML -->
+  <section class="panel" id="tab-datos" data-panel="datos" hidden>
+    <div class="head"><h2>Explorador de pruebas + clasificador</h2><p>Frontera “se quema / se apaga” aprendida por el modelo.</p></div>
     <div class="kpis">
-      <div class="card kpi"><div class="k">Pruebas</div><div class="v" id="k-n">—</div><div class="s" id="k-inv"></div></div>
-      <div class="card kpi"><div class="k">Se quemaron</div><div class="v" id="k-burn">—</div><div class="s">combustión sostenida</div></div>
-      <div class="card kpi"><div class="k">Precisión (validación cruzada)</div><div class="v" id="k-acc">—</div><div class="s" id="k-model"></div></div>
-      <div class="card kpi"><div class="k">AUC</div><div class="v" id="k-auc">—</div><div class="s">1.0 = separación perfecta</div></div>
+      <div class="glass kpi"><div class="k">Pruebas</div><div class="v" id="k-n">—</div><div class="s" id="k-inv"></div></div>
+      <div class="glass kpi"><div class="k">Se quemaron</div><div class="v" id="k-burn">—</div><div class="s">combustión sostenida</div></div>
+      <div class="glass kpi"><div class="k">Precisión (validación cruzada)</div><div class="v" id="k-acc">—</div><div class="s" id="k-model"></div></div>
+      <div class="glass kpi"><div class="k">AUC</div><div class="v" id="k-auc">—</div><div class="s">1.0 = separación perfecta</div></div>
     </div>
     <div class="grid wide">
-      <div class="card">
+      <div class="glass card">
         <div class="filters" id="matfilter"></div>
         <div class="chartbox"><canvas id="scatter"></canvas></div>
         <div class="note" id="data-note"></div>
       </div>
       <div class="grid" style="align-content:start">
-        <div class="card"><div class="kicker" style="margin-bottom:8px">¿Qué pesa más en la predicción?</div><div class="chartbox sm"><canvas id="importance"></canvas></div></div>
-        <div class="card"><div class="kicker" style="margin-bottom:8px">Hallazgos automáticos</div><div id="insights"></div></div>
+        <div class="glass card"><div class="kicker">¿Qué pesa más en la predicción?</div><div class="chartbox sm"><canvas id="importance"></canvas></div></div>
+        <div class="glass card"><div class="kicker">Hallazgos automáticos</div><div id="insights" class="findings"></div></div>
       </div>
     </div>
   </section>
 
-  <!-- 03 CATÁLOGO -->
-  <section id="s-cat">
-    <div class="h2"><span class="n">03</span><h2>Catálogo de experimentos reales</h2><p>Lo que la NASA ya descubrió, traducido a lecciones de seguridad.</p></div>
-    <input id="search" type="text" placeholder="Buscar: gotas, sólidos, ventilación, extinción, hollín…" style="margin-bottom:14px">
+  <!-- EXPERIMENTOS -->
+  <section class="panel" id="tab-experimentos" data-panel="experimentos" hidden>
+    <div class="head"><h2>Catálogo de experimentos reales</h2><p>Lo que la NASA ya descubrió, traducido a lecciones de seguridad.</p></div>
+    <input id="search" class="glass-input" type="text" placeholder="Buscar: gotas, sólidos, ventilación, extinción, hollín…">
     <div class="grid cat" id="catalog"></div>
   </section>
 
-  <!-- 04 MÁS DATOS NASA -->
-  <section id="s-more">
-    <div class="h2"><span class="n">04</span><h2>Más datos reales de la NASA</h2><p>Gases tóxicos, gotas de combustible, supresores e incendios grandes.</p></div>
+  <!-- MÁS DATOS NASA -->
+  <section class="panel" id="tab-mas-datos" data-panel="mas-datos" hidden>
+    <div class="head"><h2>Más datos reales de la NASA</h2><p>Gases tóxicos, gotas de combustible, supresores e incendios grandes.</p></div>
     <div class="kpis">
-      <div class="card kpi"><div class="k">Gases medidos · BASS-II</div><div class="v" id="x-gas">—</div><div class="s">pruebas con O₂, CO₂ y CO</div></div>
-      <div class="card kpi"><div class="k">Gotas · FLEX</div><div class="v" id="x-flex">—</div><div class="s">metanol y heptano en la ISS</div></div>
-      <div class="card kpi"><div class="k">Sólidos · BASS-I</div><div class="v" id="x-bass1">—</div><div class="s">pruebas en la guantera de la ISS</div></div>
-      <div class="card kpi"><div class="k">Modelo FLEX (AUC)</div><div class="v" id="x-auc">—</div><div class="s">¿se apaga antes de terminar la gota?</div></div>
+      <div class="glass kpi"><div class="k">Gases medidos · BASS-II</div><div class="v" id="x-gas">—</div><div class="s">pruebas con O₂, CO₂ y CO</div></div>
+      <div class="glass kpi"><div class="k">Gotas · FLEX</div><div class="v" id="x-flex">—</div><div class="s">metanol y heptano en la ISS</div></div>
+      <div class="glass kpi"><div class="k">Sólidos · BASS-I</div><div class="v" id="x-bass1">—</div><div class="s">pruebas en la guantera de la ISS</div></div>
+      <div class="glass kpi"><div class="k">Modelo FLEX (AUC)</div><div class="v" id="x-auc">—</div><div class="s">¿se apaga antes de terminar la gota?</div></div>
     </div>
     <div class="grid two">
-      <div class="card">
-        <div class="kicker" style="margin-bottom:8px">Gases de combustión por material · PSI-25</div>
+      <div class="glass card">
+        <div class="kicker">Gases de combustión por material · PSI-25</div>
         <div class="chartbox sm"><canvas id="gas-chart"></canvas></div>
         <div id="gas-find" class="findings"></div>
         <div class="note" id="gas-note"></div>
       </div>
-      <div class="card">
-        <div class="kicker" style="margin-bottom:8px">¿Se apaga la gota? · modelo entrenado con FLEX</div>
+      <div class="glass card">
+        <div class="kicker">¿Se apaga la gota? · modelo entrenado con FLEX</div>
         <div class="ctrl"><label>Oxígeno <b id="fx-v-o2"></b></label><input id="fx-o2" type="range" min="12" max="34" step="1" value="18"></div>
         <div class="ctrl"><label>Supresor</label>
           <div class="filters" id="fx-dil"><button class="chip on" data-d="n2">N₂ (aire)</button><button class="chip" data-d="co2">CO₂</button><button class="chip" data-d="he">Helio</button></div></div>
@@ -116,49 +152,51 @@
         <div class="ro"><div class="k">Probabilidad de que la llama se apague antes de consumir la gota</div><div class="v" id="fx-p-out">—</div><div class="meter"><i id="fx-meter"></i></div><div class="s" id="fx-warn"></div></div>
       </div>
     </div>
-    <div class="grid two" style="margin-top:16px">
-      <div class="card">
-        <div class="kicker" style="margin-bottom:8px">FLEX · ¿qué tan cerca del límite? (D_ext / D₀) · PSI-69</div>
+    <div class="grid two">
+      <div class="glass card">
+        <div class="kicker">FLEX · ¿qué tan cerca del límite? (D_ext / D₀) · PSI-69</div>
         <div class="filters" id="flex-filter"></div>
         <div class="chartbox"><canvas id="flex-chart"></canvas></div>
         <div id="flex-find" class="findings"></div>
         <div class="note" id="flex-note"></div>
       </div>
       <div class="grid" style="align-content:start">
-        <div class="card">
-          <div class="kicker" style="margin-bottom:8px">SAFFIRE-I · misma tela, distinta dirección del aire · PSI-98</div>
-          <div class="chartbox sm" style="height:150px"><canvas id="saffire-chart"></canvas></div>
-          <p class="note" id="saffire-find" style="color:var(--text);font-size:13px"></p>
+        <div class="glass card">
+          <div class="kicker">SAFFIRE-I · misma tela, distinta dirección del aire · PSI-98</div>
+          <div class="chartbox xs"><canvas id="saffire-chart"></canvas></div>
+          <p class="note strong" id="saffire-find"></p>
         </div>
-        <div class="card">
-          <div class="kicker" style="margin-bottom:8px">BASS-I · qué se quemó en la ISS · PSI-26</div>
+        <div class="glass card">
+          <div class="kicker">BASS-I · qué se quemó en la ISS · PSI-26</div>
           <div class="chartbox sm"><canvas id="bass1-chart"></canvas></div>
           <div class="note" id="bass1-note"></div>
         </div>
       </div>
     </div>
-    <div class="card" style="margin-top:16px">
-      <div class="kicker" style="margin-bottom:8px">Fuentes de datos (NASA PSI, licencia CC0, con DOI)</div>
+    <div class="glass card">
+      <div class="kicker">Fuentes de datos (NASA PSI, licencia CC0, con DOI)</div>
       <div id="x-sources" class="sources"></div>
     </div>
   </section>
 
-  <!-- 04 IA -->
-  <section id="s-ai">
-    <div class="h2"><span class="n">05</span><h2>Analista IA</h2><p>Responde con fuentes NASA (RAG), el modelo de ML y tu escenario.</p></div>
-    <div class="grid wide">
-      <div class="card chat">
+  <!-- ASISTENTE -->
+  <section class="panel" id="tab-asistente" data-panel="asistente" hidden>
+    <div class="grid assistant">
+      <aside class="glass card astro-card">
+        <div class="porthole"><img src="img/mascot-head.webp" alt="Astro, el burro astronauta de FIREFALL"></div>
+        <h2>Astro</h2>
+        <div class="role">Copiloto de seguridad contra incendios</div>
+        <div class="status" id="aistatus"></div>
+        <div class="kicker">Preguntas rápidas</div>
+        <div class="qs" id="quick"></div>
+        <button class="btn ghost" id="report">Generar reporte de seguridad de mi escenario</button>
+      </aside>
+      <div class="glass card chat">
         <div class="msgs" id="msgs"></div>
         <div class="composer">
           <textarea id="q" placeholder="Ej. ¿Qué ventilación es más riesgosa para una base lunar?"></textarea>
           <button class="btn" id="send">Enviar</button>
         </div>
-        <div class="status" id="aistatus"></div>
-      </div>
-      <div class="card">
-        <div class="kicker" style="margin-bottom:10px">Preguntas rápidas</div>
-        <div class="qs" id="quick"></div>
-        <button class="btn ghost" id="report">⚡ Generar reporte de seguridad de mi escenario</button>
       </div>
     </div>
   </section>
@@ -167,8 +205,14 @@
     Fuentes: NASA Physical Sciences Informatics (PSI-25 BASS-II, PSI-26 BASS-I, PSI-69 FLEX, PSI-98 SAFFIRE-I, PSI-10 ACME), NASA Technical Reports Server (NTRS), NASA Science, NASA Glenn (GRC) y NASA Image and Video Library.
     Cada ficha del catálogo enlaza a su publicación original. Las predicciones son de un modelo estadístico y no sustituyen pruebas de certificación de materiales.
   </footer>
-</div>
+</main>
+
+<button class="astro-fab" data-tab="asistente" aria-label="Hablar con Astro">
+  <img src="img/mascot-head.webp" alt="">
+  <span>¿Dudas? Pregúntale a Astro</span>
+</button>
+
 <script src="js/config.js"></script>
-<script type="module" src="js/main.js?v=3"></script>
+<script type="module" src="js/main.js?v=4"></script>
 </body>
 </html>
