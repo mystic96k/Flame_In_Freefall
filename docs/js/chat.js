@@ -20,8 +20,8 @@ function md(s) {
     .replace(/^#{2,3} (.*)$/gm, "<h4>$1</h4>")
     .replace(/\*\*(.+?)\*\*/g, "<b>$1</b>")
     .replace(/_(.+?)_/g, "<i>$1</i>")
-    .replace(/(?:^|\n)((?:[-•] .*(?:\n|$))+)/g, (m, l) =>
-      "<ul>" + l.trim().split("\n").map((x) => `<li>${x.replace(/^[-•] /, "")}</li>`).join("") + "</ul>")
+    .replace(/(?:^|\n)((?:[ \t]*(?:[-•*]|\d+\.) .*(?:\n|$))+)/g, (m, l) =>
+      "<ul>" + l.trim().split("\n").map((x) => `<li>${x.trim().replace(/^(?:[-•*]|\d+\.) /, "")}</li>`).join("") + "</ul>")
     .replace(/\n/g, "<br>");
 }
 

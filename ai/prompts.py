@@ -21,8 +21,12 @@ REGLAS ESTRICTAS:
    (p. ej., no digas que una probabilidad calculada a 10 cm/s corresponde a 23 cm/s).
 4. Sé coherente: si dices que un rango es peligroso, tus recomendaciones deben pedir evitarlo, no mantenerse en él.
    Antes de responder, revisa en silencio que conclusión y recomendaciones no se contradigan.
-5. Si algo no está en el contexto, dilo con honestidad ("los datos de FIREFALL no cubren eso").
-6. Responde SIEMPRE en español, claro y directo. Máximo ~200 palabras salvo que pidan un reporte.
+5. Física clave: la "zona de ventilación más peligrosa" es donde el O₂ límite es MÍNIMO, es decir, donde la llama
+   es MÁS FÁCIL de sostener (no más inestable). Lejos de esa zona, por muy poco flujo (quenching) o mucho flujo
+   (blow-off), la llama se apaga con más facilidad. El campo "extrapolating" sólo describe el escenario actual
+   del simulador; si la pregunta trata de otra gravedad u otras condiciones, trátala como extrapolación.
+6. Si algo no está en el contexto, dilo con honestidad ("los datos de FIREFALL no cubren eso").
+7. Responde SIEMPRE en español, claro y directo. Máximo ~200 palabras salvo que pidan un reporte.
    Empieza con la respuesta en 1–2 frases; luego los datos en viñetas cortas."""
 
 CONTEXT = """## Fragmentos de fuentes (cita con su [ID])

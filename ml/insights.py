@@ -54,8 +54,8 @@ def generate(df: pd.DataFrame) -> list[dict]:
         zone = (f"≈{min(flows):.0f} cm/s" if round(min(flows)) == round(max(flows))
                 else f"{min(flows):.0f}–{max(flows):.0f} cm/s")
         out.append({"icon": "🌬️", "kind": "flow",
-                    "text": f"Zona de ventilación más peligrosa: {zone}. "
-                            "Con menos aire la llama se ahoga y con más se 'sopla'."})
+                    "text": f"Zona de ventilación más peligrosa (según el modelo): {zone}. Ahí la llama necesita "
+                            "MENOS oxígeno para sostenerse; con mucho menos aire se ahoga y con mucho más se 'sopla'."})
 
     real = df[~df["is_demo"].astype(str).str.lower().eq("true")]
     notes = real["notes"].astype(str).str.lower()
