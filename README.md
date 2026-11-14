@@ -116,7 +116,20 @@ apéndice de Zhao, T'ien, Ferkul y Olson (2015), [NTRS 20150008962](https://ntrs
   una prueba con flujo cambiado "10→2.2 cm/s" aporta dos: antes y después del cambio)
 - Las pruebas "sin ignición" se muestran pero el modelo no las usa (no encender ≠ apagarse); las de muestras reutilizadas que no encendieron se excluyen.
 
-La IA usa además `data/knowledge/faq.json` (16 preguntas frecuentes curadas con fuentes) y `experiments.json` (catálogo).
+**Más datos reales (sección 04 del panel)** — `python -m pipeline.nasa_extra` (también lo corre `run_pipeline`) → `data/processed/extra.json`:
+
+| Fuente (NASA PSI, CC0) | Archivo | Qué se hace |
+| --- | --- | --- |
+| [PSI-25 BASS-II](https://psi.nasa.gov/physci/repo/data/investigations/PSI-25) · DOI 10.60555/4qc4-de67 | `data/raw/nasa/psi25_bass2_gases_raw.csv` (129 pruebas) | O₂ consumido, CO₂ y CO generados por material; CO/CO₂ como indicador de combustión incompleta |
+| [PSI-69 FLEX](https://psi.nasa.gov/physci/repo/data/investigations/PSI-69) · DOI 10.60555/mbq8-0451 | `data/raw/nasa/psi69_flex_rows_p*.txt` (274 gotas) | 2.º modelo ML: ¿se apaga la llama antes de terminar la gota? (AUC 0.83) + D_ext/D₀ con bosque aleatorio (R² 0.63) |
+| [PSI-26 BASS-I](https://psi.nasa.gov/physci/repo/data/investigations/PSI-26) · DOI 10.60555/58h4-dy80 | en `pipeline/nasa_extra.py` | Inventario de 122 pruebas por material |
+| [PSI-98 SAFFIRE-I](https://psi.nasa.gov/physci/repo/data/investigations/PSI-98) · DOI 10.60555/0t15-1z43 | en `pipeline/nasa_extra.py` | 420 s (a favor del flujo) vs 70 s (en contra) |
+
+Nota: la tabla web de FLEX omite celdas vacías; los valores faltantes se asignan por posición. Para análisis finos, descarga
+`PSI-69_Experimental table_FLEX.csv` desde la página de PSI.
+
+La IA usa además `data/knowledge/faq.json` (23 preguntas frecuentes curadas con fuentes), `experiments.json` (11 experimentos,
+incluidos E-FIELD, BRE y Candle Flames en la Mir) y los resúmenes de los datasets anteriores.
 
 ## 3b. Cómo conseguir MÁS datos reales de la NASA
 
