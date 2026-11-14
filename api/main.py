@@ -119,12 +119,13 @@ def ask(req: AskRequest):
     s = req.scenario
     pred = predict_scenario(s.material, s.o2_pct, s.flow_cm_s, s.gravity_g, s.pressure_kpa)
     return analyst.answer(req.question, s.model_dump(), pred, ml_insights.summary(runs()),
-                          cached_insights(), [m.model_dump() for m in req.history])
+                          cached_insights(), [m.model_dump() for m in req.history], req.lang)
 
 
 @app.post("/api/report", response_model=AskResponse)
-def report(s: Scenario):
-    return ask(AskRequest(question=prompts.REPORT_REQUEST, scenario=s))
+def report(s: Scenario, lang: str = Query("es", pattern="^(es|en)$")):
+    q = prompts.REPORT_REQUEST_EN if lang == "en" else prompts.REPORT_REQUEST
+    return ask(AskRequest(question=q, scenario=s, lang=lang))
 
 
 # El dashboard se sirve desde la misma app (un solo servicio para desplegar).

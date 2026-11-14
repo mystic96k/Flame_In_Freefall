@@ -4,6 +4,7 @@
 //              data/static.json y calcula las predicciones en el navegador. Si js/config.js define
 //              window.FIREFALL_API, el chat usa ese backend (Claude) y todo lo demás sigue local.
 import { staticApi } from "./static_api.js";
+import { LANG } from "./i18n.js";
 
 export const API_BASE = ""; // mismo sitio; el backend remoto para el chat se configura en js/config.js
 
@@ -29,8 +30,8 @@ const serverApi = {
   extra: () => request("/api/extra"),
   predict: (scenario) => request("/api/predict", { method: "POST", body: JSON.stringify(scenario) }),
   ask: (question, scenario, history) =>
-    request("/api/ask", { method: "POST", body: JSON.stringify({ question, scenario, history }) }),
-  report: (scenario) => request("/api/report", { method: "POST", body: JSON.stringify(scenario) }),
+    request("/api/ask", { method: "POST", body: JSON.stringify({ question, scenario, history, lang: LANG }) }),
+  report: (scenario) => request(`/api/report?lang=${LANG}`, { method: "POST", body: JSON.stringify(scenario) }),
 };
 
 async function hasServer() {

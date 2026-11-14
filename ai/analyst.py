@@ -19,16 +19,17 @@ def _format_sources(question: str) -> tuple[str, list[dict]]:
 
 
 def answer(question: str, scenario: dict, prediction: dict, summary: dict, insights: list[dict],
-           history: list[dict] | None = None) -> dict:
+           history: list[dict] | None = None, lang: str = "es") -> dict:
+    en = lang == "en"
     sources_text, refs = _format_sources(question)
     context = prompts.CONTEXT.format(
         sources=sources_text,
         model=json.dumps({"resumen": summary, "prediccion_escenario": prediction}, ensure_ascii=False),
-        insights="\n".join(f"- {i['text']}" for i in insights),
+        insights="\n".join(f"- {i.get('text_en', i['text']) if en else i['text']}" for i in insights),
         scenario=json.dumps(scenario, ensure_ascii=False),
     )
     history = [m for m in (history or []) if m.get("role") in {"user", "assistant"}][-6:]
-    raw = [*history, {"role": "user", "content": f"{context}\n\n---\nPregunta: {question}"}]
+    raw = [*history, {"role": "user", "content": f"{context}\n\n---\n{'Question (answer in English)' if en else 'Pregunta'}: {question}"}]
     messages: list[dict] = []
     for m in raw:  # garantiza turnos alternados que empiezan en "user"
         if not messages and m["role"] != "user":
@@ -39,19 +40,22 @@ def answer(question: str, scenario: dict, prediction: dict, summary: dict, insig
             messages.append(m)
 
     try:
-        text = llm_client.chat(prompts.SYSTEM, messages)
+        text = llm_client.chat(prompts.system(lang), messages)
         mode = "llm"
     except llm_client.LLMUnavailable:
-        text = _offline(question, scenario, prediction, insights, refs)
+        text = _offline(question, scenario, prediction, insights, refs, lang)
         mode = "offline"
     except Exception as e:  # error de red / llave inválida
-        text = _offline(question, scenario, prediction, insights, refs) + f"\n\n_(IA no disponible: {str(e)[:160]})_"
+        text = _offline(question, scenario, prediction, insights, refs, lang) + (
+            f"\n\n_(AI unavailable: {str(e)[:160]})_" if en else f"\n\n_(IA no disponible: {str(e)[:160]})_")
         mode = "offline"
     return {"answer": text, "sources": refs, "mode": mode}
 
 
-def _offline(question, scenario, prediction, insights, refs) -> str:
+def _offline(question, scenario, prediction, insights, refs, lang="es") -> str:
     loc = prediction.get("limiting_o2_pct")
+    if lang == "en":
+        return _offline_en(scenario, prediction, insights, refs, loc)
     faq = {f["id"]: f for f in load_faq()}
     best = next((r for r in refs if r["kind"] == "faq" and r["score"] >= 0.12), None)
     if best:
@@ -69,4 +73,25 @@ def _offline(question, scenario, prediction, insights, refs) -> str:
     lines += [f"- {i['text']}" for i in insights[:2]]
     if refs:
         lines.append("- Fuentes relacionadas: " + ", ".join(f"[{r['id']}]" for r in refs[:3]))
+    return "\n".join(lines)
+
+
+def _offline_en(scenario, prediction, insights, refs, loc) -> str:
+    faq = {f["id"]: f for f in load_faq()}
+    best = next((r for r in refs if r["kind"] == "faq" and r["score"] >= 0.12), None)
+    if best and faq[best["id"]].get("answer_en"):
+        f = faq[best["id"]]
+        return f"**{f['question_en']}**\n\n{f['answer_en']}\n\n_Answer from FIREFALL's knowledge base (no language model)._"
+    lines = [
+        "**Automatic answer (no language model)**",
+        f"- Scenario: {scenario.get('gravity_g', 0)} g, {scenario.get('o2_pct')}% O₂, "
+        f"{scenario.get('flow_cm_s')} cm/s, {scenario.get('material')}.",
+        f"- Probability of sustained burning: **{prediction['risk_score']}/100**"
+        + (f"; estimated O₂ limit {loc}%." if loc else "."),
+    ]
+    if prediction.get("extrapolating"):
+        lines.append("- ⚠️ The model is extrapolating outside the data range.")
+    lines += [f"- {i.get('text_en', i['text'])}" for i in insights[:2]]
+    if refs:
+        lines.append("- Related sources: " + ", ".join(f"[{r['id']}]" for r in refs[:3]))
     return "\n".join(lines)

@@ -190,6 +190,8 @@ Crédito: NASA. Útiles para slides y para una galería "imagen real vs. simulac
 
 ## 5. IA
 
+**Bilingüe (ES / EN):** botón ES · EN en la barra superior, o `?lang=en` en la URL. Los textos de la interfaz están en `frontend/js/i18n.js`; los datos traen campos `*_en` (catálogo, FAQ, hallazgos) y la IA responde en el idioma elegido (`lang` en `/api/ask` y `/api/report`).
+
 `LLM_PROVIDER` en `.env`: `openai_compatible` (por defecto Groq gratis; también Ollama local u OpenAI), `anthropic` o `none`.
 Con `none` el demo sigue funcionando con respuestas automáticas del modelo + fuentes, así que nunca se queda en blanco.
 La llave vive sólo en el backend.

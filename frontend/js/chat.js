@@ -1,20 +1,13 @@
 // Chat con el analista IA (/api/ask) y reporte de seguridad (/api/report).
 import { api } from "./api.js";
 import { scenario } from "./state.js";
+import { t } from "./i18n.js";
 
 const $ = (id) => document.getElementById(id);
 const history = [];
 let busy = false;
 
-const QUICK = [
-  "¿Por qué la llama es esférica en el espacio?",
-  "¿Qué nivel de ventilación es más peligroso y por qué?",
-  "Compara FLEX y Saffire: ¿qué aprendimos de cada uno?",
-  "¿Qué gases tóxicos deja un incendio en una nave?",
-  "¿Qué gas apaga mejor el fuego en el espacio: CO₂, helio o nitrógeno?",
-  "¿Cómo debería responder la tripulación a un incendio en la ISS?",
-  "¿Mi escenario actual es seguro? Explícame el riesgo.",
-];
+const QUICK = t("quick");
 
 function md(s) {
   const e = s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
@@ -38,7 +31,7 @@ function add(role, html) {
 
 function refs(sources) {
   if (!sources?.length) return "";
-  return `<div class="refs">Fuentes: ${sources.map((s) => s.url
+  return `<div class="refs">${t("sources")} ${sources.map((s) => s.url
     ? `<a href="${s.url}" target="_blank" rel="noopener">[${s.id}]</a>`
     : `[${s.id}]`).join(" ")}</div>`;
 }
@@ -47,14 +40,14 @@ async function run(label, call) {
   if (busy) return;
   busy = true; $("send").disabled = true;
   add("u", md(label));
-  const box = add("a", '<span style="color:var(--dim)">Analizando…</span>');
+  const box = add("a", `<span style="color:var(--dim)">${t("thinking")}</span>`);
   try {
     const res = await call();
     box.innerHTML = md(res.answer) + refs(res.sources);
     history.push({ role: "user", content: label }, { role: "assistant", content: res.answer });
-    $("aistatus").textContent = res.mode === "llm" ? "IA conectada (modelo de lenguaje + fuentes NASA + modelo de ML)" : "Respuesta de la base de conocimiento (sin modelo de lenguaje)";
+    $("aistatus").textContent = res.mode === "llm" ? t("aiOn") : t("aiKb");
   } catch (e) {
-    box.textContent = `Error: ${e.message}`;
+    box.textContent = `${t("error")} ${e.message}`;
   } finally {
     busy = false; $("send").disabled = false;
   }
@@ -68,12 +61,10 @@ export function ask(question) {
 }
 
 export function initChat(llmAvailable, mode = "server") {
-  add("a", "Hola 👋 Soy el analista de <b>FIREFALL</b>. Uso fuentes de la NASA, el modelo de ML y tu escenario del simulador. Pregúntame lo que quieras.");
+  add("a", t("hello"));
   $("aistatus").textContent = llmAvailable
-    ? "IA conectada (modelo de lenguaje + fuentes NASA + modelo de ML)"
-    : mode === "static"
-      ? "Respondo con la base de conocimiento de FIREFALL y el modelo de ML (sin modelo de lenguaje)"
-      : "Sin LLM configurado: respondo con el modelo de ML y las fuentes (configura .env)";
+    ? t("aiOn")
+    : mode === "static" ? t("aiStatic") : t("aiNoLlm");
   QUICK.forEach((t) => {
     const b = document.createElement("button");
     b.textContent = t;
@@ -84,6 +75,6 @@ export function initChat(llmAvailable, mode = "server") {
   $("q").addEventListener("keydown", (e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); ask($("q").value); } });
   $("report").onclick = () => {
     document.getElementById("s-ai").scrollIntoView({ behavior: "smooth" });
-    run("⚡ Reporte de seguridad de mi escenario", () => api.report({ ...scenario }));
+    run(t("reportLabel"), () => api.report({ ...scenario }));
   };
 }

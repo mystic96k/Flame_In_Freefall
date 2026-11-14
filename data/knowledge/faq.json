@@ -16,7 +16,19 @@
   "sources": [
    "https://svs.gsfc.nasa.gov/31394",
    "https://science.nasa.gov/?p=426601"
-  ]
+  ],
+  "question_en": "Why is a flame spherical in space?",
+  "keywords_en": [
+   "spherical",
+   "sphere",
+   "shape",
+   "round",
+   "ball",
+   "candle",
+   "droplet",
+   "teardrop"
+  ],
+  "answer_en": "On Earth, hot flame gases are less dense and rise while cold air flows in from below: that convection stretches the flame into a teardrop. In microgravity there is no buoyancy, so oxygen arrives only by diffusion, equally from every direction, and the flame becomes a sphere around the fuel. That is why the simulator's shape changes from a sphere (ISS) to a candle (Earth)."
  },
  {
   "id": "FAQ-AZUL",
@@ -32,7 +44,16 @@
   "answer": "El color amarillo de una vela en la Tierra viene del hollín incandescente. En microgravedad las llamas de sólidos suelen verse azules y tenues; un investigador de UC Berkeley que trabaja con la NASA lo resume diciendo que una llama en microgravedad se va a ver azul. En el simulador, el hollín naranja sólo aparece cuando sube la gravedad.",
   "sources": [
    "https://engineering.berkeley.edu/news/2024/12/nasa-funded-project-offers-new-insights-into-fire-behavior-in-space/"
-  ]
+  ],
+  "question_en": "Why do flames look blue in microgravity?",
+  "keywords_en": [
+   "blue",
+   "color",
+   "colour",
+   "yellow",
+   "soot"
+  ],
+  "answer_en": "The yellow color of a candle on Earth comes from glowing soot. In microgravity, flames over solids usually look blue and dim; a UC Berkeley researcher working with NASA sums it up by saying a microgravity flame will look blue. In the simulator, orange soot only appears as gravity increases."
  },
  {
   "id": "FAQ-FRIA",
@@ -50,7 +71,14 @@
   "sources": [
    "https://science.nasa.gov/?p=426601",
    "https://ntrs.nasa.gov/citations/20150023456"
-  ]
+  ],
+  "question_en": "What is a cool flame?",
+  "keywords_en": [
+   "cool flame",
+   "cold flame",
+   "invisible"
+  ],
+  "answer_en": "During FLEX on the ISS, after the hot flame around a fuel droplet went out, the droplet kept reacting with an almost invisible, much cooler flame. It was an important discovery: for safety it means that 'not seeing fire' does not guarantee there is no combustion, so detectors must measure gases and temperature, not just light."
  },
  {
   "id": "FAQ-VENTILACION",
@@ -68,7 +96,16 @@
   "answer": "Sin gravedad no hay convección natural, así que el único aire fresco que llega a la llama es el que mueve la ventilación. En las pruebas reales de BASS-II con tela de algodón/fibra de vidrio, la llama se apagó por falta de flujo ('quenching') con flujos de 2.2 a 5 cm/s y por exceso de flujo ('blow-off') a 47 cm/s en una muestra angosta. Entre esos extremos la tela ardió incluso con 16.9–17.6% de oxígeno, menos que el 21% del aire normal.",
   "sources": [
    "https://ntrs.nasa.gov/citations/20150008962"
-  ]
+  ],
+  "question_en": "Why is ventilation so important in space?",
+  "keywords_en": [
+   "ventilation",
+   "airflow",
+   "flow",
+   "fan",
+   "air"
+  ],
+  "answer_en": "Without gravity there is no natural convection, so the only fresh air reaching the flame is what ventilation moves. In real BASS-II tests with cotton/fiberglass fabric, the flame went out from too little flow ('quenching') at 2.2 to 5 cm/s and from too much flow ('blow-off') at 47 cm/s on a narrow sample. Between those extremes the fabric burned even at 16.9–17.6% oxygen, below the 21% of normal air."
  },
  {
   "id": "FAQ-APAGAR-VENT",
@@ -86,7 +123,15 @@
   "sources": [
    "https://ntrs.nasa.gov/api/citations/20210017780/downloads/Saffire%20ICES%202021%20Saffire%20Final%20presentation%20compressed.pdf",
    "https://ntrs.nasa.gov/citations/20150008962"
-  ]
+  ],
+  "question_en": "Does turning off ventilation put out the fire?",
+  "keywords_en": [
+   "turn off",
+   "shut off",
+   "ventilation off",
+   "stop the fans"
+  ],
+  "answer_en": "It helps, but it is not a guarantee. With very little flow the flame loses oxygen and can go out (in BASS-II this happened between 2.2 and 5 cm/s). But in the large-scale Saffire experiments inside Cygnus vehicles, some flames shrank when flow was reduced or removed and survived, or even reignited. NASA concluded that fast extinction cannot be assumed in quiescent conditions."
  },
  {
   "id": "FAQ-SAFFIRE",
@@ -102,7 +147,14 @@
   "sources": [
    "https://ntrs.nasa.gov/citations/20170008805",
    "https://ntrs.nasa.gov/citations/20210011521"
-  ]
+  ],
+  "question_en": "What was Saffire and what did we learn?",
+  "keywords_en": [
+   "saffire",
+   "cygnus",
+   "large fire"
+  ],
+  "answer_en": "Saffire was a series of intentional fires inside empty Cygnus cargo vehicles after they left the ISS. The first sample measured 94 × 40.6 cm, an order of magnitude larger than earlier tests, with about 20 cm/s of flow. We learned that a flame spreading with the flow stays limited in size (on Earth it would grow and accelerate), that duct size changes spread rate, and that fires of up to 10 kW did not push average cabin conditions to unacceptable levels."
  },
  {
   "id": "FAQ-MENOS-O2",
@@ -121,7 +173,14 @@
   "sources": [
    "https://engineering.berkeley.edu/news/2024/12/nasa-funded-project-offers-new-insights-into-fire-behavior-in-space/",
    "https://ntrs.nasa.gov/citations/20150008962"
-  ]
+  ],
+  "question_en": "Do materials burn with less oxygen in space?",
+  "keywords_en": [
+   "less oxygen",
+   "lower oxygen",
+   "low oxygen"
+  ],
+  "answer_en": "It can happen. UC Berkeley researchers supported by NASA report that in microgravity some materials burn with less oxygen than expected. In the real BASS-II data FIREFALL uses, the cotton/fiberglass fabric sustained a flame at 16.9% O₂ with forced flow, while 3 tests at 16.4–16.8% did not even ignite. That is why flammability tests done on Earth are not enough to certify spacecraft materials."
  },
  {
   "id": "FAQ-LOC",
@@ -137,7 +196,15 @@
   "answer": "Es el porcentaje mínimo de oxígeno con el que un material sostiene una llama en ciertas condiciones. FIREFALL lo estima con su modelo de machine learning: busca el nivel de O₂ donde la probabilidad de combustión cruza 50% para el flujo, la presión y la gravedad que elijas. Si el 21% del aire está por encima de ese límite, el material puede arder.",
   "sources": [
    "https://ntrs.nasa.gov/citations/20150008962"
-  ]
+  ],
+  "question_en": "What is the limiting oxygen (O₂ limit)?",
+  "keywords_en": [
+   "limiting oxygen",
+   "oxygen limit",
+   "loc",
+   "loi"
+  ],
+  "answer_en": "It is the minimum oxygen percentage at which a material sustains a flame under given conditions. FIREFALL estimates it with its machine-learning model: it finds the O₂ level where the burn probability crosses 50% for the flow, pressure and gravity you choose. If the 21% of air is above that limit, the material can burn."
  },
  {
   "id": "FAQ-DATOS",
@@ -156,7 +223,15 @@
   "sources": [
    "https://ntrs.nasa.gov/citations/20150008962",
    "https://www.nasa.gov/physical-sciences-informatics-psi/psi-investigations-by-research-area/"
-  ]
+  ],
+  "question_en": "Where does FIREFALL's data come from?",
+  "keywords_en": [
+   "data",
+   "dataset",
+   "where",
+   "source"
+  ],
+  "answer_en": "The explorer and model tests come from the test table published in the appendix of the BASS / BASS-II paper (Zhao, T'ien, Ferkul and Olson, 2015; NTRS 20150008962): 31 real ISS tests with cotton/fiberglass fabric, at 1 atm, with flows of 2 to 53 cm/s and 16.4–21% O₂. Section 04 adds NASA PSI tables (BASS-II gases, BASS-I, FLEX, SAFFIRE-I), and the catalog summarizes NASA publications (FLEX, ACME, Saffire, SoFIE…)."
  },
  {
   "id": "FAQ-MODELO",
@@ -172,7 +247,16 @@
    "como funciona"
   ],
   "answer": "Es un clasificador que predice si la llama se sostiene o se apaga. Usa el oxígeno, la presión y un 'flujo efectivo' que combina la ventilación con la flotación por gravedad; incluye el cuadrado del logaritmo del flujo para aprender que con muy poco flujo la llama se ahoga y con mucho se sopla. Se compararon regresión logística, random forest y gradient boosting con validación cruzada, y se eligió la logística por ser interpretable y más confiable con pocos datos. Con las pruebas reales de BASS-II su precisión en validación cruzada ronda 86%.",
-  "sources": []
+  "sources": [],
+  "question_en": "How does the machine-learning model work?",
+  "keywords_en": [
+   "model",
+   "machine learning",
+   "ml",
+   "classifier",
+   "logistic"
+  ],
+  "answer_en": "It is a classifier that predicts whether the flame is sustained or goes out. It uses oxygen, pressure and an 'effective flow' that combines ventilation with gravity-driven buoyancy; it includes the squared log of flow so it can learn that with very little flow the flame suffocates and with a lot it blows off. Logistic regression, random forest and gradient boosting were compared with cross-validation, and logistic regression was chosen for being interpretable and more reliable with little data. On the real BASS-II tests its cross-validated accuracy is about 86%."
  },
  {
   "id": "FAQ-GRAVEDAD",
@@ -186,7 +270,16 @@
    "base"
   ],
   "answer": "La gravedad parcial agrega algo de flotación, que actúa como un flujo extra de aire hacia la llama. FIREFALL lo representa con el 'flujo efectivo'. Pero ojo: todas las pruebas reales del modelo son en microgravedad, así que las predicciones para la Luna o Marte son extrapolaciones y la página las marca como tales. Para validarlo harían falta experimentos en gravedad parcial.",
-  "sources": []
+  "sources": [],
+  "question_en": "What happens on the Moon or Mars?",
+  "keywords_en": [
+   "moon",
+   "mars",
+   "lunar",
+   "partial gravity",
+   "gravity"
+  ],
+  "answer_en": "Partial gravity adds some buoyancy, which acts like extra airflow toward the flame. FIREFALL represents it with the 'effective flow'. But note: all the model's real tests are in microgravity, so predictions for the Moon or Mars are extrapolations and the page flags them as such. Validating them would require partial-gravity experiments."
  },
  {
   "id": "FAQ-PRESION",
@@ -203,7 +296,15 @@
   "answer": "Las naves y hábitats de exploración podrían usar menor presión con más oxígeno, lo que cambia la inflamabilidad. Investigadores de UC Berkeley, con apoyo de la NASA, reportan llamas propagándose en microgravedad con 17.8% de O₂ a 100 kPa y con 19.8% a 60 kPa. Las pruebas de BASS-II que usa el modelo son todas a 1 atm (101.3 kPa), por eso mover la presión en el simulador se marca como extrapolación.",
   "sources": [
    "https://engineering.berkeley.edu/news/2024/12/nasa-funded-project-offers-new-insights-into-fire-behavior-in-space/"
-  ]
+  ],
+  "question_en": "How do pressure and exploration atmospheres matter?",
+  "keywords_en": [
+   "pressure",
+   "atmosphere",
+   "exploration",
+   "kpa"
+  ],
+  "answer_en": "Exploration vehicles and habitats might use lower pressure with more oxygen, which changes flammability. UC Berkeley researchers supported by NASA report flames spreading in microgravity at 17.8% O₂ at 100 kPa and 19.8% at 60 kPa. The BASS-II tests used by the model are all at 1 atm (101.3 kPa), so changing pressure in the simulator is flagged as an extrapolation."
  },
  {
   "id": "FAQ-ACME",
@@ -219,7 +320,13 @@
   "answer": "ACME (Advanced Combustion via Microgravity Experiments) fue un conjunto de cinco experimentos con llamas gaseosas en el Combustion Integrated Rack de la ISS. Uno de ellos, el Burning Rate Emulator (BRE), está enfocado en prevenir incendios en naves: imita con gas cómo arden los materiales sólidos. Los otros cuatro buscan mejorar la eficiencia y reducir contaminantes en la combustión en la Tierra.",
   "sources": [
    "https://science.nasa.gov/mission/acme"
-  ]
+  ],
+  "question_en": "What are ACME and the Burning Rate Emulator?",
+  "keywords_en": [
+   "acme",
+   "burning rate emulator"
+  ],
+  "answer_en": "ACME (Advanced Combustion via Microgravity Experiments) was a set of five gaseous-flame experiments in the ISS Combustion Integrated Rack. One of them, the Burning Rate Emulator (BRE), focuses on preventing spacecraft fires: it uses gas to mimic how solid materials burn. The other four aim to improve efficiency and reduce pollutants in combustion on Earth."
  },
  {
   "id": "FAQ-CIR",
@@ -237,7 +344,16 @@
   "sources": [
    "https://svs.gsfc.nasa.gov/31394",
    "https://ntrs.nasa.gov/citations/20170008805"
-  ]
+  ],
+  "question_en": "Where are fire experiments done on the ISS?",
+  "keywords_en": [
+   "cir",
+   "combustion integrated rack",
+   "glovebox",
+   "msg",
+   "where"
+  ],
+  "answer_en": "The main facility is the Combustion Integrated Rack (CIR), which safely contains small flames and needs little crew time. Other experiments, such as BASS, were done in the Microgravity Science Glovebox (MSG). Saffire's large fires were done outside the station, in empty cargo vehicles."
  },
  {
   "id": "FAQ-DETECCION",
@@ -254,7 +370,16 @@
   "sources": [
    "https://ntrs.nasa.gov/citations/20210011521",
    "https://science.nasa.gov/?p=426601"
-  ]
+  ],
+  "question_en": "How is a fire detected in space?",
+  "keywords_en": [
+   "detect",
+   "detection",
+   "detector",
+   "sensor",
+   "smoke"
+  ],
+  "answer_en": "Experiments suggest not relying only on seeing the flame: FLEX showed nearly invisible cool flames, and microgravity flames are often blue and dim. In Saffire IV and V NASA measured CO₂, CO, O₂, HF, HCl, temperature, pressure and aerosols inside the vehicle. SPICE (smoke point) experiments help understand when a flame starts releasing soot, which is what many detectors sense."
  },
  {
   "id": "FAQ-ESCALA",
@@ -272,7 +397,15 @@
   "sources": [
    "https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/20170008805.pdf",
    "https://ntrs.nasa.gov/citations/20150008962"
-  ]
+  ],
+  "question_en": "Why does experiment size matter?",
+  "keywords_en": [
+   "size",
+   "scale",
+   "bigger",
+   "duct"
+  ],
+  "answer_en": "Because fire behavior does not scale linearly. In Saffire, with a larger tunnel the flame spread more slowly than in earlier small tunnels, because in small ducts the hot gas accelerates the flow. BASS-II also used two sample widths (1.2 and 2.2 cm), and the only blow-off extinction happened on the narrow sample."
  },
  {
   "id": "FAQ-CO",
@@ -291,7 +424,19 @@
   "answer": "Los sensores de BASS-II (NASA PSI-25) midieron O₂, CO₂ y CO en cada prueba dentro de la ISS. Cada llama consumió sólo décimas de punto de O₂, pero el CO subió cientos de ppm y llegó a 950 ppm al final de una prueba con barras de PMMA; varias lecturas saturaron el sensor. Los materiales gruesos (losa de PMMA) generaron mucho más CO que las películas delgadas. Lección: en una cabina cerrada el peligro tóxico llega antes que la falta de oxígeno, así que se deben vigilar CO y CO₂ además del fuego. Detalle en la sección 04 del panel (Más datos NASA).",
   "sources": [
    "https://psi.nasa.gov/physci/repo/data/investigations/PSI-25"
-  ]
+  ],
+  "question_en": "What toxic gases does a spacecraft fire leave behind?",
+  "keywords_en": [
+   "co",
+   "carbon monoxide",
+   "gases",
+   "toxic",
+   "co2",
+   "smoke",
+   "breathe",
+   "cabin"
+  ],
+  "answer_en": "BASS-II sensors (NASA PSI-25) measured O₂, CO₂ and CO in every test aboard the ISS. Each flame consumed only tenths of a point of O₂, but CO rose by hundreds of ppm and reached 950 ppm at the end of a PMMA-rod test; several readings saturated the sensor. Thick materials (PMMA slab) produced much more CO than thin films. Lesson: in a closed cabin the toxic hazard arrives before the lack of oxygen, so CO and CO₂ must be monitored as well as fire. Details in section 04 of the dashboard (More NASA data)."
  },
  {
   "id": "FAQ-SUPRESOR",
@@ -311,7 +456,20 @@
   "sources": [
    "https://psi.nasa.gov/physci/repo/data/investigations/PSI-69",
    "https://ntrs.nasa.gov/citations/20150023456"
-  ]
+  ],
+  "question_en": "Which gas puts out fire best in space: CO₂, helium or nitrogen?",
+  "keywords_en": [
+   "suppressant",
+   "extinguisher",
+   "helium",
+   "co2",
+   "nitrogen",
+   "flex",
+   "put out",
+   "extinguish",
+   "droplets"
+  ],
+  "answer_en": "FLEX (NASA PSI-69) burned 274 methanol and heptane droplets on the ISS in air diluted with N₂, CO₂ or helium. CO₂ made droplets burn more slowly (K ≈ 0.45 mm²/s versus ≈ 0.52 in air), while helium made them burn FASTER (≈ 0.61) because it carries heat and oxygen quickly. A flame even existed at only 12% O₂ in nitrogen. Lesson: diluting is not enough; the suppressant and its concentration must be chosen with microgravity data."
  },
  {
   "id": "FAQ-VELA",
@@ -328,7 +486,16 @@
   "sources": [
    "https://ntrs.nasa.gov/api/citations/19970020585/downloads/19970020585.pdf",
    "https://ntrs.nasa.gov/citations/20010074076"
-  ]
+  ],
+  "question_en": "How does a candle behave in space?",
+  "keywords_en": [
+   "candle",
+   "candles",
+   "mir",
+   "wick",
+   "oscillate"
+  ],
+  "answer_en": "In Candle Flames in Microgravity, 79 candles were lit on the Mir station. The flame was a dim blue half-sphere of ~1.5 cm; some lasted more than 45 minutes and burned 0.2–0.6 mg/s, less than half as fast as on Earth. Before going out they oscillated about once per second. BASS also tested Japan wax and paraffin candles on the ISS."
  },
  {
   "id": "FAQ-EFIELD",
@@ -346,7 +513,18 @@
   "sources": [
    "https://science.nasa.gov/biological-physical/investigations/e-field-flames/",
    "https://gipoc.grc.nasa.gov/wp/fcf-cir/acme/electric-field-effects-laminar-diffusion-flames-e-field-flames/"
-  ]
+  ],
+  "question_en": "Can a flame be controlled with electricity?",
+  "keywords_en": [
+   "electric",
+   "electricity",
+   "field",
+   "voltage",
+   "ionic",
+   "e-field",
+   "efield"
+  ],
+  "answer_en": "That is what E-FIELD Flames, part of ACME on the ISS, studies: it applies up to 10 kV between the burner and a mesh to create an 'ionic wind' that changes the flame's shape, soot and stability. Without buoyancy the effect is clean to see. It could lead to controlling or extinguishing fires without suppressant gases; NASA's page does not report final results yet."
  },
  {
   "id": "FAQ-BRE",
@@ -363,7 +541,17 @@
   "sources": [
    "https://science.nasa.gov/biological-physical/investigations/bre/",
    "https://ntrs.nasa.gov/api/citations/20170009141/downloads/20170009141.pdf"
-  ]
+  ],
+  "question_en": "What is the Burning Rate Emulator (BRE)?",
+  "keywords_en": [
+   "bre",
+   "emulator",
+   "burning rate",
+   "heat of gasification",
+   "porous burner",
+   "heat flux"
+  ],
+  "answer_en": "BRE is a porous gas burner that mimics a burning solid or liquid and measures the heat the flame returns to it. That way the flammability of many materials can be rated with a single device. In the 5 s drop tower (Markan et al., 2017) it emulated heats of gasification from 0.4 to 4 kJ/g with 21–30% O₂ and 0.5–1 atm. It helps tell whether Earth material tests hold on the Moon or Mars."
  },
  {
   "id": "FAQ-SAFFIRE1",
@@ -380,7 +568,18 @@
   "answer": "Sí. En SAFFIRE-I (NASA PSI-98) se quemó una tela de 40 × 94 cm dentro del carguero Cygnus con aire a 20 cm/s y 21.5% de O₂. Con la llama avanzando a favor del flujo ardió 420 s; contra el flujo, sólo 70 s. Para un hábitat, la ventilación debe poder detenerse o invertirse ante un incendio.",
   "sources": [
    "https://psi.nasa.gov/physci/repo/data/investigations/PSI-98"
-  ]
+  ],
+  "question_en": "Does airflow direction matter in a large fire?",
+  "keywords_en": [
+   "direction",
+   "concurrent",
+   "opposed",
+   "saffire-i",
+   "cygnus",
+   "large fire",
+   "against the flow"
+  ],
+  "answer_en": "Yes. In SAFFIRE-I (NASA PSI-98) a 40 × 94 cm fabric was burned inside the Cygnus cargo vehicle with 20 cm/s airflow and 21.5% O₂. With the flame spreading with the flow it burned 420 s; against the flow, only 70 s. In a habitat, ventilation must be able to stop or reverse during a fire."
  },
  {
   "id": "FAQ-FUENTES",
@@ -398,6 +597,16 @@
   "sources": [
    "https://psi.nasa.gov/physci/repo/data/investigations/PSI-25",
    "https://psi.nasa.gov/physci/repo/data/investigations/PSI-69"
-  ]
+  ],
+  "question_en": "Where does the project's data come from?",
+  "keywords_en": [
+   "sources",
+   "data",
+   "psi",
+   "doi",
+   "origin",
+   "real"
+  ],
+  "answer_en": "Everything comes from NASA: (1) a 31-test BASS-II table from NTRS report 20150008962 for the classifier; (2) NASA PSI Experimental Tables: PSI-25 BASS-II (gases), PSI-26 BASS-I (inventory of 122 tests), PSI-69 FLEX (274 droplets) and PSI-98 SAFFIRE-I, all CC0 with DOIs; (3) NTRS reports on BRE and Candle Flames; (4) NASA Science and GRC pages for E-FIELD and ACME. Section 04 of the dashboard lists every source with its link."
  }
 ]

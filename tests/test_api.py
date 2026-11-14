@@ -59,3 +59,11 @@ def test_extra(client):
     r = client.get("/api/extra")
     assert r.status_code == 200
     assert r.json()["flex"]["n_tests"] == 274
+
+
+def test_ask_in_english(client):
+    r = client.post("/api/ask", json={"question": "What toxic gases does a spacecraft fire leave behind?", "lang": "en"})
+    assert r.status_code == 200
+    if r.json()["mode"] == "offline":
+        assert "monoxide" in r.json()["answer"].lower() or "scenario" in r.json()["answer"].lower()
+    assert client.post("/api/report?lang=en", json={}).status_code == 200

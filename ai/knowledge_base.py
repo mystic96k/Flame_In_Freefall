@@ -40,11 +40,13 @@ def load_faq() -> list[dict]:
 def _chunks() -> list[Chunk]:
     chunks: list[Chunk] = []
     for f in load_faq():
-        text = f"{f['question']} {' '.join(f.get('keywords', []))}. {f['answer']}"
+        text = (f"{f['question']} {' '.join(f.get('keywords', []))}. {f['answer']} "
+                f"{f.get('question_en', '')} {' '.join(f.get('keywords_en', []))}. {f.get('answer_en', '')}")
         chunks.append(Chunk(f["id"], f["question"], text, (f.get("sources") or [""])[0], "faq"))
     for e in load_catalog():
         text = (f"{e['name']} ({e['id']}), {e['platform']}. {e['summary']} "
-                f"Hallazgo: {e['finding']} Lección de seguridad: {e['safety']}")
+                f"Hallazgo: {e['finding']} Lección de seguridad: {e['safety']} "
+                f"{e.get('summary_en', '')} Finding: {e.get('finding_en', '')} Safety lesson: {e.get('safety_en', '')}")
         chunks.append(Chunk(e["id"], e["name"], text, (e.get("sources") or [""])[0], "catalog"))
     try:  # datos reales extra de PSI (gases BASS-II, FLEX, BASS-I, SAFFIRE-I)
         from pipeline.nasa_extra import knowledge_chunks

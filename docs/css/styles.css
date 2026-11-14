@@ -109,3 +109,8 @@ footer{margin-top:40px;border-top:1px solid var(--line);padding-top:18px;color:v
 .sources a{display:block;background:rgba(5,7,13,.5);border:1px solid var(--line);border-radius:10px;padding:10px 12px;text-decoration:none;font-size:13px}
 .sources a small{display:block;color:var(--dim);font-family:var(--mono);font-size:10px;margin-top:3px}
 @media (max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}}
+
+/* Selector de idioma */
+.lang{display:inline-flex;border:1px solid var(--line2);border-radius:999px;overflow:hidden;margin-left:6px}
+.lang button{border:0!important;border-radius:0!important;padding:8px 11px!important;background:transparent;color:var(--muted)}
+.lang button.on{background:rgba(77,163,255,.15)!important;color:var(--text)}

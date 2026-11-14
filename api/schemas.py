@@ -31,6 +31,7 @@ class AskRequest(BaseModel):
     question: str = Field(..., min_length=2, max_length=2000)
     scenario: Scenario = Scenario()
     history: list[ChatMessage] = []
+    lang: str = Field("es", pattern="^(es|en)$", description="Idioma de la respuesta: es | en")
 
 
 class AskResponse(BaseModel):

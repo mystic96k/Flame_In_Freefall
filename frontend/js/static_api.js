@@ -1,6 +1,8 @@
 // Modo estático: misma interfaz que el backend, pero todo corre en el navegador
 // con datos y coeficientes que Python exportó (ml/export_static.py → data/static.json).
 
+import { EN, LANG, t, pick, material } from "./i18n.js";
+
 let bundlePromise = null;
 const load = () => (bundlePromise ??= fetch("data/static.json").then((r) => {
   if (!r.ok) throw new Error("No encontré data/static.json. Corre: python -m ml.export_static");
@@ -54,8 +56,8 @@ function matchFaq(faq, question) {
   let best = null, bestScore = 0;
   for (const f of faq || []) {
     let score = 0;
-    for (const k of f.keywords || []) if (q.includes(norm(k))) score += norm(k).includes(" ") ? 3 : 2;
-    for (const w of norm(f.question).match(/[a-z0-9]{4,}/g) || []) if (qWords.has(w)) score += 1;
+    for (const k of pick(f, "keywords") || []) if (q.includes(norm(k))) score += norm(k).includes(" ") ? 3 : 2;
+    for (const w of norm(pick(f, "question")).match(/[a-z0-9]{4,}/g) || []) if (qWords.has(w)) score += 1;
     if (score > bestScore) { best = f; bestScore = score; }
   }
   return bestScore >= 3 ? best : null;
@@ -97,30 +99,30 @@ function answer(b, question, s, report = false) {
   const faq = report ? null : matchFaq(b.faq, question);
   if (faq) {
     return {
-      answer: `**${faq.question}**\n\n${faq.answer}`,
-      sources: (faq.sources || []).map((u, i) => ({ id: `${faq.id}${faq.sources.length > 1 ? "-" + (i + 1) : ""}`, title: faq.question, url: u, kind: "faq" })),
+      answer: `**${pick(faq, "question")}**\n\n${pick(faq, "answer")}`,
+      sources: (faq.sources || []).map((u, i) => ({ id: `${faq.id}${faq.sources.length > 1 ? "-" + (i + 1) : ""}`, title: pick(faq, "question"), url: u, kind: "faq" })),
       mode: "offline",
     };
   }
   const hits = search(b.catalog, question + " " + s.material);
   const lines = [];
-  if (report) lines.push("## Resumen");
-  lines.push(`Escenario: ${s.gravity_g} g, ${s.o2_pct}% O₂, ${s.flow_cm_s} cm/s, ${s.pressure_kpa} kPa, ${s.material}.`);
-  if (report) lines.push("## Nivel de riesgo");
-  lines.push(`- Probabilidad de combustión sostenida: **${p.risk_score}/100**` +
-             (p.limiting_o2_pct ? `; O₂ límite estimado ${p.limiting_o2_pct}%.` : "."));
-  if (p.extrapolating) lines.push("- ⚠️ El modelo está extrapolando fuera del rango de los datos.");
-  if (report) lines.push("## Evidencia experimental relacionada");
-  hits.forEach((c) => lines.push(`- **${c.id}:** ${c.finding} Lección: ${c.safety}`));
+  if (report) lines.push(`## ${t("sSummary")}`);
+  lines.push(`${t("sScenario")}: ${s.gravity_g} g, ${s.o2_pct}% O₂, ${s.flow_cm_s} cm/s, ${s.pressure_kpa} kPa, ${material(s.material)}.`);
+  if (report) lines.push(`## ${t("sRisk")}`);
+  lines.push(`- ${t("sProb")}: **${p.risk_score}/100**` +
+             (p.limiting_o2_pct ? `; ${t("sLimit")} ${p.limiting_o2_pct}%.` : "."));
+  if (p.extrapolating) lines.push(`- ${t("sExtrap")}`);
+  if (report) lines.push(`## ${t("sEvidence")}`);
+  hits.forEach((c) => lines.push(`- **${c.id}:** ${pick(c, "finding")} ${t("sLesson")} ${pick(c, "safety")}`));
   if (report) {
-    lines.push("## Recomendaciones");
-    b.insights.slice(0, 3).forEach((i) => lines.push(`- ${i.text}`));
-    lines.push("## Datos de NASA PSI para validarlo");
-    lines.push("- Experiment Tables de BASS / BASS-II (sólidos con flujo y oxígeno controlados).");
+    lines.push(`## ${t("sRecs")}`);
+    b.insights.slice(0, 3).forEach((i) => lines.push(`- ${pick(i, "text")}`));
+    lines.push(`## ${t("sPsi")}`);
+    lines.push(`- ${t("sPsiLine")}`);
   } else {
-    b.insights.slice(0, 2).forEach((i) => lines.push(`- ${i.text}`));
+    b.insights.slice(0, 2).forEach((i) => lines.push(`- ${pick(i, "text")}`));
   }
-  lines.push("_Versión estática: respuestas generadas con el modelo de ML y el catálogo, sin modelo de lenguaje._");
+  lines.push(t("sStaticNote"));
   return {
     answer: lines.join("\n"),
     sources: hits.map((c) => ({ id: c.id, title: c.name, url: (c.sources || [""])[0], kind: "catalog" })),
@@ -139,13 +141,13 @@ export const staticApi = {
   predict: async (s) => predict((await load()).model, s),
   ask: async (q, s, history) => {
     if (REMOTE) {
-      try { return await remote("/api/ask", { question: q, scenario: s, history: history || [] }); }
-      catch { const a = answer(await load(), q, s); a.answer += "\n\n_La IA está despertando o no respondió; intenta de nuevo en un minuto._"; return a; }
+      try { return await remote("/api/ask", { question: q, scenario: s, history: history || [], lang: LANG }); }
+      catch { const a = answer(await load(), q, s); a.answer += "\n\n" + t("sWaking"); return a; }
     }
     return answer(await load(), q, s);
   },
   report: async (s) => {
-    if (REMOTE) { try { return await remote("/api/report", s, 60000); } catch { /* usa respaldo local */ } }
-    return answer(await load(), "reporte riesgo ventilación", s, true);
+    if (REMOTE) { try { return await remote(`/api/report?lang=${LANG}`, s, 60000); } catch { /* usa respaldo local */ } }
+    return answer(await load(), t("reportQuery"), s, true);
   },
 };

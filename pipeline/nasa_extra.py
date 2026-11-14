@@ -61,6 +61,15 @@ def _gas_material(test: str, note: str) -> str:
     return "Otro"
 
 
+MATERIAL_EN = {
+    "PMMA película delgada": "PMMA thin film", "PMMA losa gruesa": "PMMA thick slab", "PMMA barra": "PMMA rod",
+    "PMMA sección esférica": "PMMA spherical section", "Tela SIBAL": "SIBAL fabric", "Nomex": "Nomex",
+    "Vela de cera japonesa": "Japan wax candle", "Otro": "Other",
+}
+OUTCOME_EN = {"ardió": "burned", "se apagó": "went out", "se apagó (blow-off)": "went out (blow-off)",
+              "no encendió": "no ignition", "sólo post-combustión": "post-burn only"}
+
+
 def _gas_outcome(note: str) -> str:
     n = note.lower()
     if "no ign" in n:
@@ -117,7 +126,7 @@ def analyze_gases(df: pd.DataFrame) -> dict:
     by = []
     for mat, g in df.groupby("material"):
         by.append({
-            "material": mat, "n": int(len(g)),
+            "material": mat, "material_en": MATERIAL_EN.get(mat, mat), "n": int(len(g)),
             "d_o2_pct": _r(g["d_o2_pct"].mean(), 2),
             "d_co2_pct": _r(g["d_co2_pct"].mean(), 2),
             "d_co_ppm": _r(g["d_co_ppm"].mean(), 0),
@@ -151,9 +160,27 @@ def analyze_gases(df: pd.DataFrame) -> dict:
             f"por prueba contra {thin['d_co_ppm']:.0f} ppm de la película delgada.")
     findings.append("Cada prueba consume poco O₂ (décimas de punto porcentual), pero el CO sube cientos de ppm: "
                     "el riesgo tóxico aparece mucho antes que la falta de oxígeno.")
+    findings_en = [
+        f"CO reached {top_co['co_f_ppm']:.0f} ppm at the end of test {top_co['test']} "
+        f"({MATERIAL_EN[top_co['material']]}); {n_sat} readings also saturated the sensor (\"OR\", \"over\", \">500\"). "
+        "In a closed cabin CO builds up test after test.",
+        f"A PMMA rod ignited and burned with only {low_burn['o2_i_pct'].min():.1f}% initial O₂ "
+        f"(test {low_burn.iloc[0]['test']}); "
+        + (f"at {ext_rods.iloc[0]['o2_i_pct']:.1f}% it went out ({ext_rods.iloc[0]['test']}) " if len(ext_rods) else "")
+        + (f"and at {no_ign.iloc[0]['o2_i_pct']:.1f}% it no longer ignited ({no_ign.iloc[0]['test']}). " if len(no_ign) else ". ")
+        + "That is the real limit measured in space: far below the 21% of air.",
+    ]
+    if thin and thick:
+        findings_en.append(f"Thicker material = more gas: the PMMA slab produced on average {thick['d_co_ppm']:.0f} ppm of CO "
+                           f"per test versus {thin['d_co_ppm']:.0f} ppm for the thin film.")
+    findings_en.append("Each test consumes little O₂ (tenths of a percentage point), but CO rises by hundreds of ppm: "
+                       "the toxic hazard appears long before the lack of oxygen.")
     return {
         "source": PSI["PSI-25"], "n_tests": int(len(df)), "by_material": by, "findings": findings,
-        "points": [{"test": r.test, "material": r.material, "o2_i": _r(r.o2_i_pct, 2), "d_o2": _r(r.d_o2_pct, 2),
+        "findings_en": findings_en,
+        "note_en": "Readings accumulate within each session; Δ = final − initial per test is used. "
+                   "Impossible sensor values (e.g. O₂ of 0.6% or 40%) are discarded.",
+        "points": [{"test": r.test, "material": r.material, "material_en": MATERIAL_EN.get(r.material, r.material), "o2_i": _r(r.o2_i_pct, 2), "d_o2": _r(r.d_o2_pct, 2),
                     "d_co2": _r(r.d_co2_pct, 2), "d_co": _r(r.d_co_ppm, 0), "outcome": r.outcome}
                    for r in df.itertuples()],
         "note": "Las lecturas se acumulan dentro de cada sesión; se usa Δ = final − inicial por prueba. "
@@ -254,10 +281,27 @@ def analyze_flex(df: pd.DataFrame) -> dict:
         f"Modelo ML de FLEX: predice si la llama se apaga antes de terminar la gota con AUC {auc:.2f} (validación cruzada). "
         f"Para el cociente D_ext/D₀ (R² {r2:.2f}) lo que más pesa es {_FEAT_ES[imp[0][0]]} y {_FEAT_ES[imp[1][0]]}.",
     ]
+    findings_en = [
+        f"{len(df)} real ISS tests (2009–2011): {int((df['end'] == 'Extinction').sum())} ended with the flame going out "
+        f"before the droplet was consumed, {int((df['end'] == 'Completion').sum())} burned the whole droplet and "
+        f"{int((df['end'] == 'Disruption').sum())} were disrupted (the droplet broke apart or moved).",
+        f"A flame existed with only {low['o2'] * 100:.0f}% O₂ in nitrogen ({'methanol' if low['fuel'] == 'Metanol' else 'heptane'}, "
+        f"test {low['test']}). That is why FLEX was designed to find the limiting oxygen index: in microgravity there is "
+        "no buoyancy to 'smother' the flame.",
+        f"In {len(near)} tests the flame went out with the droplet almost intact (D_ext/D₀ ≥ 0.95): they were right at the "
+        "flammability limit. That ratio is the best 'thermometer' of how close a fire is to not sustaining itself.",
+        f"Helium sped up burning (K ≈ {k_he:.2f} mm²/s) compared with air (≈ {k_air:.2f}); CO₂ slowed it (≈ {k_co2:.2f}). "
+        "A diluting suppressant does not always help: helium transports heat and oxygen faster.",
+        f"FLEX ML model: predicts whether the flame goes out before the droplet is consumed with AUC {auc:.2f} (cross-validation). "
+        f"For the D_ext/D₀ ratio (R² {r2:.2f}) the strongest factors are {_FEAT_EN[imp[0][0]]} and {_FEAT_EN[imp[1][0]]}.",
+    ]
     return {
+        "findings_en": findings_en,
+        "note_en": "The PSI web table leaves empty cells; when values are missing they are assigned by position "
+                   "(initial diameter, extinction, rate K, time). Check the official CSV for fine-grained analysis.",
         "source": PSI["PSI-69"], "n_tests": int(len(df)), "groups": groups, "findings": findings,
         "metrics": {"auc_extinction": _r(auc, 3), "r2_ratio": _r(r2, 3), "n_model": int(len(y)),
-                    "importance": [{"feature": _FEAT_ES[f], "importance": _r(v, 3)} for f, v in imp]},
+                    "importance": [{"feature": _FEAT_ES[f], "feature_en": _FEAT_EN[f], "importance": _r(v, 3)} for f, v in imp]},
         "model": {"features": FLEX_FEATURES, "mean": sc.mean_.round(6).tolist(), "scale": sc.scale_.round(6).tolist(),
                   "coef": lr.coef_[0].round(6).tolist(), "intercept": round(float(lr.intercept_[0]), 6),
                   "ranges": {f: [_r(X[f].min(), 3), _r(X[f].max(), 3)] for f in FLEX_FEATURES}},
@@ -269,6 +313,8 @@ def analyze_flex(df: pd.DataFrame) -> dict:
     }
 
 
+_FEAT_EN = {"o2": "oxygen", "co2": "CO₂", "he": "helium", "pressure_atm": "pressure",
+            "d0_mm": "droplet size", "heptane": "fuel type"}
 _FEAT_ES = {"o2": "el oxígeno", "co2": "el CO₂", "he": "el helio", "pressure_atm": "la presión",
             "d0_mm": "el tamaño de la gota", "heptane": "el tipo de combustible"}
 
@@ -277,21 +323,23 @@ _FEAT_ES = {"o2": "el oxígeno", "co2": "el CO₂", "he": "el helio", "pressure_
 # BASS-I inventario (PSI-26) y SAFFIRE-I (PSI-98)
 # ----------------------------------------------------------------------------------------------
 BASS1_INVENTORY = [  # clasificación manual de los 122 ensayos de la Experimental Table de PSI-26
-    {"material": "Esferas de PMMA (1–2 cm)", "n": 50},
-    {"material": "Placas de PMMA 1–2 cm", "n": 16},
-    {"material": "Velas (cera japonesa / parafina)", "n": 17},
-    {"material": "Tela SIBAL", "n": 12},
-    {"material": "Losa gruesa de PMMA", "n": 8},
-    {"material": "Placa de cera / parafina", "n": 6},
-    {"material": "Nomex", "n": 6},
-    {"material": "Ultem", "n": 2},
+    {"material": "Esferas de PMMA (1–2 cm)", "material_en": "PMMA spheres (1–2 cm)", "n": 50},
+    {"material": "Placas de PMMA 1–2 cm", "material_en": "PMMA plates 1–2 cm", "n": 16},
+    {"material": "Velas (cera japonesa / parafina)", "material_en": "Candles (Japan wax / paraffin)", "n": 17},
+    {"material": "Tela SIBAL", "material_en": "SIBAL fabric", "n": 12},
+    {"material": "Losa gruesa de PMMA", "material_en": "Thick PMMA slab", "n": 8},
+    {"material": "Placa de cera / parafina", "material_en": "Wax / paraffin slab", "n": 6},
+    {"material": "Nomex", "material_en": "Nomex", "n": 6},
+    {"material": "Ultem", "material_en": "Ultem", "n": 2},
 ]
 
 SAFFIRE1 = [
     {"sample": "S1", "material": "Tela SIBAL 0.37 mm", "size_cm": "40.6 × 94", "flow_cm_s": 20,
-     "o2_pct": "21.5–21.7", "ignition": "182 W · 8 s", "burn_s": 420, "direction": "Concurrente (a favor del flujo)"},
+     "o2_pct": "21.5–21.7", "ignition": "182 W · 8 s", "burn_s": 420, "direction": "Concurrente (a favor del flujo)",
+     "direction_en": "Concurrent (with the flow)"},
     {"sample": "S2", "material": "Tela SIBAL 0.37 mm", "size_cm": "40.6 × 94", "flow_cm_s": 20,
-     "o2_pct": "≈21.5", "ignition": "182 W · 8 s", "burn_s": 70, "direction": "Opuesta (contra el flujo)"},
+     "o2_pct": "≈21.5", "ignition": "182 W · 8 s", "burn_s": 70, "direction": "Opuesta (contra el flujo)",
+     "direction_en": "Opposed (against the flow)"},
 ]
 
 
@@ -307,12 +355,20 @@ def build() -> dict:
                   "facts": ["ISS, Microgravity Science Glovebox, oct-2009 a jun-2013.",
                             "Ducto de 76 × 76 mm con flujo de aire de hasta 40 cm/s; N₂ como supresor.",
                             "Base del estudio 'Thickness and Fuel Preheating Effects on Material Flammability "
-                            "in Microgravity from the BASS Experiment'."]},
+                            "in Microgravity from the BASS Experiment'."],
+                  "facts_en": ["ISS, Microgravity Science Glovebox, Oct 2009 to Jun 2013.",
+                               "76 × 76 mm duct with airflow up to 40 cm/s; N₂ as suppressant.",
+                               "Basis of the study 'Thickness and Fuel Preheating Effects on Material Flammability "
+                               "in Microgravity from the BASS Experiment'."]},
         "saffire1": {"source": PSI["PSI-98"], "tests": SAFFIRE1,
                      "finding": "La misma tela ardió 420 s con la llama a favor del flujo y sólo 70 s contra el flujo: "
                                 "la dirección de la ventilación cambia por completo el tamaño del incendio.",
+                     "finding_en": "The same fabric burned 420 s with the flame spreading with the flow and only 70 s against it: "
+                                   "ventilation direction completely changes the size of the fire.",
                      "facts": ["Vehículo de carga Cygnus, después de dejar la ISS (sin riesgo para la tripulación).",
-                               "Midió termopares, radiómetros, presión, O₂/CO₂ y anemómetros."]},
+                               "Midió termopares, radiómetros, presión, O₂/CO₂ y anemómetros."],
+                     "facts_en": ["Cygnus cargo vehicle, after leaving the ISS (no risk to the crew).",
+                                  "Measured thermocouples, radiometers, pressure, O₂/CO₂ and anemometers."]},
         "sources": [{"id": k, **v} for k, v in PSI.items()],
     }
     EXTRA_JSON.write_text(json.dumps(extra, ensure_ascii=False, default=_json_default), encoding="utf-8")
@@ -332,11 +388,13 @@ def knowledge_chunks(extra: dict | None = None) -> list[dict]:
     return [
         {"id": "PSI-25-GASES", "title": "BASS-II: gases de combustión (O₂, CO₂, CO) medidos en la ISS",
          "text": "BASS-II gases combustion CO monoxido de carbono CO2 oxigeno toxicidad cabina. "
-                 + " ".join(g["findings"]) + " Promedios por material: " + gas_tab + ". " + g["note"],
+                 + " ".join(g["findings"]) + " Promedios por material: " + gas_tab + ". " + g["note"]
+                 + " | EN: carbon monoxide toxic cabin gases. " + " ".join(g.get("findings_en", [])),
          "source": g["source"]["url"]},
         {"id": "PSI-69-FLEX", "title": "FLEX: 274 gotas de combustible en la ISS (metanol, heptano, N₂/CO₂/He)",
          "text": "FLEX gotas droplet extincion supresor helio CO2 nitrogeno metanol heptano indice limite de oxigeno. "
-                 + " ".join(f["findings"]) + " Grupos: " + flex_tab + ". " + f["note"],
+                 + " ".join(f["findings"]) + " Grupos: " + flex_tab + ". " + f["note"]
+                 + " | EN: droplets suppressant helium nitrogen. " + " ".join(f.get("findings_en", [])),
          "source": f["source"]["url"]},
         {"id": "PSI-26-BASS1", "title": "BASS-I: 122 pruebas de sólidos en la ISS",
          "text": "BASS-I BASS inventario materiales PMMA esferas velas SIBAL Nomex Ultem. "
@@ -344,7 +402,8 @@ def knowledge_chunks(extra: dict | None = None) -> list[dict]:
                  + ", ".join(f"{i['material']} ({i['n']})" for i in extra["bass1"]["inventory"]) + ".",
          "source": extra["bass1"]["source"]["url"]},
         {"id": "PSI-98-SAFFIRE1", "title": "SAFFIRE-I: incendio grande en el Cygnus",
-         "text": "SAFFIRE-I Saffire Cygnus tela SIBAL incendio grande concurrente opuesto. " + extra["saffire1"]["finding"]
+         "text": "SAFFIRE-I Saffire Cygnus tela SIBAL incendio grande concurrente opuesto large fire. " + extra["saffire1"]["finding"]
+                 + " " + extra["saffire1"].get("finding_en", "")
                  + " " + " ".join(extra["saffire1"]["facts"]) + " Muestras: 40.6 × 94 cm, 20 cm/s, 21.5% O₂, "
                  "ignición 182 W por 8 s; S1 concurrente 420 s, S2 opuesta 70 s.",
          "source": extra["saffire1"]["source"]["url"]},

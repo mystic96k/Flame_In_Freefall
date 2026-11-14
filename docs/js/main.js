@@ -1,4 +1,5 @@
 // Punto de entrada: carga datos del backend e inicializa cada módulo.
+import { applyStatic, t } from "./i18n.js";
 import { api, MODE } from "./api.js";
 import { initSimulator } from "./simulator.js";
 import { initCharts } from "./charts.js";
@@ -15,6 +16,7 @@ function initNav() {
 }
 
 async function main() {
+  applyStatic();
   initNav();
   try {
     const [health, summary] = await Promise.all([api.health(), api.summary()]);
@@ -24,7 +26,7 @@ async function main() {
     await Promise.all([initCharts(summary), initCatalog(ask), initExtra().catch((e) => console.warn("extra", e))]);
   } catch (e) {
     document.getElementById("r-insight").innerHTML =
-      `<b>No pude conectar con el backend.</b><br>${e.message}<br>¿Ya corriste <code>python -m pipeline.run_pipeline</code>, <code>python -m ml.train_classifier</code> y <code>uvicorn api.main:app</code>?`;
+      `${t("noBackend")}<br>${e.message}<br>¿Ya corriste <code>python -m pipeline.run_pipeline</code>, <code>python -m ml.train_classifier</code> y <code>uvicorn api.main:app</code>?`;
   }
 }
 

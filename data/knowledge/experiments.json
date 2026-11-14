@@ -18,7 +18,18 @@
    "https://ntrs.nasa.gov/citations/20150023456",
    "https://science.nasa.gov/?p=426601",
    "https://psi.nasa.gov/physci/repo/data/investigations/PSI-69"
-  ]
+  ],
+  "platform_en": "ISS · Combustion Integrated Rack (CIR)",
+  "type_en": "fuel droplets",
+  "tags_en": [
+   "droplets",
+   "extinction",
+   "cool flames",
+   "suppressants"
+  ],
+  "summary_en": "Fuel droplets ignited in microgravity to evaluate inert-gas suppressants and conservatively estimate the limiting oxygen index for stable combustion. Technical report NASA/TP-2015-216046 describes the first 284 tests (March 2009 – December 2011).",
+  "finding_en": "A new kind of 'cool flame' was discovered: after the hot flame went out, the droplet kept reacting with an almost invisible flame.",
+  "safety_en": "Not seeing fire does not mean there is no chemical reaction. Detection must measure gases and temperature, not just light."
  },
  {
   "id": "FLEX-2",
@@ -36,7 +47,17 @@
   "safety": "Permite validar modelos de extinción con combustibles parecidos a los que existirían a bordo.",
   "sources": [
    "https://www.labxchange.org/library/items/lb:LabXchange:1dccf81c:html:1"
-  ]
+  ],
+  "platform_en": "ISS · CIR",
+  "type_en": "fuel droplets",
+  "tags_en": [
+   "droplets",
+   "real fuels",
+   "extinction"
+  ],
+  "summary_en": "Second FLEX series with fuels and conditions that mimic real combustion chambers.",
+  "finding_en": "Extends the droplet database to more realistic fuel mixtures.",
+  "safety_en": "Lets extinction models be validated with fuels similar to those that would be on board."
  },
  {
   "id": "BASS",
@@ -58,7 +79,19 @@
    "https://www.nasa.gov/sites/default/files/atoms/files/np-2015-10-034-jsc_combustion_in_reduced_gravity-iss-mini-book-011116-508.pdf",
    "https://psi.nasa.gov/physci/repo/data/investigations/PSI-25",
    "https://psi.nasa.gov/physci/repo/data/investigations/PSI-26"
-  ]
+  ],
+  "platform_en": "ISS · Microgravity Science Glovebox (MSG)",
+  "type_en": "solid fuels",
+  "tags_en": [
+   "solids",
+   "ventilation",
+   "flammability",
+   "flow"
+  ],
+  "summary_en": "Burned solid samples (acrylic/PMMA, SIBAL cotton-fiberglass fabric and others) in a duct with controlled airflow, varying oxygen and velocity. BASS-II ran 27 tests with SIBAL fabric, including 6 quenching extinctions, 3 non-ignitions and 1 blow-off.",
+  "finding_en": "A 2 cm acrylic sphere kept burning at 17% oxygen and 10 cm/s flow. Growth, spread and extinction depend strongly on flow velocity.",
+  "safety_en": "In orbit, ventilation is the critical variable: it decides whether a material burns or goes out.",
+  "name_en": "Burning and Suppression of Solids (BASS and BASS-II)"
  },
  {
   "id": "ACME",
@@ -78,7 +111,18 @@
   "sources": [
    "https://science.nasa.gov/mission/acme",
    "https://psi.nasa.gov/physci/repo/data/investigations/PSI-10"
-  ]
+  ],
+  "platform_en": "ISS · CIR",
+  "type_en": "gaseous flames",
+  "tags_en": [
+   "gases",
+   "soot",
+   "emissions",
+   "BRE"
+  ],
+  "summary_en": "Five independent experiments with non-premixed gaseous flames; about 1,500 flames lit since 2017. PSI lists, for example, ACME S-Flames (spherical diffusion flames).",
+  "finding_en": "The Burning Rate Emulator (BRE) focuses on preventing spacecraft fires; the others target efficiency and lower pollutants on Earth.",
+  "safety_en": "BRE uses gas to mimic how solids burn, estimating their flammability without burning every real material."
  },
  {
   "id": "SAFFIRE",
@@ -99,7 +143,18 @@
    "https://ntrs.nasa.gov/citations/20170008805",
    "https://ntrs.nasa.gov/citations/20210011521",
    "https://psi.nasa.gov/physci/repo/data/investigations/PSI-98"
-  ]
+  ],
+  "platform_en": "Cygnus cargo vehicle (uncrewed, after leaving the ISS)",
+  "type_en": "large-scale fire",
+  "tags_en": [
+   "large scale",
+   "spread",
+   "whole vehicle",
+   "extinction"
+  ],
+  "summary_en": "Intentional fires inside empty Cygnus vehicles. The first sample measured 94 × 40.6 cm (an order of magnitude larger than earlier tests) with an average flow of 20 cm/s. Saffire IV and V also measured CO2, CO, O2, HF, HCl, cabin pressure and temperature.",
+  "finding_en": "The flame spreading with the flow stayed limited in size, unlike on Earth, where it grows and accelerates. With heat release up to 10 kW, average cabin conditions did not reach unacceptable levels.",
+  "safety_en": "Without flow, extinction is not guaranteed: some flames shrank but survived or reignited. Duct size and scale change the outcome."
  },
  {
   "id": "SOFIE",
@@ -118,7 +173,18 @@
   "safety": "Las atmósferas de exploración (menor presión, más oxígeno) necesitan límites de inflamabilidad propios.",
   "sources": [
    "https://engineering.berkeley.edu/news/2024/12/nasa-funded-project-offers-new-insights-into-fire-behavior-in-space/"
-  ]
+  ],
+  "platform_en": "ISS · CIR",
+  "type_en": "solid fuels",
+  "tags_en": [
+   "solids",
+   "ignition",
+   "pressure",
+   "oxygen"
+  ],
+  "summary_en": "Facility in the CIR to study how solid fuels ignite, spread and extinguish in different atmospheres.",
+  "finding_en": "UC Berkeley researchers report that in microgravity some materials burn with less oxygen than expected (e.g., tests at 17.8–19.8% O2 and reduced pressures).",
+  "safety_en": "Exploration atmospheres (lower pressure, more oxygen) need their own flammability limits."
  },
  {
   "id": "CONFINED",
@@ -135,7 +201,16 @@
   "safety": "Guía el diseño de estructuras, códigos de seguridad y respuesta a incendios.",
   "sources": [
    "https://issnationallab.org/?p=34978"
-  ]
+  ],
+  "platform_en": "ISS National Lab · MSG",
+  "type_en": "confined spread",
+  "tags_en": [
+   "confinement",
+   "geometry"
+  ],
+  "summary_en": "Studied how flames spread in confined spaces of different shapes.",
+  "finding_en": "Nearby walls change how the flame advances; in space many flames advance with a dome shape.",
+  "safety_en": "Guides structural design, safety codes and fire response."
  },
  {
   "id": "SLICE_SPICE",
@@ -153,7 +228,18 @@
   "safety": "El hollín y el humo son señales para detectar incendios; entender cuándo aparecen mejora los detectores.",
   "sources": [
    "https://www.nasa.gov/physical-sciences-informatics-psi/psi-investigations-by-research-area/"
-  ]
+  ],
+  "platform_en": "ISS · MSG",
+  "type_en": "gaseous flames",
+  "tags_en": [
+   "gases",
+   "soot",
+   "stability"
+  ],
+  "summary_en": "SLICE studied the structure and liftoff of jet flames; SPICE measured the smoke point (when a flame starts releasing soot) in coflow.",
+  "finding_en": "Both are in PSI as complete combustion investigations, useful for analyzing soot and stability.",
+  "safety_en": "Soot and smoke are fire-detection signals; understanding when they appear improves detectors.",
+  "name_en": "SLICE and SPICE (jet flames and smoke point)"
  },
  {
   "id": "E-FIELD",
@@ -175,7 +261,19 @@
    "https://science.nasa.gov/biological-physical/investigations/e-field-flames/",
    "https://gipoc.grc.nasa.gov/wp/fcf-cir/acme/electric-field-effects-laminar-diffusion-flames-e-field-flames/",
    "https://psi.nasa.gov/physci/repo/data/investigations/PSI-10"
-  ]
+  ],
+  "platform_en": "ISS · CIR (part of ACME)",
+  "type_en": "gas flames",
+  "tags_en": [
+   "electric field",
+   "ionic wind",
+   "soot",
+   "stability",
+   "ACME"
+  ],
+  "summary_en": "Applies up to 10 kV between the burner and a mesh to create an 'ionic wind' that pushes the flame's ions. Measures field strength, ion current, size, temperature, soot and stability of gas flames in microgravity.",
+  "finding_en": "An electric field can change a flame's shape, soot and stability without any airflow, something buoyancy hides on Earth. NASA's page does not report final results yet.",
+  "safety_en": "In the future flames could be controlled or put out with electric fields, without suppressant gases that contaminate the cabin."
  },
  {
   "id": "BRE",
@@ -197,7 +295,19 @@
    "https://science.nasa.gov/biological-physical/investigations/bre/",
    "https://gipoc.grc.nasa.gov/wp/fcf-cir/acme/burning-rate-emulator-bre-operations/",
    "https://ntrs.nasa.gov/api/citations/20170009141/downloads/20170009141.pdf"
-  ]
+  ],
+  "platform_en": "ISS · CIR (part of ACME) + 5 s drop tower",
+  "type_en": "solid and liquid emulator",
+  "tags_en": [
+   "burning rate",
+   "heat flux",
+   "materials",
+   "partial gravity",
+   "ACME"
+  ],
+  "summary_en": "A porous burner fed with gas (methane, ethylene or N₂-diluted ethylene) 'mimics' a burning solid or liquid, measuring the heat flux the flame returns to the surface. Drop-tower tests (Markan et al., 2017) used 25 and 50 mm burners, 0.5–1 atm and 21–30% O₂.",
+  "finding_en": "It emulated heats of gasification from 0.4 to 4 kJ/g; in a 5 s drop the flame reached only ~37% of its steady height, and the 50 mm burner burned faster than theory because of gas radiation.",
+  "safety_en": "Lets materials be ranked by their 'heat of gasification' instead of burning them one by one, and checks whether Earth flammability tests hold in low or partial gravity (Moon, Mars)."
  },
  {
   "id": "CFM",
@@ -218,6 +328,18 @@
   "sources": [
    "https://ntrs.nasa.gov/api/citations/19970020585/downloads/19970020585.pdf",
    "https://ntrs.nasa.gov/citations/20010074076"
-  ]
+  ],
+  "platform_en": "Mir station (Priroda module glovebox) + USML-1",
+  "type_en": "candles",
+  "tags_en": [
+   "candles",
+   "oscillation",
+   "extinction",
+   "wick",
+   "Mir"
+  ],
+  "summary_en": "79 candles lit on Mir at 22–25% O₂ (wicks ~1–3 mm, candles 5 and 10 mm in diameter, 2 cm long). The flames were hemispherical, ~1.5 cm, dim blue.",
+  "finding_en": "Candles lasted from just over 100 s to more than 45 min; before going out the flame oscillated ~once per second for up to 90 s. They burned 0.2–0.6 mg/s versus 0.9–1.4 mg/s on Earth, and the model gives a ~1710 K peak.",
+  "safety_en": "A small, dim flame can survive tens of minutes in microgravity; oscillation signals it is about to go out, useful for detection."
  }
 ]
