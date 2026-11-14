@@ -1,6 +1,8 @@
 # 🚀 Publicar FIREFALL en internet (gratis)
 
-Necesitas: cuenta de GitHub, una llave gratis de Groq, y Hugging Face **o** Render.
+Necesitas: cuenta de GitHub y Hugging Face (versión estática) y/o Render + llave gratis de Groq (versión completa).
+
+**Recomendación:** usa las dos. Hugging Face Static como link principal (no se duerme) y Render para mostrar el chat con IA.
 Tiempo: ~20 minutos la primera vez.
 
 ## Paso 0 — Probar en tu compu
@@ -28,21 +30,29 @@ git push -u origin main
 ```
 El `.gitignore` ya excluye `.env`. Space Apps pide que el código esté en un repositorio público.
 
-## Opción A (recomendada) — Hugging Face Spaces
-Ventaja: más memoria que el plan gratis de Render y no se duerme cada 15 minutos.
-1. https://huggingface.co/new-space → nombre `firefall`, **SDK: Docker**, plantilla *Blank*, hardware *CPU basic (free)*.
-2. En el Space: *Settings → Variables and secrets*:
-   - Secret `OPENAI_API_KEY` = tu llave de Groq
-   - Variables `LLM_PROVIDER=openai_compatible`, `OPENAI_BASE_URL=https://api.groq.com/openai/v1`, `OPENAI_MODEL=llama-3.3-70b-versatile`
-3. Sube el código (el Space es un repo git):
-   ```bash
-   git remote add space https://huggingface.co/spaces/TU_USUARIO/firefall
-   git push space main
-   ```
-   El `README.md` ya trae el encabezado que Hugging Face necesita (`sdk: docker`, `app_port: 7860`).
-4. Espera a que el estado diga *Running*. Tu link: `https://TU_USUARIO-firefall.hf.space`
+## Opción A — Hugging Face **Static** (gratis, siempre encendido)
+Desde julio de 2026 las cuentas gratis de Hugging Face sólo pueden crear Spaces **Static**
+(Docker y Gradio piden plan de pago). Por eso existe la carpeta **`dist_static/`**: una versión
+del dashboard que no necesita servidor. Python ya hizo todo el cálculo y el navegador evalúa el modelo.
 
-## Opción B — Render
+Qué funciona: simulador, gráfica con frontera del modelo, hallazgos, catálogo y reporte de seguridad.
+Qué no: el chat con modelo de lenguaje (Groq). Una llave en una página pública quedaría expuesta,
+así que el analista responde con el modelo de ML + las fuentes NASA.
+
+1. https://huggingface.co/new-space → nombre `firefall`, **SDK: Static**, *Blank*, **Public** → *Create Space*.
+2. Pestaña **Files → + Add file → Upload files**.
+3. Abre la carpeta **`dist_static`** del repo, selecciona **todo lo de adentro**
+   (`index.html`, `README.md`, `css`, `js`, `data`) y arrástralo.
+4. *Commit changes to main*. Si pregunta por reemplazar `README.md`, di que sí.
+5. En segundos queda en: `https://TU_USUARIO-firefall.static.hf.space` (el botón ⋮ → *Embed this Space* te muestra el link directo).
+
+¿Cambiaste datos o el modelo? Regenera la carpeta antes de subirla:
+```bash
+python -m pipeline.run_pipeline && python -m ml.train_classifier && python -m ml.export_static
+```
+La misma carpeta `dist_static/` sirve para **GitHub Pages** (Settings → Pages).
+
+## Opción B — Render (versión completa con IA de Groq)
 1. https://dashboard.render.com → *New → Blueprint* → conecta tu repo. Render lee `render.yaml`.
 2. Cuando lo pida, pega tu llave de Groq en `OPENAI_API_KEY`.
 3. Link: `https://firefall.onrender.com` (o el nombre que te asigne).
@@ -50,11 +60,12 @@ Ventaja: más memoria que el plan gratis de Render y no se duerme cada 15 minuto
    **Abre el link 2 minutos antes de presentar**, o programa un "ping" a `/api/health` cada 10 minutos (p. ej. cron-job.org).
 
 ## Paso 3 — Revisión antes de entregar
-- [ ] `https://TU-LINK/api/health` responde `"llm": true`
+- [ ] (Render) `https://TU-LINK/api/health` responde `"llm": true`
 - [ ] El simulador cambia al mover los sliders (ISS → Tierra)
 - [ ] La gráfica muestra puntos y la línea de frontera
 - [ ] El analista responde con fuentes `[BASS]`, `[SAFFIRE]`…
-- [ ] `https://TU-LINK/docs` abre la documentación de la API (impresiona a jueces técnicos)
+- [ ] (Static) Abre el Space en una ventana de incógnito para confirmar que es público
+- [ ] (Render) `https://TU-LINK/docs` abre la documentación de la API (impresiona a jueces técnicos)
 - [ ] El link del repo y del demo están en la página del proyecto de Space Apps
 
 ## Si algo falla

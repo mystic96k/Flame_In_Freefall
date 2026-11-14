@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FIREFALL · Seguridad contra incendios en microgravedad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <div class="kicker">NASA Space Apps 2026 · Reto “Flame in Freefall”</div>
+      <h1><span class="f">FIREFALL</span></h1>
+      <p class="sub">Panel con IA que resume, clasifica e interpreta datos de combustión en microgravedad para convertirlos en decisiones de seguridad contra incendios en el espacio.</p>
+    </div>
+    <nav>
+      <button data-go="s-sim" class="on">01 Simulador</button>
+      <button data-go="s-data">02 Datos + ML</button>
+      <button data-go="s-cat">03 Experimentos</button>
+      <button data-go="s-ai">04 Analista IA</button>
+    </nav>
+  </header>
+  <div id="demo-banner" class="banner hidden">⚠️ El modelo está entrenado con <b>datos de demostración</b>. Carga las Experiment Tables reales de NASA PSI para el pitch final.</div>
+
+  <!-- 01 SIMULADOR -->
+  <section id="s-sim">
+    <div class="h2"><span class="n">01</span><h2>Misma llama, distinta gravedad</h2><p>El riesgo lo calcula el modelo de ML del backend en tiempo real.</p></div>
+    <div class="grid two">
+      <div class="card">
+        <div class="canvasbox">
+          <canvas id="flame"></canvas>
+          <div class="badge" id="b-shape">FORMA · —</div>
+          <div class="badge r" id="b-state">ESTADO · —</div>
+        </div>
+        <div class="presets" id="presets">
+          <button data-g="0">ISS<small>0 g</small></button>
+          <button data-g="0.165">Luna<small>0.165 g</small></button>
+          <button data-g="0.38">Marte<small>0.38 g</small></button>
+          <button data-g="1">Tierra<small>1 g</small></button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ctrl"><label>Gravedad <b id="v-g"></b></label><input id="g" type="range" min="0" max="1" step="0.005" value="0"></div>
+        <div class="ctrl"><label>Oxígeno <b id="v-o2"></b></label><input id="o2" type="range" min="12" max="34" step="0.1" value="21"></div>
+        <div class="ctrl"><label>Flujo de ventilación <b id="v-u"></b></label><input id="u" type="range" min="0" max="45" step="0.5" value="10"></div>
+        <div class="ctrl"><label>Presión <b id="v-p"></b></label><input id="p" type="range" min="50" max="105" step="0.5" value="101.3"></div>
+        <div class="ctrl"><label>Material</label><select id="mat"></select></div>
+        <div class="readout">
+          <div class="ro"><div class="k">Probabilidad de combustión</div><div class="v" id="r-risk">—</div><div class="meter"><i id="r-meter"></i></div></div>
+          <div class="ro"><div class="k">O₂ límite (modelo)</div><div class="v" id="r-loc">—</div><div class="s" id="r-margin"></div></div>
+        </div>
+        <div class="insight" id="r-insight">Conectando con el modelo…</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 DATOS + ML -->
+  <section id="s-data">
+    <div class="h2"><span class="n">02</span><h2>Explorador de pruebas + clasificador</h2><p>Frontera “se quema / se apaga” aprendida por el modelo.</p></div>
+    <div class="kpis">
+      <div class="card kpi"><div class="k">Pruebas</div><div class="v" id="k-n">—</div><div class="s" id="k-inv"></div></div>
+      <div class="card kpi"><div class="k">Se quemaron</div><div class="v" id="k-burn">—</div><div class="s">combustión sostenida</div></div>
+      <div class="card kpi"><div class="k">Precisión (validación cruzada)</div><div class="v" id="k-acc">—</div><div class="s" id="k-model"></div></div>
+      <div class="card kpi"><div class="k">AUC</div><div class="v" id="k-auc">—</div><div class="s">1.0 = separación perfecta</div></div>
+    </div>
+    <div class="grid wide">
+      <div class="card">
+        <div class="filters" id="matfilter"></div>
+        <div class="chartbox"><canvas id="scatter"></canvas></div>
+        <div class="note" id="data-note"></div>
+      </div>
+      <div class="grid" style="align-content:start">
+        <div class="card"><div class="kicker" style="margin-bottom:8px">¿Qué pesa más en la predicción?</div><div class="chartbox sm"><canvas id="importance"></canvas></div></div>
+        <div class="card"><div class="kicker" style="margin-bottom:8px">Hallazgos automáticos</div><div id="insights"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 CATÁLOGO -->
+  <section id="s-cat">
+    <div class="h2"><span class="n">03</span><h2>Catálogo de experimentos reales</h2><p>Lo que la NASA ya descubrió, traducido a lecciones de seguridad.</p></div>
+    <input id="search" type="text" placeholder="Buscar: gotas, sólidos, ventilación, extinción, hollín…" style="margin-bottom:14px">
+    <div class="grid cat" id="catalog"></div>
+  </section>
+
+  <!-- 04 IA -->
+  <section id="s-ai">
+    <div class="h2"><span class="n">04</span><h2>Analista IA</h2><p>Responde con fuentes NASA (RAG), el modelo de ML y tu escenario.</p></div>
+    <div class="grid wide">
+      <div class="card chat">
+        <div class="msgs" id="msgs"></div>
+        <div class="composer">
+          <textarea id="q" placeholder="Ej. ¿Qué ventilación es más riesgosa para una base lunar?"></textarea>
+          <button class="btn" id="send">Enviar</button>
+        </div>
+        <div class="status" id="aistatus"></div>
+      </div>
+      <div class="card">
+        <div class="kicker" style="margin-bottom:10px">Preguntas rápidas</div>
+        <div class="qs" id="quick"></div>
+        <button class="btn ghost" id="report">⚡ Generar reporte de seguridad de mi escenario</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Fuentes: NASA Physical Sciences Informatics (PSI), NASA Technical Reports Server (NTRS), NASA Image and Video Library.
+    Cada ficha del catálogo enlaza a su publicación original. Las predicciones son de un modelo estadístico y no sustituyen pruebas de certificación de materiales.
+  </footer>
+</div>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

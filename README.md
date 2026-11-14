@@ -51,6 +51,7 @@ firefall-app/
 ├── Makefile
 ├── render.yaml               despliegue en Render
 ├── DEPLOY.md                 guía para publicar online
+├── dist_static/              versión sin servidor lista para Hugging Face Static
 ├── config/
 │   ├── settings.py
 │   └── column_maps.yaml
@@ -75,6 +76,7 @@ firefall-app/
 │   ├── train_regressor.py    velocidad de propagación
 │   ├── predict.py            probabilidad, O₂ límite, fronteras
 │   ├── insights.py           hallazgos en lenguaje natural
+│   ├── export_static.py      exporta la versión sin servidor
 │   └── artifacts/            modelos .joblib + métricas .json
 ├── ai/
 │   ├── knowledge_base.py     RAG con TF-IDF
@@ -170,7 +172,9 @@ La llave vive sólo en el backend.
 
 ## 6. Despliegue
 
-Guía paso a paso en **[DEPLOY.md](DEPLOY.md)**: Hugging Face Spaces (recomendado) o Render, con IA gratis de Groq.
+Guía paso a paso en **[DEPLOY.md](DEPLOY.md)**:
+- **Hugging Face Static / GitHub Pages:** sube la carpeta `dist_static/` (generada con `python -m ml.export_static`). Sin servidor; el modelo corre en el navegador.
+- **Render:** versión completa con backend e IA gratis de Groq (`render.yaml`).
 
 - **Docker local:** `docker build -t firefall . && docker run -p 7860:7860 --env-file .env firefall`
 - **Frontend separado (GitHub Pages):** sube `frontend/` y define `window.FIREFALL_API = "https://tu-backend"` antes de `main.js`.

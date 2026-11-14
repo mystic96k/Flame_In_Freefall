@@ -1,5 +1,5 @@
 // Punto de entrada: carga datos del backend e inicializa cada módulo.
-import { api } from "./api.js";
+import { api, MODE } from "./api.js";
 import { initSimulator } from "./simulator.js";
 import { initCharts } from "./charts.js";
 import { initCatalog } from "./catalog.js";
@@ -19,7 +19,7 @@ async function main() {
     const [health, summary] = await Promise.all([api.health(), api.summary()]);
     if (summary.uses_demo_data) document.getElementById("demo-banner").classList.remove("hidden");
     initSimulator(summary.materials);
-    initChat(health.llm);
+    initChat(health.llm, MODE);
     await Promise.all([initCharts(summary), initCatalog(ask)]);
   } catch (e) {
     document.getElementById("r-insight").innerHTML =

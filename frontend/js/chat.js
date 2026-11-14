@@ -64,9 +64,11 @@ export function ask(question) {
   run(question, () => api.ask(question, { ...scenario }, history.slice(-6)));
 }
 
-export function initChat(llmAvailable) {
+export function initChat(llmAvailable, mode = "server") {
   add("a", "Hola 👋 Soy el analista de <b>FIREFALL</b>. Uso fuentes de la NASA, el modelo de ML y tu escenario del simulador. Pregúntame lo que quieras.");
-  $("aistatus").textContent = llmAvailable ? "IA conectada" : "Sin LLM configurado: respondo con el modelo de ML y las fuentes (configura .env)";
+  $("aistatus").textContent = mode === "static"
+    ? "Versión estática: respondo con el modelo de ML y las fuentes NASA (sin modelo de lenguaje)"
+    : llmAvailable ? "IA conectada" : "Sin LLM configurado: respondo con el modelo de ML y las fuentes (configura .env)";
   QUICK.forEach((t) => {
     const b = document.createElement("button");
     b.textContent = t;
