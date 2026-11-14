@@ -1,0 +1,241 @@
+run_id,investigation,material,geometry,flow_cm_s,o2_pct,pressure_kpa,gravity_g,outcome,burned,spread_rate_mm_s,source,is_demo,notes
+DEMO-001,DEMO,Nomex,cilindro,9.89,25.5,101.3,0.0,burn,1,1.238,make_demo_data.py,True,dato sintético de demostración
+DEMO-002,DEMO,SIBAL (algodón/fibra de vidrio),cilindro,25.35,16.17,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-003,DEMO,SIBAL (algodón/fibra de vidrio),cilindro,2.71,27.76,101.3,0.0,burn,1,2.866,make_demo_data.py,True,dato sintético de demostración
+DEMO-004,DEMO,Silicón,cilindro,2.32,27.87,101.3,0.0,burn,1,2.148,make_demo_data.py,True,dato sintético de demostración
+DEMO-005,DEMO,PMMA,placa delgada,2.27,30.9,70.3,0.0,burn,1,3.286,make_demo_data.py,True,dato sintético de demostración
+DEMO-006,DEMO,PMMA,placa gruesa,0.99,20.23,101.3,0.0,burn,1,0.192,make_demo_data.py,True,dato sintético de demostración
+DEMO-007,DEMO,SIBAL (algodón/fibra de vidrio),placa delgada,10.04,29.59,56.5,0.0,burn,1,3.895,make_demo_data.py,True,dato sintético de demostración
+DEMO-008,DEMO,PMMA,placa delgada,19.52,14.78,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-009,DEMO,Silicón,placa delgada,4.48,31.88,101.3,0.0,burn,1,2.881,make_demo_data.py,True,dato sintético de demostración
+DEMO-010,DEMO,PMMA,cilindro,6.43,17.03,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-011,DEMO,Nomex,placa gruesa,35.21,20.1,56.5,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-012,DEMO,Nomex,placa gruesa,11.69,14.78,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-013,DEMO,Silicón,placa delgada,14.22,28.87,70.3,0.0,burn,1,2.907,make_demo_data.py,True,dato sintético de demostración
+DEMO-014,DEMO,Nomex,placa delgada,26.26,22.23,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-015,DEMO,Silicón,placa delgada,1.5,31.29,56.5,0.0,burn,1,1.57,make_demo_data.py,True,dato sintético de demostración
+DEMO-016,DEMO,SIBAL (algodón/fibra de vidrio),cilindro,9.5,15.75,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-017,DEMO,Nomex,placa gruesa,12.64,29.94,101.3,0.0,burn,1,2.323,make_demo_data.py,True,dato sintético de demostración
+DEMO-018,DEMO,Silicón,cilindro,21.49,19.83,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-019,DEMO,SIBAL (algodón/fibra de vidrio),placa delgada,2.59,17.49,101.3,0.0,burn,1,0.612,make_demo_data.py,True,dato sintético de demostración
+DEMO-020,DEMO,PMMA,cilindro,11.2,25.49,101.3,0.0,burn,1,2.851,make_demo_data.py,True,dato sintético de demostración
+DEMO-021,DEMO,SIBAL (algodón/fibra de vidrio),placa gruesa,7.82,13.57,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-022,DEMO,Nomex,placa gruesa,3.42,22.98,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-023,DEMO,Silicón,cilindro,0.92,22.0,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-024,DEMO,Nomex,placa delgada,2.69,13.92,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-025,DEMO,PMMA,placa gruesa,35.96,21.25,70.3,0.0,burn,1,1.296,make_demo_data.py,True,dato sintético de demostración
+DEMO-026,DEMO,Silicón,placa gruesa,1.51,18.79,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-027,DEMO,Silicón,cilindro,0.97,17.72,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-028,DEMO,Nomex,placa gruesa,2.86,30.68,70.3,0.0,burn,1,1.383,make_demo_data.py,True,dato sintético de demostración
+DEMO-029,DEMO,SIBAL (algodón/fibra de vidrio),placa gruesa,0.92,24.37,56.5,0.0,burn,1,0.878,make_demo_data.py,True,dato sintético de demostración
+DEMO-030,DEMO,Silicón,placa gruesa,1.87,15.93,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-031,DEMO,Silicón,placa delgada,29.2,27.39,101.3,0.0,burn,1,3.021,make_demo_data.py,True,dato sintético de demostración
+DEMO-032,DEMO,Nomex,placa delgada,2.32,20.02,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-033,DEMO,Silicón,cilindro,7.23,24.38,56.5,0.0,burn,1,1.032,make_demo_data.py,True,dato sintético de demostración
+DEMO-034,DEMO,PMMA,placa delgada,1.65,20.22,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-035,DEMO,PMMA,placa gruesa,10.25,25.13,56.5,0.0,burn,1,2.169,make_demo_data.py,True,dato sintético de demostración
+DEMO-036,DEMO,PMMA,placa delgada,1.03,25.96,56.5,0.0,burn,1,1.188,make_demo_data.py,True,dato sintético de demostración
+DEMO-037,DEMO,SIBAL (algodón/fibra de vidrio),cilindro,17.2,18.39,70.3,0.0,burn,1,1.182,make_demo_data.py,True,dato sintético de demostración
+DEMO-038,DEMO,PMMA,placa delgada,3.62,28.79,70.3,0.0,burn,1,2.846,make_demo_data.py,True,dato sintético de demostración
+DEMO-039,DEMO,SIBAL (algodón/fibra de vidrio),placa gruesa,1.31,24.74,101.3,0.0,burn,1,2.053,make_demo_data.py,True,dato sintético de demostración
+DEMO-040,DEMO,SIBAL (algodón/fibra de vidrio),placa gruesa,15.04,24.5,101.3,0.0,burn,1,3.35,make_demo_data.py,True,dato sintético de demostración
+DEMO-041,DEMO,Nomex,placa gruesa,6.32,17.14,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-042,DEMO,Silicón,placa gruesa,3.86,17.83,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-043,DEMO,SIBAL (algodón/fibra de vidrio),placa delgada,1.67,20.51,101.3,0.0,burn,1,1.288,make_demo_data.py,True,dato sintético de demostración
+DEMO-044,DEMO,PMMA,cilindro,16.59,13.64,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-045,DEMO,PMMA,cilindro,2.83,14.04,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-046,DEMO,Silicón,placa gruesa,0.72,25.59,101.3,0.0,burn,1,0.844,make_demo_data.py,True,dato sintético de demostración
+DEMO-047,DEMO,Nomex,cilindro,36.25,19.01,56.5,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-048,DEMO,SIBAL (algodón/fibra de vidrio),placa gruesa,0.68,26.68,101.3,0.0,burn,1,2.147,make_demo_data.py,True,dato sintético de demostración
+DEMO-049,DEMO,PMMA,placa gruesa,1.0,14.42,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-050,DEMO,PMMA,placa delgada,4.34,27.06,101.3,0.0,burn,1,2.71,make_demo_data.py,True,dato sintético de demostración
+DEMO-051,DEMO,Nomex,placa gruesa,1.45,17.07,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-052,DEMO,PMMA,placa delgada,2.49,29.52,56.5,0.0,burn,1,2.59,make_demo_data.py,True,dato sintético de demostración
+DEMO-053,DEMO,SIBAL (algodón/fibra de vidrio),cilindro,6.69,30.22,101.3,0.0,burn,1,4.069,make_demo_data.py,True,dato sintético de demostración
+DEMO-054,DEMO,SIBAL (algodón/fibra de vidrio),placa delgada,35.11,26.1,101.3,0.0,burn,1,3.852,make_demo_data.py,True,dato sintético de demostración
+DEMO-055,DEMO,PMMA,placa delgada,32.04,20.49,56.5,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-056,DEMO,Silicón,placa delgada,0.82,13.49,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-057,DEMO,PMMA,placa delgada,22.52,27.46,56.5,0.0,burn,1,2.839,make_demo_data.py,True,dato sintético de demostración
+DEMO-058,DEMO,PMMA,placa delgada,1.22,23.69,56.5,0.0,burn,1,1.007,make_demo_data.py,True,dato sintético de demostración
+DEMO-059,DEMO,Silicón,placa delgada,18.85,14.56,56.5,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-060,DEMO,PMMA,placa gruesa,2.11,23.84,56.5,0.0,burn,1,1.176,make_demo_data.py,True,dato sintético de demostración
+DEMO-061,DEMO,Nomex,placa delgada,12.67,13.12,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-062,DEMO,SIBAL (algodón/fibra de vidrio),placa delgada,12.72,21.58,70.3,0.0,burn,1,2.056,make_demo_data.py,True,dato sintético de demostración
+DEMO-063,DEMO,Nomex,cilindro,22.26,24.65,101.3,0.0,burn,1,1.296,make_demo_data.py,True,dato sintético de demostración
+DEMO-064,DEMO,Nomex,placa delgada,38.52,28.25,101.3,0.0,burn,1,2.432,make_demo_data.py,True,dato sintético de demostración
+DEMO-065,DEMO,Nomex,cilindro,1.93,18.52,56.5,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-066,DEMO,Nomex,cilindro,8.66,17.41,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-067,DEMO,Silicón,placa delgada,13.87,19.29,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-068,DEMO,Silicón,placa gruesa,0.84,14.12,56.5,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-069,DEMO,SIBAL (algodón/fibra de vidrio),placa delgada,10.03,30.7,56.5,0.0,burn,1,3.573,make_demo_data.py,True,dato sintético de demostración
+DEMO-070,DEMO,PMMA,placa gruesa,2.35,29.73,101.3,0.0,burn,1,3.744,make_demo_data.py,True,dato sintético de demostración
+DEMO-071,DEMO,PMMA,placa gruesa,1.19,24.44,56.5,0.0,burn,1,1.021,make_demo_data.py,True,dato sintético de demostración
+DEMO-072,DEMO,Nomex,cilindro,6.19,14.42,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-073,DEMO,Nomex,placa gruesa,4.27,14.59,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-074,DEMO,Silicón,cilindro,6.96,30.71,101.3,0.0,burn,1,3.357,make_demo_data.py,True,dato sintético de demostración
+DEMO-075,DEMO,Silicón,placa gruesa,9.17,15.37,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-076,DEMO,PMMA,cilindro,4.99,15.77,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-077,DEMO,PMMA,placa delgada,28.07,27.92,101.3,0.0,burn,1,3.838,make_demo_data.py,True,dato sintético de demostración
+DEMO-078,DEMO,Nomex,placa gruesa,1.28,18.73,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-079,DEMO,SIBAL (algodón/fibra de vidrio),placa delgada,2.05,20.82,101.3,0.0,burn,1,1.414,make_demo_data.py,True,dato sintético de demostración
+DEMO-080,DEMO,PMMA,placa delgada,2.73,20.79,101.3,0.0,burn,1,1.141,make_demo_data.py,True,dato sintético de demostración
+DEMO-081,DEMO,PMMA,cilindro,16.11,26.3,101.3,0.0,burn,1,3.722,make_demo_data.py,True,dato sintético de demostración
+DEMO-082,DEMO,Silicón,cilindro,9.58,21.97,101.3,0.0,burn,1,0.787,make_demo_data.py,True,dato sintético de demostración
+DEMO-083,DEMO,PMMA,placa delgada,1.44,28.43,70.3,0.0,burn,1,2.21,make_demo_data.py,True,dato sintético de demostración
+DEMO-084,DEMO,PMMA,placa gruesa,14.18,22.42,101.3,0.0,burn,1,2.143,make_demo_data.py,True,dato sintético de demostración
+DEMO-085,DEMO,SIBAL (algodón/fibra de vidrio),placa delgada,15.91,18.52,101.3,0.0,burn,1,1.882,make_demo_data.py,True,dato sintético de demostración
+DEMO-086,DEMO,PMMA,cilindro,15.82,16.7,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-087,DEMO,SIBAL (algodón/fibra de vidrio),placa delgada,0.84,27.35,70.3,0.0,burn,1,2.048,make_demo_data.py,True,dato sintético de demostración
+DEMO-088,DEMO,Silicón,placa delgada,1.48,17.17,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-089,DEMO,PMMA,cilindro,26.93,24.57,70.3,0.0,burn,1,2.949,make_demo_data.py,True,dato sintético de demostración
+DEMO-090,DEMO,SIBAL (algodón/fibra de vidrio),placa delgada,25.16,24.43,56.5,0.0,burn,1,3.098,make_demo_data.py,True,dato sintético de demostración
+DEMO-091,DEMO,Silicón,placa delgada,1.44,31.3,101.3,0.0,burn,1,2.763,make_demo_data.py,True,dato sintético de demostración
+DEMO-092,DEMO,PMMA,cilindro,6.24,14.7,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-093,DEMO,PMMA,placa delgada,1.83,16.94,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-094,DEMO,Silicón,placa delgada,3.52,25.57,101.3,0.0,burn,1,1.706,make_demo_data.py,True,dato sintético de demostración
+DEMO-095,DEMO,Silicón,cilindro,0.66,19.29,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-096,DEMO,SIBAL (algodón/fibra de vidrio),cilindro,1.99,15.44,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-097,DEMO,SIBAL (algodón/fibra de vidrio),placa delgada,1.89,30.01,70.3,0.0,burn,1,3.325,make_demo_data.py,True,dato sintético de demostración
+DEMO-098,DEMO,Silicón,cilindro,29.79,26.9,101.3,0.0,burn,1,2.523,make_demo_data.py,True,dato sintético de demostración
+DEMO-099,DEMO,Nomex,cilindro,7.29,17.23,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-100,DEMO,Silicón,placa delgada,1.28,14.81,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-101,DEMO,PMMA,placa gruesa,3.69,29.01,101.3,0.0,burn,1,3.31,make_demo_data.py,True,dato sintético de demostración
+DEMO-102,DEMO,Silicón,placa gruesa,4.87,23.83,101.3,0.0,burn,1,0.987,make_demo_data.py,True,dato sintético de demostración
+DEMO-103,DEMO,SIBAL (algodón/fibra de vidrio),placa gruesa,9.0,30.66,56.5,0.0,burn,1,4.085,make_demo_data.py,True,dato sintético de demostración
+DEMO-104,DEMO,PMMA,placa gruesa,5.76,22.83,101.3,0.0,burn,1,2.041,make_demo_data.py,True,dato sintético de demostración
+DEMO-105,DEMO,PMMA,placa gruesa,3.59,17.39,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-106,DEMO,PMMA,cilindro,2.25,15.54,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-107,DEMO,Silicón,placa delgada,6.9,20.94,101.3,0.0,burn,1,0.424,make_demo_data.py,True,dato sintético de demostración
+DEMO-108,DEMO,PMMA,placa gruesa,37.9,26.0,101.3,0.0,burn,1,3.107,make_demo_data.py,True,dato sintético de demostración
+DEMO-109,DEMO,Nomex,placa gruesa,6.29,13.08,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-110,DEMO,PMMA,cilindro,25.99,20.51,101.3,0.0,burn,1,2.146,make_demo_data.py,True,dato sintético de demostración
+DEMO-111,DEMO,SIBAL (algodón/fibra de vidrio),cilindro,0.64,20.67,101.3,0.0,burn,1,0.182,make_demo_data.py,True,dato sintético de demostración
+DEMO-112,DEMO,Silicón,placa delgada,1.42,25.75,56.5,0.0,burn,1,0.589,make_demo_data.py,True,dato sintético de demostración
+DEMO-113,DEMO,Nomex,placa gruesa,23.64,16.7,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-114,DEMO,Silicón,placa delgada,6.74,29.65,56.5,0.0,burn,1,2.692,make_demo_data.py,True,dato sintético de demostración
+DEMO-115,DEMO,Nomex,placa gruesa,4.76,19.18,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-116,DEMO,PMMA,placa gruesa,2.87,28.71,101.3,0.0,burn,1,3.375,make_demo_data.py,True,dato sintético de demostración
+DEMO-117,DEMO,Nomex,cilindro,2.1,28.72,70.3,0.0,burn,1,0.32,make_demo_data.py,True,dato sintético de demostración
+DEMO-118,DEMO,SIBAL (algodón/fibra de vidrio),cilindro,10.73,29.81,70.3,0.0,burn,1,4.141,make_demo_data.py,True,dato sintético de demostración
+DEMO-119,DEMO,SIBAL (algodón/fibra de vidrio),placa gruesa,2.84,17.92,70.3,0.0,burn,1,0.799,make_demo_data.py,True,dato sintético de demostración
+DEMO-120,DEMO,Nomex,cilindro,3.81,28.96,101.3,0.0,burn,1,1.682,make_demo_data.py,True,dato sintético de demostración
+DEMO-121,DEMO,Nomex,placa gruesa,16.27,17.38,56.5,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-122,DEMO,Silicón,placa delgada,33.42,20.59,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-123,DEMO,Nomex,placa gruesa,40.88,16.38,56.5,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-124,DEMO,PMMA,placa gruesa,4.71,22.2,56.5,0.0,burn,1,1.028,make_demo_data.py,True,dato sintético de demostración
+DEMO-125,DEMO,Silicón,cilindro,1.08,14.43,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-126,DEMO,PMMA,cilindro,0.67,31.18,70.3,0.0,burn,1,1.801,make_demo_data.py,True,dato sintético de demostración
+DEMO-127,DEMO,PMMA,placa delgada,4.91,13.25,56.5,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-128,DEMO,SIBAL (algodón/fibra de vidrio),placa delgada,0.83,22.44,70.3,0.0,burn,1,0.543,make_demo_data.py,True,dato sintético de demostración
+DEMO-129,DEMO,SIBAL (algodón/fibra de vidrio),placa gruesa,0.99,28.92,70.3,0.0,burn,1,2.275,make_demo_data.py,True,dato sintético de demostración
+DEMO-130,DEMO,Nomex,cilindro,1.63,15.52,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-131,DEMO,PMMA,placa gruesa,40.6,24.34,101.3,0.0,burn,1,2.621,make_demo_data.py,True,dato sintético de demostración
+DEMO-132,DEMO,Nomex,cilindro,1.2,23.09,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-133,DEMO,PMMA,placa delgada,0.96,27.39,70.3,0.0,burn,1,1.351,make_demo_data.py,True,dato sintético de demostración
+DEMO-134,DEMO,SIBAL (algodón/fibra de vidrio),placa gruesa,29.38,26.27,101.3,0.0,burn,1,3.649,make_demo_data.py,True,dato sintético de demostración
+DEMO-135,DEMO,PMMA,cilindro,8.43,28.68,101.3,0.0,burn,1,3.462,make_demo_data.py,True,dato sintético de demostración
+DEMO-136,DEMO,PMMA,placa delgada,13.91,28.07,101.3,0.0,burn,1,3.195,make_demo_data.py,True,dato sintético de demostración
+DEMO-137,DEMO,Silicón,cilindro,2.71,24.07,101.3,0.0,burn,1,0.867,make_demo_data.py,True,dato sintético de demostración
+DEMO-138,DEMO,Silicón,placa gruesa,31.71,19.65,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-139,DEMO,Silicón,placa delgada,37.94,15.04,56.5,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-140,DEMO,PMMA,placa delgada,6.44,16.11,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-141,DEMO,PMMA,placa delgada,39.72,29.55,70.3,0.0,burn,1,3.645,make_demo_data.py,True,dato sintético de demostración
+DEMO-142,DEMO,Silicón,placa delgada,5.15,18.06,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-143,DEMO,Silicón,cilindro,3.89,29.99,70.3,0.0,burn,1,2.399,make_demo_data.py,True,dato sintético de demostración
+DEMO-144,DEMO,PMMA,cilindro,16.88,18.82,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-145,DEMO,SIBAL (algodón/fibra de vidrio),cilindro,9.27,14.09,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-146,DEMO,Nomex,cilindro,1.41,18.51,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-147,DEMO,Silicón,placa gruesa,5.35,20.31,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-148,DEMO,Nomex,placa delgada,0.64,14.97,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-149,DEMO,Nomex,placa gruesa,24.76,21.17,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-150,DEMO,Nomex,cilindro,6.01,28.16,56.5,0.0,burn,1,1.057,make_demo_data.py,True,dato sintético de demostración
+DEMO-151,DEMO,Nomex,cilindro,0.73,20.86,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-152,DEMO,Silicón,placa gruesa,32.24,22.38,101.3,0.0,burn,1,1.849,make_demo_data.py,True,dato sintético de demostración
+DEMO-153,DEMO,PMMA,cilindro,41.9,31.98,56.5,0.0,burn,1,4.052,make_demo_data.py,True,dato sintético de demostración
+DEMO-154,DEMO,SIBAL (algodón/fibra de vidrio),cilindro,13.76,17.09,101.3,0.0,burn,1,1.257,make_demo_data.py,True,dato sintético de demostración
+DEMO-155,DEMO,SIBAL (algodón/fibra de vidrio),cilindro,3.75,23.33,101.3,0.0,burn,1,2.086,make_demo_data.py,True,dato sintético de demostración
+DEMO-156,DEMO,Nomex,cilindro,7.4,31.77,101.3,0.0,burn,1,2.324,make_demo_data.py,True,dato sintético de demostración
+DEMO-157,DEMO,PMMA,placa delgada,0.63,22.42,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-158,DEMO,SIBAL (algodón/fibra de vidrio),cilindro,0.95,24.24,70.3,0.0,burn,1,1.077,make_demo_data.py,True,dato sintético de demostración
+DEMO-159,DEMO,SIBAL (algodón/fibra de vidrio),placa gruesa,2.45,23.39,56.5,0.0,burn,1,1.685,make_demo_data.py,True,dato sintético de demostración
+DEMO-160,DEMO,PMMA,cilindro,3.44,15.19,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-161,DEMO,Nomex,placa delgada,14.89,26.61,56.5,0.0,burn,1,1.52,make_demo_data.py,True,dato sintético de demostración
+DEMO-162,DEMO,PMMA,placa delgada,1.24,30.33,56.5,0.0,burn,1,2.547,make_demo_data.py,True,dato sintético de demostración
+DEMO-163,DEMO,SIBAL (algodón/fibra de vidrio),cilindro,0.98,30.6,101.3,0.0,burn,1,2.517,make_demo_data.py,True,dato sintético de demostración
+DEMO-164,DEMO,Silicón,placa gruesa,11.62,24.15,70.3,0.0,burn,1,1.366,make_demo_data.py,True,dato sintético de demostración
+DEMO-165,DEMO,SIBAL (algodón/fibra de vidrio),placa gruesa,26.1,19.7,56.5,0.0,burn,1,2.004,make_demo_data.py,True,dato sintético de demostración
+DEMO-166,DEMO,PMMA,placa delgada,25.19,25.83,101.3,0.0,burn,1,3.242,make_demo_data.py,True,dato sintético de demostración
+DEMO-167,DEMO,SIBAL (algodón/fibra de vidrio),cilindro,14.03,30.95,101.3,0.0,burn,1,4.743,make_demo_data.py,True,dato sintético de demostración
+DEMO-168,DEMO,SIBAL (algodón/fibra de vidrio),placa delgada,39.17,31.58,56.5,0.0,burn,1,4.725,make_demo_data.py,True,dato sintético de demostración
+DEMO-169,DEMO,PMMA,placa delgada,5.51,18.38,101.3,0.0,burn,1,0.763,make_demo_data.py,True,dato sintético de demostración
+DEMO-170,DEMO,SIBAL (algodón/fibra de vidrio),placa delgada,16.11,30.78,101.3,0.0,burn,1,5.049,make_demo_data.py,True,dato sintético de demostración
+DEMO-171,DEMO,Nomex,placa delgada,3.53,26.88,56.5,0.0,burn,1,0.727,make_demo_data.py,True,dato sintético de demostración
+DEMO-172,DEMO,Silicón,placa gruesa,2.69,29.56,70.3,0.0,burn,1,2.12,make_demo_data.py,True,dato sintético de demostración
+DEMO-173,DEMO,Nomex,placa gruesa,28.75,16.18,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-174,DEMO,PMMA,placa delgada,3.74,31.55,101.3,0.0,burn,1,3.868,make_demo_data.py,True,dato sintético de demostración
+DEMO-175,DEMO,Silicón,placa delgada,14.3,27.32,101.3,0.0,burn,1,2.909,make_demo_data.py,True,dato sintético de demostración
+DEMO-176,DEMO,Silicón,placa delgada,4.96,16.16,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-177,DEMO,PMMA,placa delgada,0.97,23.26,70.3,0.0,burn,1,0.532,make_demo_data.py,True,dato sintético de demostración
+DEMO-178,DEMO,Silicón,cilindro,1.03,15.12,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-179,DEMO,Silicón,placa gruesa,5.24,26.77,70.3,0.0,burn,1,1.782,make_demo_data.py,True,dato sintético de demostración
+DEMO-180,DEMO,Nomex,placa delgada,12.13,24.31,56.5,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-181,DEMO,PMMA,placa gruesa,14.06,23.99,70.3,0.0,burn,1,1.89,make_demo_data.py,True,dato sintético de demostración
+DEMO-182,DEMO,Nomex,placa gruesa,2.5,29.1,70.3,0.0,burn,1,0.679,make_demo_data.py,True,dato sintético de demostración
+DEMO-183,DEMO,SIBAL (algodón/fibra de vidrio),cilindro,0.62,27.62,70.3,0.0,burn,1,1.601,make_demo_data.py,True,dato sintético de demostración
+DEMO-184,DEMO,SIBAL (algodón/fibra de vidrio),placa gruesa,5.78,14.74,101.3,0.0,burn,1,0.677,make_demo_data.py,True,dato sintético de demostración
+DEMO-185,DEMO,PMMA,cilindro,1.34,27.48,101.3,0.0,burn,1,1.885,make_demo_data.py,True,dato sintético de demostración
+DEMO-186,DEMO,Nomex,placa delgada,2.34,23.29,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-187,DEMO,SIBAL (algodón/fibra de vidrio),placa delgada,6.66,16.59,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-188,DEMO,Nomex,placa gruesa,3.17,19.6,56.5,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-189,DEMO,Silicón,placa delgada,4.22,22.67,101.3,0.0,burn,1,1.278,make_demo_data.py,True,dato sintético de demostración
+DEMO-190,DEMO,Silicón,placa gruesa,0.74,29.32,101.3,0.0,burn,1,1.554,make_demo_data.py,True,dato sintético de demostración
+DEMO-191,DEMO,SIBAL (algodón/fibra de vidrio),cilindro,1.31,29.76,101.3,0.0,burn,1,3.077,make_demo_data.py,True,dato sintético de demostración
+DEMO-192,DEMO,Silicón,cilindro,21.46,14.94,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-193,DEMO,SIBAL (algodón/fibra de vidrio),cilindro,5.28,21.4,101.3,0.0,burn,1,1.911,make_demo_data.py,True,dato sintético de demostración
+DEMO-194,DEMO,Silicón,placa delgada,25.78,29.03,101.3,0.0,burn,1,3.08,make_demo_data.py,True,dato sintético de demostración
+DEMO-195,DEMO,Nomex,placa delgada,22.91,24.44,56.5,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-196,DEMO,Nomex,placa delgada,1.36,29.25,70.3,0.0,burn,1,0.55,make_demo_data.py,True,dato sintético de demostración
+DEMO-197,DEMO,Nomex,placa delgada,3.28,24.35,101.3,0.0,burn,1,0.284,make_demo_data.py,True,dato sintético de demostración
+DEMO-198,DEMO,SIBAL (algodón/fibra de vidrio),placa gruesa,5.6,17.24,70.3,0.0,burn,1,0.622,make_demo_data.py,True,dato sintético de demostración
+DEMO-199,DEMO,Nomex,placa delgada,0.91,22.55,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-200,DEMO,Silicón,cilindro,0.86,22.79,101.3,0.0,burn,1,0.103,make_demo_data.py,True,dato sintético de demostración
+DEMO-201,DEMO,Silicón,placa delgada,21.42,29.99,70.3,0.0,burn,1,3.018,make_demo_data.py,True,dato sintético de demostración
+DEMO-202,DEMO,Nomex,cilindro,20.11,19.76,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-203,DEMO,PMMA,placa delgada,3.06,17.46,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-204,DEMO,SIBAL (algodón/fibra de vidrio),placa gruesa,12.07,27.23,101.3,0.0,burn,1,3.631,make_demo_data.py,True,dato sintético de demostración
+DEMO-205,DEMO,Nomex,placa gruesa,5.42,20.97,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-206,DEMO,Silicón,cilindro,14.38,22.2,101.3,0.0,burn,1,1.426,make_demo_data.py,True,dato sintético de demostración
+DEMO-207,DEMO,SIBAL (algodón/fibra de vidrio),placa delgada,2.29,31.56,70.3,0.0,burn,1,3.462,make_demo_data.py,True,dato sintético de demostración
+DEMO-208,DEMO,PMMA,cilindro,4.5,25.82,70.3,0.0,burn,1,2.065,make_demo_data.py,True,dato sintético de demostración
+DEMO-209,DEMO,SIBAL (algodón/fibra de vidrio),cilindro,26.65,25.77,56.5,0.0,burn,1,3.052,make_demo_data.py,True,dato sintético de demostración
+DEMO-210,DEMO,Nomex,cilindro,19.27,30.74,56.5,0.0,burn,1,2.47,make_demo_data.py,True,dato sintético de demostración
+DEMO-211,DEMO,PMMA,cilindro,2.24,26.61,101.3,0.0,burn,1,1.971,make_demo_data.py,True,dato sintético de demostración
+DEMO-212,DEMO,SIBAL (algodón/fibra de vidrio),cilindro,25.42,31.14,70.3,0.0,burn,1,4.735,make_demo_data.py,True,dato sintético de demostración
+DEMO-213,DEMO,PMMA,placa delgada,3.26,25.03,56.5,0.0,burn,1,1.147,make_demo_data.py,True,dato sintético de demostración
+DEMO-214,DEMO,Silicón,cilindro,10.89,24.16,101.3,0.0,burn,1,1.718,make_demo_data.py,True,dato sintético de demostración
+DEMO-215,DEMO,Silicón,placa delgada,12.33,18.4,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-216,DEMO,Nomex,placa delgada,3.31,17.39,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-217,DEMO,PMMA,placa delgada,20.15,23.1,70.3,0.0,burn,1,2.02,make_demo_data.py,True,dato sintético de demostración
+DEMO-218,DEMO,Silicón,cilindro,4.33,14.12,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-219,DEMO,Nomex,placa gruesa,35.54,16.2,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-220,DEMO,PMMA,placa gruesa,32.1,26.46,56.5,0.0,burn,1,3.326,make_demo_data.py,True,dato sintético de demostración
+DEMO-221,DEMO,SIBAL (algodón/fibra de vidrio),placa gruesa,27.49,25.9,101.3,0.0,burn,1,3.959,make_demo_data.py,True,dato sintético de demostración
+DEMO-222,DEMO,Silicón,placa delgada,28.45,13.54,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-223,DEMO,Silicón,cilindro,1.12,16.1,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-224,DEMO,PMMA,placa delgada,9.43,24.74,70.3,0.0,burn,1,2.8,make_demo_data.py,True,dato sintético de demostración
+DEMO-225,DEMO,Silicón,placa delgada,13.98,20.75,101.3,0.0,burn,1,0.785,make_demo_data.py,True,dato sintético de demostración
+DEMO-226,DEMO,Silicón,placa delgada,5.67,24.19,101.3,0.0,burn,1,1.32,make_demo_data.py,True,dato sintético de demostración
+DEMO-227,DEMO,Nomex,placa gruesa,5.68,15.45,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-228,DEMO,SIBAL (algodón/fibra de vidrio),placa gruesa,1.41,29.39,70.3,0.0,burn,1,2.882,make_demo_data.py,True,dato sintético de demostración
+DEMO-229,DEMO,PMMA,cilindro,1.19,17.92,56.5,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-230,DEMO,PMMA,placa delgada,16.72,20.11,101.3,0.0,burn,1,1.936,make_demo_data.py,True,dato sintético de demostración
+DEMO-231,DEMO,PMMA,cilindro,1.13,21.54,56.5,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-232,DEMO,SIBAL (algodón/fibra de vidrio),placa gruesa,13.24,24.26,101.3,0.0,burn,1,2.666,make_demo_data.py,True,dato sintético de demostración
+DEMO-233,DEMO,PMMA,cilindro,0.83,31.63,101.3,0.0,burn,1,3.137,make_demo_data.py,True,dato sintético de demostración
+DEMO-234,DEMO,SIBAL (algodón/fibra de vidrio),placa delgada,3.46,16.98,101.3,0.0,burn,1,0.697,make_demo_data.py,True,dato sintético de demostración
+DEMO-235,DEMO,Nomex,placa gruesa,0.66,16.09,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-236,DEMO,Silicón,placa delgada,9.92,15.76,101.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración
+DEMO-237,DEMO,PMMA,placa gruesa,2.08,27.72,56.5,0.0,burn,1,2.121,make_demo_data.py,True,dato sintético de demostración
+DEMO-238,DEMO,SIBAL (algodón/fibra de vidrio),placa delgada,4.38,20.27,101.3,0.0,burn,1,1.617,make_demo_data.py,True,dato sintético de demostración
+DEMO-239,DEMO,Nomex,placa gruesa,2.03,30.61,70.3,0.0,burn,1,1.082,make_demo_data.py,True,dato sintético de demostración
+DEMO-240,DEMO,Silicón,placa delgada,5.37,14.26,70.3,0.0,extinct,0,,make_demo_data.py,True,dato sintético de demostración

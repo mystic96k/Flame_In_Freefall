@@ -1,0 +1,45 @@
+"""Pruebas de punta a punta: datos de demo → entrenamiento → API."""
+import pytest
+from fastapi.testclient import TestClient
+
+
+@pytest.fixture(scope="module")
+def client():
+    from ml import train_classifier, train_regressor
+    from ml.predict import reload_models
+    from pipeline import run_pipeline
+
+    run_pipeline.build(force_demo=True)
+    train_classifier.train()
+    train_regressor.train()
+    reload_models()
+    from api.main import app
+    return TestClient(app)
+
+
+def test_health(client):
+    assert client.get("/api/health").json()["status"] == "ok"
+
+
+def test_predict_monotonic_in_oxygen(client):
+    low = client.post("/api/predict", json={"material": "PMMA", "o2_pct": 14, "flow_cm_s": 10}).json()
+    high = client.post("/api/predict", json={"material": "PMMA", "o2_pct": 30, "flow_cm_s": 10}).json()
+    assert high["burn_probability"] > low["burn_probability"]
+    assert high["state"] == "burning"
+
+
+def test_quiescent_is_safer_than_ventilated(client):
+    still = client.post("/api/predict", json={"material": "PMMA", "o2_pct": 21, "flow_cm_s": 0.5}).json()
+    vent = client.post("/api/predict", json={"material": "PMMA", "o2_pct": 21, "flow_cm_s": 10}).json()
+    assert vent["burn_probability"] > still["burn_probability"]
+
+
+def test_catalog_and_insights(client):
+    assert len(client.get("/api/catalog").json()) >= 5
+    assert len(client.get("/api/insights").json()) >= 3
+
+
+def test_ask_offline(client):
+    r = client.post("/api/ask", json={"question": "¿Qué aprendimos de Saffire?"}).json()
+    assert r["mode"] in {"offline", "llm"}
+    assert any(s["id"] == "SAFFIRE" for s in r["sources"])

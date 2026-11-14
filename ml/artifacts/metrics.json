@@ -1,0 +1,79 @@
+{
+  "trained_at": "2026-11-14T18:09:53+00:00",
+  "n_runs": 240,
+  "n_burned": 145,
+  "uses_demo_data": true,
+  "investigations": [
+    "DEMO"
+  ],
+  "materials": [
+    "Nomex",
+    "PMMA",
+    "SIBAL (algodón/fibra de vidrio)",
+    "Silicón"
+  ],
+  "cv_folds": 5,
+  "comparison": {
+    "logistic": {
+      "accuracy": 0.9792,
+      "roc_auc": 0.9978,
+      "f1": 0.9827
+    },
+    "random_forest": {
+      "accuracy": 0.9375,
+      "roc_auc": 0.9891,
+      "f1": 0.9498
+    },
+    "gradient_boosting": {
+      "accuracy": 0.95,
+      "roc_auc": 0.9869,
+      "f1": 0.9582
+    }
+  },
+  "chosen_model": "logistic",
+  "chosen_scores": {
+    "accuracy": 0.9792,
+    "roc_auc": 0.9978,
+    "f1": 0.9827
+  },
+  "feature_importance": [
+    {
+      "feature": "o2_pct",
+      "importance": 0.383
+    },
+    {
+      "feature": "material",
+      "importance": 0.064
+    },
+    {
+      "feature": "log_ueff",
+      "importance": 0.015
+    },
+    {
+      "feature": "pressure_kpa",
+      "importance": 0.0138
+    },
+    {
+      "feature": "log_ueff_sq",
+      "importance": 0.0096
+    }
+  ],
+  "feature_ranges": {
+    "o2_pct": [
+      13.08,
+      31.98
+    ],
+    "flow_cm_s": [
+      0.62,
+      41.9
+    ],
+    "pressure_kpa": [
+      56.5,
+      101.3
+    ],
+    "gravity_g": [
+      0.0,
+      0.0
+    ]
+  }
+}

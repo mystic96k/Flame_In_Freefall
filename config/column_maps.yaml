@@ -1,0 +1,35 @@
+# Mapeo de columnas: nombre en la tabla original de la NASA -> columna estándar de FIREFALL.
+#
+# Cómo usarlo:
+#   1. Descarga la Experiment Table de una investigación de PSI (p. ej. BASS) a data/raw/psi/
+#   2. Corre:  python -m pipeline.ingest_psi_tables --inspect
+#      Te mostrará las columnas que encontró y cuáles adivinó automáticamente.
+#   3. Si alguna quedó mal, escríbela aquí (el nombre del archivo sin extensión es la llave).
+#
+# Columnas estándar disponibles:
+#   run_id, investigation, material, geometry, flow_cm_s, o2_pct, pressure_kpa,
+#   gravity_g, outcome, spread_rate_mm_s, notes
+#
+# Unidades: si la tabla trae otra unidad, agrega un factor en "units".
+
+defaults:
+  gravity_g: 0.0          # todo lo de la ISS es microgravedad
+
+files:
+  # Ejemplo (ajusta los nombres EXACTOS que veas con --inspect):
+  bass_experiment_table:
+    investigation: BASS
+    columns:
+      "Test Number": run_id
+      "Sample Material": material
+      "Sample Geometry": geometry
+      "Flow Velocity (cm/s)": flow_cm_s
+      "O2 Concentration (%)": o2_pct
+      "Pressure (psia)": pressure_kpa
+      "Result": outcome
+    units:
+      pressure_kpa: 6.89476   # psia -> kPa
+
+  bass2_appendix_table:     # tabla extraída del PDF de BASS-II con extract_pdf_tables
+    investigation: BASS-II
+    columns: {}             # vacío = usar el mapeo automático
