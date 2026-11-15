@@ -3,8 +3,8 @@
 //  - "static": si no hay backend en el mismo sitio (GitHub Pages, Hugging Face Static), usa
 //              data/static.json y calcula las predicciones en el navegador. Si js/config.js define
 //              window.FIREFALL_API, el chat usa ese backend (Claude) y todo lo demás sigue local.
-import { staticApi } from "./static_api.js?v=377bfcd0";
-import { LANG, withLang } from "./i18n.js?v=377bfcd0";
+import { staticApi } from "./static_api.js?v=36f3875c";
+import { LANG, withLang } from "./i18n.js?v=36f3875c";
 
 export const API_BASE = ""; // mismo sitio; el backend remoto para el chat se configura en js/config.js
 
