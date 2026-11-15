@@ -1,6 +1,6 @@
 // Catálogo de experimentos reales (viene de data/knowledge/experiments.json vía /api/catalog).
-import { api } from "./api.js?v=c9c6c76d";
-import { t, pick } from "./i18n.js?v=c9c6c76d";
+import { api } from "./api.js?v=377bfcd0";
+import { t, pick } from "./i18n.js?v=377bfcd0";
 
 const esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;");
 

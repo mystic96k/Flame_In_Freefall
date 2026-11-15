@@ -1,8 +1,8 @@
 // Chat con el analista IA (/api/ask) y reporte de seguridad (/api/report).
-import { api } from "./api.js?v=c9c6c76d";
-import { scenario } from "./state.js?v=c9c6c76d";
-import { t } from "./i18n.js?v=c9c6c76d";
-import { showTab } from "./tabs.js?v=c9c6c76d";
+import { api } from "./api.js?v=377bfcd0";
+import { scenario } from "./state.js?v=377bfcd0";
+import { t } from "./i18n.js?v=377bfcd0";
+import { showTab } from "./tabs.js?v=377bfcd0";
 
 const AVATAR = "img/mascot-head.webp?v=2";
 

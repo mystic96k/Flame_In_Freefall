@@ -33,6 +33,7 @@ const MATERIALS_EN = { "SIBAL (algodón/fibra de vidrio)": "SIBAL (cotton/fiberg
 export const material = (m) => (EN ? MATERIALS_EN[m] || m : m);
 
 const STATIC_EN = {
+  "Generado con Inteligencia Artificial": "Generated with Artificial Intelligence",
   "Inicio": "Home", "Simulador": "Simulator", "Datos y ML": "Data & ML", "Experimentos": "Experiments",
   "Más datos NASA": "More NASA data",
   "El modelo está entrenado con": "The model is trained on",

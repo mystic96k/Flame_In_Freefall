@@ -100,6 +100,12 @@ button{font:inherit}
 @keyframes spin{to{transform:rotate(360deg)}}
 .mascot{position:relative;height:min(420px,70vw);filter:drop-shadow(0 26px 30px rgba(0,0,0,.55))}
 .float{animation:float 6s ease-in-out infinite}
+.mascot-fig{position:relative;margin:0;display:flex;flex-direction:column;align-items:center}
+.ai-mark{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:rgba(255,255,255,.78);
+  padding:4px 9px;border-radius:999px;background:rgba(6,9,20,.55);border:1px solid rgba(255,255,255,.14);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);white-space:nowrap;pointer-events:none}
+.mascot-fig .ai-mark{margin-top:-6px}
+.astro-card>.ai-mark{align-self:center;margin:-8px 0 4px;font-size:9.5px}
 @keyframes float{50%{transform:translateY(-12px) rotate(-1.5deg)}}
 .bubble{position:absolute;top:-2%;right:0;max-width:220px;padding:12px 14px;font-size:13.5px;line-height:1.45;border-radius:16px 16px 4px 16px;
   background:rgba(255,255,255,.09);border:1px solid var(--edge-2);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
