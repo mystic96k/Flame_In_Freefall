@@ -1,7 +1,14 @@
 // Modo estático: misma interfaz que el backend, pero todo corre en el navegador
 // con datos y coeficientes que Python exportó (ml/export_static.py → data/static.json).
 
-import { EN, LANG, t, pick, material } from "./i18n.js";
+import { EN, LANG, t, pick, material, withLang } from "./i18n.js";
+
+const REPORT_EN = `Write a SAFETY REPORT for the current scenario, in English, with these Markdown sections:
+## Summary (2 lines)
+## Risk level and why (Measured vs. Model)
+## Related experimental evidence (cite the context sources)
+## 3 design or operations recommendations (consistent with the risk)
+## Which NASA PSI data I would use to validate it (only investigations named in the context)`;
 
 let bundlePromise = null;
 const load = () => (bundlePromise ??= fetch("data/static.json").then((r) => {
@@ -141,13 +148,20 @@ export const staticApi = {
   predict: async (s) => predict((await load()).model, s),
   ask: async (q, s, history) => {
     if (REMOTE) {
-      try { return await remote("/api/ask", { question: q, scenario: s, history: history || [], lang: LANG }); }
+      try { return await remote("/api/ask", { question: withLang(q), scenario: s, history: history || [], lang: LANG }); }
       catch { const a = answer(await load(), q, s); a.answer += "\n\n" + t("sWaking"); return a; }
     }
     return answer(await load(), q, s);
   },
   report: async (s) => {
-    if (REMOTE) { try { return await remote(`/api/report?lang=${LANG}`, s, 60000); } catch { /* usa respaldo local */ } }
+    if (REMOTE) {
+      try {
+        // En inglés se pide el reporte como pregunta: así funciona aunque el servidor tenga una versión anterior.
+        return EN
+          ? await remote("/api/ask", { question: withLang(REPORT_EN), scenario: s, history: [], lang: LANG }, 60000)
+          : await remote(`/api/report?lang=${LANG}`, s, 60000);
+      } catch { /* usa respaldo local */ }
+    }
     return answer(await load(), t("reportQuery"), s, true);
   },
 };

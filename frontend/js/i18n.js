@@ -22,6 +22,11 @@ export function setLang(lang) {
 }
 
 /** Campo traducido de un objeto que trae `campo` (español) y `campo_en` (inglés). */
+/** Instrucción de idioma que viaja con cada pregunta a la IA (refuerza el parámetro lang del servidor). */
+export const withLang = (q) => (EN
+  ? `${q}\n\n[IMPORTANT: The user is reading the English version of the site. Answer ENTIRELY in English, including headings and labels, even if the context or earlier rules are in Spanish.]`
+  : `${q}\n\n[Responde en español.]`);
+
 export const pick = (o, f) => (EN && o && o[f + "_en"] != null ? o[f + "_en"] : o?.[f]);
 
 const MATERIALS_EN = { "SIBAL (algodón/fibra de vidrio)": "SIBAL (cotton/fiberglass)" };
