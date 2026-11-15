@@ -1,8 +1,8 @@
 // Controles del simulador: sliders → estado → /api/predict → lecturas.
-import { api } from "./api.js";
-import { scenario, setScenario, setPrediction, onScenario } from "./state.js";
-import { startFlame } from "./flame.js";
-import { t, material } from "./i18n.js";
+import { api } from "./api.js?v=479d302d";
+import { scenario, setScenario, setPrediction, onScenario } from "./state.js?v=479d302d";
+import { startFlame } from "./flame.js?v=479d302d";
+import { t, material } from "./i18n.js?v=479d302d";
 
 const $ = (id) => document.getElementById(id);
 const shapeName = (g) => t(g < 0.05 ? "sphere" : g < 0.5 ? "dome" : "teardrop");

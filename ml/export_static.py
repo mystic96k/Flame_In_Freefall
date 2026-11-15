@@ -76,6 +76,23 @@ def logistic_for_browser(df: pd.DataFrame) -> dict:
     }
 
 
+def _bust_cache(dist) -> None:
+    """Pone ?v=<huella> en cada import y en index.html, para que el navegador no use archivos viejos."""
+    import hashlib
+    import re
+    files = sorted(p for p in dist.rglob("*") if p.is_file() and p.suffix in {".js", ".css", ".html"})
+    version = hashlib.sha1(b"".join(p.read_bytes() for p in files)).hexdigest()[:8]
+    for js in (dist / "js").glob("*.js"):
+        txt = js.read_text(encoding="utf-8")
+        txt = re.sub(r'(from\s+"\./[\w-]+\.js)(?:\?v=\w+)?"', rf'\1?v={version}"', txt)
+        txt = re.sub(r'(import\("\./[\w-]+\.js)(?:\?v=\w+)?"', rf'\1?v={version}"', txt)
+        js.write_text(txt, encoding="utf-8")
+    html = dist / "index.html"
+    txt = html.read_text(encoding="utf-8")
+    txt = re.sub(r'((?:css/styles\.css|js/main\.js|js/config\.js))(?:\?v=\w+)?"', rf'\1?v={version}"', txt)
+    html.write_text(txt, encoding="utf-8")
+
+
 def main() -> None:
     df = pd.read_csv(RUNS_CSV)
     materials = sorted(df["material"].dropna().astype(str).unique())
@@ -100,6 +117,7 @@ def main() -> None:
     shutil.copytree(ROOT / "frontend", DIST)
     if saved_cfg is not None:
         cfg.write_text(saved_cfg, encoding="utf-8")
+    _bust_cache(DIST)
     (DIST / "data").mkdir(exist_ok=True)
     (DIST / "data" / "static.json").write_text(json.dumps(bundle, ensure_ascii=False), encoding="utf-8")
     (DIST / "README.md").write_text(SPACE_README, encoding="utf-8")
