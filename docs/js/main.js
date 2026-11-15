@@ -1,12 +1,12 @@
 // Punto de entrada: carga datos del backend e inicializa cada módulo.
-import { applyStatic, t } from "./i18n.js?v=36f3875c";
-import { api, MODE } from "./api.js?v=36f3875c";
-import { initSimulator } from "./simulator.js?v=36f3875c";
-import { initCharts } from "./charts.js?v=36f3875c";
-import { initCatalog } from "./catalog.js?v=36f3875c";
-import { initExtra } from "./extra.js?v=36f3875c";
-import { initChat, ask } from "./chat.js?v=36f3875c";
-import { initTabs } from "./tabs.js?v=36f3875c";
+import { applyStatic, t } from "./i18n.js?v=530f90a1";
+import { api, MODE } from "./api.js?v=530f90a1";
+import { initSimulator } from "./simulator.js?v=530f90a1";
+import { initCharts } from "./charts.js?v=530f90a1";
+import { initCatalog } from "./catalog.js?v=530f90a1";
+import { initExtra } from "./extra.js?v=530f90a1";
+import { initChat, ask } from "./chat.js?v=530f90a1";
+import { initTabs } from "./tabs.js?v=530f90a1";
 
 const fmt = (n) => (n == null ? "—" : String(n));
 

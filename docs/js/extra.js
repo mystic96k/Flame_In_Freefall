@@ -1,7 +1,7 @@
 // 04 · Más datos reales de la NASA: gases (BASS-II), gotas (FLEX), BASS-I y SAFFIRE-I.
 // Los datos los prepara Python (pipeline/nasa_extra.py) y llegan por /api/extra o data/static.json.
-import { api } from "./api.js?v=36f3875c";
-import { t, pick } from "./i18n.js?v=36f3875c";
+import { api } from "./api.js?v=530f90a1";
+import { t, pick } from "./i18n.js?v=530f90a1";
 
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;");
