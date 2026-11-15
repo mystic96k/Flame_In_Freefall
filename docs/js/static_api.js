@@ -1,7 +1,7 @@
 // Modo estático: misma interfaz que el backend, pero todo corre en el navegador
 // con datos y coeficientes que Python exportó (ml/export_static.py → data/static.json).
 
-import { EN, LANG, t, pick, material, withLang } from "./i18n.js?v=479d302d";
+import { EN, LANG, t, pick, material, withLang } from "./i18n.js?v=fad0ab4b";
 
 const REPORT_EN = `Write a SAFETY REPORT for the current scenario, in English, with these Markdown sections:
 ## Summary (2 lines)
