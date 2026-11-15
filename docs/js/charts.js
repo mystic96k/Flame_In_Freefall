@@ -1,6 +1,6 @@
 // Gráficas con Chart.js: dispersión + frontera del modelo, e importancia de variables.
-import { api } from "./api.js?v=fad0ab4b";
-import { t, pick, material, EN } from "./i18n.js?v=fad0ab4b";
+import { api } from "./api.js?v=c9c6c76d";
+import { t, pick, material, EN } from "./i18n.js?v=c9c6c76d";
 
 const $ = (id) => document.getElementById(id);
 

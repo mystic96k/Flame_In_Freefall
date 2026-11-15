@@ -1,10 +1,10 @@
 // Chat con el analista IA (/api/ask) y reporte de seguridad (/api/report).
-import { api } from "./api.js?v=fad0ab4b";
-import { scenario } from "./state.js?v=fad0ab4b";
-import { t } from "./i18n.js?v=fad0ab4b";
-import { showTab } from "./tabs.js?v=fad0ab4b";
+import { api } from "./api.js?v=c9c6c76d";
+import { scenario } from "./state.js?v=c9c6c76d";
+import { t } from "./i18n.js?v=c9c6c76d";
+import { showTab } from "./tabs.js?v=c9c6c76d";
 
-const AVATAR = "img/mascot-head.webp";
+const AVATAR = "img/mascot-head.webp?v=2";
 
 const $ = (id) => document.getElementById(id);
 const history = [];

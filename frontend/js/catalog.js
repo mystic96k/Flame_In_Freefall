@@ -19,7 +19,7 @@ export async function initCatalog(onAsk) {
         <p><b>${t("finding")}</b> ${esc(pick(c, "finding"))}</p>
         <div class="safety"><b>${t("lesson")}</b> ${esc(pick(c, "safety"))}</div>
         <div class="note">${(c.sources || []).map((u, i) => `<a href="${esc(u)}" target="_blank" rel="noopener">${t("source")} ${i + 1}</a>`).join(" · ")}</div>
-        <button class="ask" data-id="${esc(c.id)}"><img src="img/mascot-head.webp" alt="">${t("askAi")}</button>
+        <button class="ask" data-id="${esc(c.id)}"><img src="img/mascot-head.webp?v=2" alt="">${t("askAi")}</button>
       </div>`).join("") || `<p class="note">${t("noResults")}</p>`;
     box.querySelectorAll(".ask").forEach((b) => (b.onclick = () =>
       onAsk(t("askAbout", { id: b.dataset.id }))));

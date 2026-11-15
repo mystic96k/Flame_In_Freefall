@@ -4,7 +4,7 @@ import { scenario } from "./state.js";
 import { t } from "./i18n.js";
 import { showTab } from "./tabs.js";
 
-const AVATAR = "img/mascot-head.webp";
+const AVATAR = "img/mascot-head.webp?v=2";
 
 const $ = (id) => document.getElementById(id);
 const history = [];

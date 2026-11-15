@@ -1,7 +1,7 @@
 // Animación de la llama con partículas en <canvas>.
 // La forma la decide la gravedad (flotación) y el flujo; la intensidad, el margen del modelo.
-import { scenario, prediction } from "./state.js?v=fad0ab4b";
-import { EN } from "./i18n.js?v=fad0ab4b";
+import { scenario, prediction } from "./state.js?v=c9c6c76d";
+import { EN } from "./i18n.js?v=c9c6c76d";
 
 export function startFlame(canvas) {
   const ctx = canvas.getContext("2d");
